@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://dx3hm4tqf5xin"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_lysbw"]
+
+[resource]
+script = ExtResource("1_lysbw")
+mode = 0
+type = 2
+description = "00:05 内"
+min_value = 0.0
+max_value = 5.0

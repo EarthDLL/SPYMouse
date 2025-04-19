@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://x4cac5vgqxm7"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Data.gd" id="1_nyqvk"]
+
+[node name="Data" type="Node"]
+script = ExtResource("1_nyqvk")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10000.0
+one_shot = true

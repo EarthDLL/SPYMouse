@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dae7eth7bajeg"
+path="res://.godot/imported/btn_results_cont_bitmask.png-bcfc9e3bcca0cb37869519cdc1504095.res"
+
+[deps]
+
+source_file="res://Resource/ui/btn_results_cont_bitmask.png"
+dest_files=["res://.godot/imported/btn_results_cont_bitmask.png-bcfc9e3bcca0cb37869519cdc1504095.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

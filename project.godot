@@ -1,0 +1,80 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="SPYMouse"
+run/main_scene="res://Scenes/Init/InitGodot.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://Resource/Init/loading.png"
+config/icon="res://IconRound512.png"
+boot_splash/minimum_display_time=1000
+
+[autoload]
+
+Game="*res://Scenes/Layers/Game.tscn"
+Debug="*res://Scenes/Debug/Performance.tscn"
+BgLayer="*res://Scenes/Layers/MoveBgLayer.tscn"
+Save="*res://Scenes/Layers/Data.tscn"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=640
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
+window/handheld/orientation=4
+window/size/always_on_top.editor=true
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[filesystem]
+
+import/blender/enabled=false
+
+[global_group]
+
+Player=""
+Wall=""
+Blocker=""
+Door=""
+CatPath=""
+Cat=""
+LittleCheese=""
+Access=""
+Hole=""
+TestBody=""
+
+[gui]
+
+theme/custom_font="res://Resource/Fonts/TotalFont.tres"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_navigation/layer_1="Level"
+2d_physics/layer_2="Wall"
+2d_physics/layer_3="Cheese"
+2d_physics/layer_4="Interact"
+2d_physics/layer_5="Cat"
+2d_physics/layer_6="Path"
+2d_navigation/navigation/geometry_face_color=Color(0.501961, 1, 1, 0.4)
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

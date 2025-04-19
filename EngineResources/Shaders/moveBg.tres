@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bgcqws266isvk"]
+
+[ext_resource type="Shader" path="res://EngineResources/Shaders/MoveBg.gdshader" id="1_p3kd1"]
+
+[resource]
+shader = ExtResource("1_p3kd1")
+shader_parameter/di = Vector2(0.5, 0.5)
+shader_parameter/speed = -0.4

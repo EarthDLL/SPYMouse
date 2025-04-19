@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=3 uid="uid://dyfhpn8jqrr71"]
+
+[ext_resource type="Script" path="res://Scenes/Start/Start.gd" id="1_nivuv"]
+[ext_resource type="Texture2D" uid="uid://b4rrcroognbji" path="res://Resource/ui/main_menu_bg.png" id="1_pr8bq"]
+[ext_resource type="Texture2D" uid="uid://dxs48qig5rfl8" path="res://Resource/ui/mouse_pose/world01/mm_mouse.png" id="2_ftuvj"]
+[ext_resource type="Texture2D" uid="uid://cxsexyv2yyw2" path="res://Resource/ui/main_menu_bg_padleft.png" id="2_qjs8m"]
+[ext_resource type="Texture2D" uid="uid://cw3ucnt3ye75q" path="res://Resource/ui/main_menu_bg_padright.png" id="3_qejcf"]
+[ext_resource type="Texture2D" uid="uid://c66yyi2ucxqir" path="res://Resource/ui/logo.png" id="4_wbxkb"]
+[ext_resource type="AudioStream" uid="uid://dk2blf0ivr8pw" path="res://Resource/Music/CM_IntroSting.ogg" id="5_sdsrs"]
+[ext_resource type="Texture2D" uid="uid://d1o37w04ttb0l" path="res://Resource/ui/mouse_pose/world01/mm_mouse_open.png" id="6_d33yv"]
+[ext_resource type="Texture2D" uid="uid://werngbtk6uda" path="res://Resource/ui/main_menu_cheese.png" id="8_tro41"]
+[ext_resource type="Texture2D" uid="uid://vlidxoqlyogq" path="res://Resource/ui/play.png" id="9_2dncp"]
+[ext_resource type="Texture2D" uid="uid://cjl3lgx8wj0s5" path="res://Resource/ui/play_over.png" id="10_ydx2h"]
+[ext_resource type="BitMap" uid="uid://b2iehjrvbnmik" path="res://Resource/ui/play_bitmap.png" id="11_05br3"]
+[ext_resource type="FontVariation" uid="uid://dpnyvd0lccapo" path="res://Resource/Fonts/TotalFont.tres" id="12_4qd4p"]
+[ext_resource type="PackedScene" uid="uid://cpn2q2r1n3ibn" path="res://Scenes/Layers/BaseLayer.tscn" id="14_d34af"]
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_nivuv")
+
+[node name="Bg" type="Node2D" parent="."]
+
+[node name="Main" type="Sprite2D" parent="Bg"]
+texture = ExtResource("1_pr8bq")
+
+[node name="Left" type="Sprite2D" parent="Bg"]
+texture = ExtResource("2_qjs8m")
+offset = Vector2(-576, 0)
+
+[node name="Right" type="Sprite2D" parent="Bg"]
+texture = ExtResource("3_qejcf")
+offset = Vector2(576, 0)
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(0, -170)
+texture = ExtResource("4_wbxkb")
+
+[node name="Mouse" type="Sprite2D" parent="."]
+position = Vector2(-299, 142)
+texture = ExtResource("2_ftuvj")
+metadata/_edit_group_ = true
+
+[node name="Eyes" type="Sprite2D" parent="Mouse"]
+position = Vector2(-1, -65)
+texture = ExtResource("6_d33yv")
+
+[node name="Cheese" type="Sprite2D" parent="."]
+position = Vector2(123, 225)
+texture = ExtResource("8_tro41")
+
+[node name="StartBtn" type="TextureButton" parent="Cheese"]
+unique_name_in_owner = true
+offset_left = -119.0
+offset_top = -253.0
+offset_right = 143.0
+offset_bottom = -89.0
+texture_normal = ExtResource("9_2dncp")
+texture_pressed = ExtResource("10_ydx2h")
+texture_hover = ExtResource("9_2dncp")
+texture_disabled = ExtResource("9_2dncp")
+texture_focused = ExtResource("9_2dncp")
+texture_click_mask = ExtResource("11_05br3")
+
+[node name="Label" type="Label" parent="Cheese/StartBtn"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 34.0
+offset_right = 252.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0.886275, 0.227451, 0, 1)
+theme_override_fonts/font = ExtResource("12_4qd4p")
+theme_override_font_sizes/font_size = 45
+text = "开始游戏！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimaPoint" type="Control" parent="Cheese/StartBtn"]
+anchors_preset = 0
+offset_left = 124.0
+offset_top = 70.0
+offset_right = 124.0
+offset_bottom = 70.0
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sdsrs")
+autoplay = true
+bus = &"Music"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("14_d34af")]
+
+[connection signal="pressed" from="Cheese/StartBtn" to="." method="_start_btn_pressed"]

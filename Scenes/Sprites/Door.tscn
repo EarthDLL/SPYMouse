@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://cqyhy4q4rbd27"]
+
+[ext_resource type="Texture2D" uid="uid://b31npdo36v1dp" path="res://Resource/sprites/home_mousehole_r.png" id="1_28me7"]
+[ext_resource type="Script" path="res://Scenes/Sprites/Door.gd" id="1_a1fq5"]
+[ext_resource type="Texture2D" uid="uid://shdg0s2b5eqs" path="res://Resource/sprites/arrow.png" id="1_o2pa3"]
+[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="4_wf2l4"]
+[ext_resource type="AudioStream" uid="uid://cw7vmb775520m" path="res://Resource/sound/exit_ready.wav" id="5_fq1b3"]
+[ext_resource type="AudioStream" uid="uid://rdp1wup6bw8k" path="res://Resource/sound/use_exit.wav" id="6_rdqxm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o371"]
+size = Vector2(18.5, 35)
+
+[sub_resource type="Animation" id="Animation_3b7by"]
+resource_name = "Idle"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Arrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -85)]
+}
+
+[sub_resource type="Animation" id="Animation_a7jqp"]
+resource_name = "Move"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Arrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -85), Vector2(0, -70), Vector2(0, -85)]
+}
+
+[sub_resource type="Animation" id="Animation_auts2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Arrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -70)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsljp"]
+_data = {
+"Idle": SubResource("Animation_3b7by"),
+"Move": SubResource("Animation_a7jqp"),
+"RESET": SubResource("Animation_auts2")
+}
+
+[node name="Door" type="Node2D" node_paths=PackedStringArray("anima_point", "item_point", "main_sprite")]
+z_index = 30
+z_as_relative = false
+script = ExtResource("1_a1fq5")
+anima_point = NodePath("Point")
+item_point = NodePath("ItemPoint")
+main_sprite = NodePath("Door")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -70)
+texture = ExtResource("1_o2pa3")
+
+[node name="Door" type="Sprite2D" parent="."]
+texture = ExtResource("1_28me7")
+hframes = 4
+
+[node name="Area" type="Area2D" parent="." groups=["Door"]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_5o371")
+
+[node name="Anima" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Door")
+libraries = {
+"": SubResource("AnimationLibrary_hsljp")
+}
+
+[node name="Point" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="ItemPoint" type="Node2D" parent="."]
+position = Vector2(-23, 0)
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_wf2l4")
+sounds = {
+"Close": ExtResource("6_rdqxm"),
+"Open": ExtResource("5_fq1b3")
+}

@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://dblfy2cb3fmu4"]
+
+[ext_resource type="PackedScene" uid="uid://cdcd8i0l6shwx" path="res://Scenes/UI/TextBar.tscn" id="1_ajgtr"]
+[ext_resource type="Script" path="res://Scenes/UI/setting_bar.gd" id="2_jgh0p"]
+
+[node name="SettingBar" instance=ExtResource("1_ajgtr")]
+script = ExtResource("2_jgh0p")
+
+[node name="Label" parent="Container/Panel" index="1"]
+text = "设置"
+
+[node name="Text" parent="Container/Panel/Texts" index="0"]
+visible = false
+
+[node name="Box" type="VBoxContainer" parent="Container/Panel/Texts" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpecialModeHide" type="CheckButton" parent="Container/Panel/Texts/Box" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "特殊玩法  猫咪隐藏术"
+expand_icon = true
+
+[node name="SpecialModeCheese" type="CheckButton" parent="Container/Panel/Texts/Box" index="1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "特殊玩法  奶酪陷阱"
+expand_icon = true
+
+[node name="Label" type="Label" parent="Container/Panel/Texts/Box" index="2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "音效"
+vertical_alignment = 2
+
+[node name="SoundSlider" type="HSlider" parent="Container/Panel/Texts/Box" index="3"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="Music" type="Label" parent="Container/Panel/Texts/Box" index="4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "音乐"
+vertical_alignment = 2
+
+[node name="MusicSlider" type="HSlider" parent="Container/Panel/Texts/Box" index="5"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[connection signal="toggled" from="Container/Panel/Texts/Box/SpecialModeHide" to="." method="on_special_mode_hide"]
+[connection signal="toggled" from="Container/Panel/Texts/Box/SpecialModeCheese" to="." method="on_special_mode_cheese"]
+[connection signal="drag_ended" from="Container/Panel/Texts/Box/SoundSlider" to="." method="_on_sound_slider_drag_ended"]
+[connection signal="drag_ended" from="Container/Panel/Texts/Box/MusicSlider" to="." method="_on_music_slider_drag_ended"]

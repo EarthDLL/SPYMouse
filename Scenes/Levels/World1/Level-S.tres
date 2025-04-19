@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=6 format=3 uid="uid://btew06vrly343"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_n85cv"]
+[ext_resource type="Script" path="res://Scripts/Classes/LevelInfo.gd" id="2_03adf"]
+
+[sub_resource type="Resource" id="Resource_i8o8e"]
+script = ExtResource("1_n85cv")
+type = 4
+value = 0.0
+
+[sub_resource type="Resource" id="Resource_rjs14"]
+script = ExtResource("1_n85cv")
+type = 2
+value = 2.0
+
+[sub_resource type="Resource" id="Resource_bpx45"]
+script = ExtResource("1_n85cv")
+type = 1
+value = 105.0
+
+[resource]
+script = ExtResource("2_03adf")
+level_name = "Triple Trouble"
+belong_world = 1
+level_id = 112
+level_index = "1-S"
+achievements = Array[ExtResource("1_n85cv")]([SubResource("Resource_i8o8e"), SubResource("Resource_rjs14"), SubResource("Resource_bpx45")])
+scene_path = "res://Scenes/Levels/World1/Level-S.tscn"

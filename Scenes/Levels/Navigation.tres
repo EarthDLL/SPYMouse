@@ -1,0 +1,7 @@
+[gd_resource type="NavigationPolygon" format=3 uid="uid://bunwyui4sfsvo"]
+
+[resource]
+parsed_geometry_type = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"Blocker"
+agent_radius = 15.0

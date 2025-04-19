@@ -1,0 +1,134 @@
+[gd_scene load_steps=12 format=3 uid="uid://driw67e7078en"]
+
+[ext_resource type="PackedScene" uid="uid://w821cv67qtui" path="res://Scenes/Levels/BossLevel.tscn" id="1_yskvx"]
+[ext_resource type="Texture2D" uid="uid://cxy5bescpr1vq" path="res://Resource/MapBG/map736/map736.jpg" id="2_vf8mn"]
+[ext_resource type="Texture2D" uid="uid://dpq2j4ut6n6w3" path="res://Resource/MapBG/map736/map736_1.jpg" id="3_q31kt"]
+[ext_resource type="AudioStream" uid="uid://l0p0jx78axka" path="res://Resource/Music/CM_Alleys.ogg" id="4_6lyjb"]
+[ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="5_2xxsl"]
+[ext_resource type="PackedScene" uid="uid://ck5qqv3nnlhm2" path="res://Scenes/Sprites/Cats/BossCat.tscn" id="6_fdxyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asrf7"]
+size = Vector2(73, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djl2y"]
+size = Vector2(149, 73.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk6kt"]
+size = Vector2(148, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05i4n"]
+size = Vector2(148, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q7wy"]
+size = Vector2(231, 74)
+
+[node name="BossLevel" node_paths=PackedStringArray("signaler", "camera") instance=ExtResource("1_yskvx")]
+signaler = NodePath("Player/Visible")
+camera = NodePath("BossCat/Camera2D")
+metadata/_edit_vertical_guides_ = [-1024.0, 3068.0]
+metadata/_edit_horizontal_guides_ = [-383.0, -384.0]
+
+[node name="1" type="Sprite2D" parent="Bg" index="0"]
+texture = ExtResource("2_vf8mn")
+
+[node name="2" type="Sprite2D" parent="Bg" index="1"]
+position = Vector2(2048, 0)
+texture = ExtResource("3_q31kt")
+
+[node name="Tip" type="Label" parent="Bg" index="2"]
+modulate = Color(1, 1, 1, 0.541176)
+offset_left = -662.0
+offset_top = 158.0
+offset_right = -412.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 25
+text = "跟着，不要被发现了！"
+
+[node name="1" type="StaticBody2D" parent="Bodies" index="0"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Bodies/1" index="0"]
+polygon = PackedVector2Array(-1025, -387, -1025, -81, -531, -72, -480, -152, -223, -151, -62, -2, 115, 0, 182, -80, 285, -146, 703, -150, 704, -243, 936, -243, 935, -157, 803, -155, 802, -58, 1086, -60, 1201, -146, 2016, -141, 2018, 125, 2175, 130, 2243, 76, 2242, -34, 2110, -35, 2115, -146, 2251, -144, 2308, -201, 2679, -200, 2858, -66, 2970, -65, 2969, 80, 3077, 84, 3071, -384)
+
+[node name="2" type="StaticBody2D" parent="Bodies" index="1"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Bodies/2" index="0"]
+polygon = PackedVector2Array(-1028, 82, -1020, 383, 3072, 383, 3077, 84, 2965, 82, 2823, 230, 2778, 229, 2599, 87, 2601, -34, 2531, -84, 2395, -85, 2397, 17, 2510, 21, 2511, 135, 2395, 135, 2269, 230, 1835, 229, 1829, 119, 1749, 120, 1747, 227, 694, 228, 680, -8, 376, -4, 375, 115, 565, 120, 567, 231, 244, 233, 129, 125, -88, 128, -123, 109, -174, 107, -212, 140, -210, 220, -319, 220, -318, 115, -257, 116, -226, 70, -224, 35, -259, 1, -438, 2, -496, 78)
+
+[node name="3" type="StaticBody2D" parent="Bodies" index="2"]
+position = Vector2(849, 68)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Bodies/3" index="0"]
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_asrf7")
+
+[node name="4" type="StaticBody2D" parent="Bodies" index="3"]
+position = Vector2(1243, 36)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Bodies/4" index="0"]
+position = Vector2(0.5, 5.25)
+shape = SubResource("RectangleShape2D_djl2y")
+
+[node name="5" type="StaticBody2D" parent="Bodies" index="4"]
+position = Vector2(1475, -43)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Bodies/5" index="0"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_dk6kt")
+
+[node name="6" type="StaticBody2D" parent="Bodies" index="5"]
+position = Vector2(1557, 130)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Bodies/6" index="0"]
+position = Vector2(-1, 5.5)
+shape = SubResource("RectangleShape2D_05i4n")
+
+[node name="7" type="StaticBody2D" parent="Bodies" index="6"]
+position = Vector2(1800, -18)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Bodies/7" index="0"]
+position = Vector2(-8.5, 4)
+shape = SubResource("RectangleShape2D_2q7wy")
+
+[node name="Player" parent="." index="3"]
+position = Vector2(-780, 0)
+
+[node name="Visible" type="VisibleOnScreenNotifier2D" parent="Player" index="7"]
+position = Vector2(-2.49998, -11.5)
+scale = Vector2(3.85, 3.45)
+
+[node name="BgMusic" parent="." index="7"]
+stream = ExtResource("4_6lyjb")
+
+[node name="CatPath" parent="." index="8" instance=ExtResource("5_2xxsl")]
+points = PackedVector2Array(-607, 0, -506, 0, -447, -81, -251, -79, -80, 63, 198, 61, 351, -71, 744, -73, 744, 175, 1050, 175, 1154, -53, 1337, -53, 1379, 51, 1609, 49, 1610, -102, 1958, -104, 1957, 179, 2223, 178, 2318, 75, 2317, -104, 2368, -150, 2603, -150, 2712, -35, 3009, -35)
+
+[node name="BossCat" parent="." index="9" instance=ExtResource("6_fdxyp")]
+position = Vector2(-609, 4)
+state = 1
+
+[node name="Camera2D" type="Camera2D" parent="BossCat" index="5"]
+limit_left = -1024
+limit_top = -384
+limit_right = 3060
+limit_bottom = 384
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 1.0
+drag_bottom_margin = 1.0
+editor_draw_drag_margin = true

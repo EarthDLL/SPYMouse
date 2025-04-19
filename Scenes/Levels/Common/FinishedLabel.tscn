@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://qjstn0i1xmeu"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Common/FinishLabel.gd" id="1_xna5i"]
+[ext_resource type="FontVariation" uid="uid://dpnyvd0lccapo" path="res://Resource/Fonts/TotalFont.tres" id="2_tj0d7"]
+
+[node name="FinishedLabel" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_xna5i")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.937255, 0.776471, 1)
+theme_override_colors/font_shadow_color = Color(0.478431, 0.172549, 0.0588235, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_tj0d7")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://w821cv67qtui"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/BossLevel.gd" id="1_xhnxx"]
+[ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="2_f11ck"]
+[ext_resource type="PackedScene" uid="uid://25enveqr4jbj" path="res://Scenes/Nodes/PlayerPath.tscn" id="3_syt17"]
+[ext_resource type="PackedScene" uid="uid://x4cac5vgqxm7" path="res://Scenes/Levels/Common/Data.tscn" id="4_kejn0"]
+[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="5_utxna"]
+[ext_resource type="AudioStream" uid="uid://gmqvsbyq8ruo" path="res://Resource/sound/ui/mouse_dies.wav" id="6_l5bl5"]
+[ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="6_lqlvd"]
+[ext_resource type="AudioStream" uid="uid://csmg2flhys7xc" path="res://Resource/sound/ui/ui_newroom.wav" id="7_y8ijf"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oidsc"]
+parsed_geometry_type = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"Blocker"
+agent_radius = 15.0
+
+[node name="BossLevel" type="Node" node_paths=PackedStringArray("player", "data")]
+script = ExtResource("1_xhnxx")
+player = NodePath("Player")
+data = NodePath("Data")
+
+[node name="Bg" type="Node2D" parent="."]
+
+[node name="Bodies" type="Node2D" parent="."]
+
+[node name="Region" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_oidsc")
+
+[node name="Player" parent="." instance=ExtResource("2_f11ck")]
+
+[node name="PlayerPath" parent="." instance=ExtResource("3_syt17")]
+
+[node name="Data" parent="." instance=ExtResource("4_kejn0")]
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+script = ExtResource("5_utxna")
+sounds = {
+"Die": ExtResource("6_l5bl5"),
+"JumpPart": ExtResource("7_y8ijf")
+}
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lqlvd")
+autoplay = true
+bus = &"Music"

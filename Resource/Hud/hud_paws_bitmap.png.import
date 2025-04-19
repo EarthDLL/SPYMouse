@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://3v5h3p4an86h"
+path="res://.godot/imported/hud_paws_bitmap.png-b4979ae1dc1e8cddb899b8aa7d12c331.res"
+
+[deps]
+
+source_file="res://Resource/Hud/hud_paws_bitmap.png"
+dest_files=["res://.godot/imported/hud_paws_bitmap.png-b4979ae1dc1e8cddb899b8aa7d12c331.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

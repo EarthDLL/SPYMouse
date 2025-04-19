@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1bxgiks7cush"]
+
+[ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_hm2y6"]
+[ext_resource type="Resource" uid="uid://ik6ujlgbvrsn" path="res://Scenes/Levels/World1/Level1.tres" id="2_0okk4"]
+[ext_resource type="Texture2D" uid="uid://u0r1uugnjwr6" path="res://Resource/MapBG/map10/map.jpg" id="3_2ef0a"]
+[ext_resource type="Texture2D" uid="uid://bxutpthfgitpw" path="res://Resource/MapBG/map10/map_padleft.jpg" id="4_ldvs6"]
+[ext_resource type="Texture2D" uid="uid://ddwndngltrj0v" path="res://Resource/MapBG/map10/map_padright.jpg" id="5_hodkn"]
+[ext_resource type="PackedScene" uid="uid://cqyhy4q4rbd27" path="res://Scenes/Sprites/Door.tscn" id="6_r88xy"]
+[ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="8_dm8dm"]
+[ext_resource type="PackedScene" uid="uid://butxvt8wsf12l" path="res://Scenes/Sprites/Cheese/Cheese02.tscn" id="9_vtykq"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_aisfp"]
+vertices = PackedVector2Array(269.148, -87, 269.852, -15, 132, -15, 174, -87, -47, 125.961, -167, 126.891, -167, 32, 35, -119, 137.156, -119, 143.156, -134, 174, -134, -177, 32, -177, -54.1016, 35, -135, -190, -76.0938, -190, -135, 131.422, 45.7422, 128.453, 145, -21.9531, 145, 132, 45.7031)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6, 7, 8, 3), PackedInt32Array(9, 10, 3, 8), PackedInt32Array(7, 6, 11, 12, 13), PackedInt32Array(14, 15, 13, 12), PackedInt32Array(16, 17, 18, 4, 2), PackedInt32Array(2, 19, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-262, -143, -266, 219, 188, 212, 190, 40, 343, 45, 345, -213, -261, -201)])
+parsed_geometry_type = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"Blocker"
+agent_radius = 15.0
+
+[node name="Level" node_paths=PackedStringArray("player", "parts", "doors") instance=ExtResource("1_hm2y6")]
+level_info = ExtResource("2_0okk4")
+player = NodePath("Part1/Player")
+parts = [NodePath("Part1")]
+doors = [NodePath("Part1/Door")]
+time_min = 4
+time_max = 12
+max_time_score = 70
+
+[node name="Part1" parent="." index="1" node_paths=PackedStringArray("anima_point", "access_nodes")]
+cheese_count = 1
+anima_point = NodePath("Player/AnimaPoint")
+access_nodes = [NodePath("Door")]
+
+[node name="Main" type="Sprite2D" parent="Part1/Bg" index="0"]
+texture = ExtResource("3_2ef0a")
+
+[node name="Left" type="Sprite2D" parent="Part1/Bg" index="1"]
+position = Vector2(-567, -1)
+texture = ExtResource("4_ldvs6")
+
+[node name="Right" type="Sprite2D" parent="Part1/Bg" index="2"]
+position = Vector2(561, -1)
+texture = ExtResource("5_hodkn")
+
+[node name="1" type="StaticBody2D" parent="Part1/Walls" index="0" groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Part1/Walls/1" index="0"]
+polygon = PackedVector2Array(-270, -214, -270, 230, -182, 230, -182, 47, -192, 47, -192, -50, -205, -72, -205, -150, -205, -214)
+
+[node name="2" type="StaticBody2D" parent="Part1/Walls" index="1" groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Part1/Walls/2" index="0"]
+polygon = PackedVector2Array(-204, -215, 354, -220, 357, 61, 147, 56, 147, 0, 285, 0, 284, -102, 189, -102, 189, -149, 133, -149, 127, -134, 50, -134, 50, -150, -205, -150)
+
+[node name="3" type="StaticBody2D" parent="Part1/Walls" index="2" groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Part1/Walls/3" index="0"]
+polygon = PackedVector2Array(146, 60, 204, 57, 211, 223, -183, 227, -180, 142, -52, 141, -27, 160, 143, 160)
+
+[node name="Region" parent="Part1" index="3"]
+navigation_polygon = SubResource("NavigationPolygon_aisfp")
+
+[node name="Door" parent="Part1" index="4" instance=ExtResource("6_r88xy")]
+position = Vector2(301, -63)
+
+[node name="Player" parent="Part1" index="5" instance=ExtResource("8_dm8dm")]
+position = Vector2(-130, 91)
+
+[node name="AnimaPoint" type="Node2D" parent="Part1/Player" index="6"]
+
+[node name="Cheese" parent="Part1" index="6" instance=ExtResource("9_vtykq")]
+position = Vector2(47, 83)

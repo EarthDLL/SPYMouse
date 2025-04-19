@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=6 format=3 uid="uid://dujwcsulfup0v"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_dq4j4"]
+[ext_resource type="Script" path="res://Scripts/Classes/LevelInfo.gd" id="2_pjf2a"]
+
+[sub_resource type="Resource" id="Resource_fqg0d"]
+script = ExtResource("1_dq4j4")
+type = 4
+value = 0.0
+
+[sub_resource type="Resource" id="Resource_4js4c"]
+script = ExtResource("1_dq4j4")
+type = 2
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_rjpw3"]
+script = ExtResource("1_dq4j4")
+type = 5
+value = 0.0
+
+[resource]
+script = ExtResource("2_pjf2a")
+level_name = "Sleepy Walkover"
+belong_world = 1
+level_id = 107
+level_index = "1-7"
+achievements = Array[ExtResource("1_dq4j4")]([SubResource("Resource_fqg0d"), SubResource("Resource_4js4c"), SubResource("Resource_rjpw3")])
+scene_path = "res://Scenes/Levels/World1/Level7.tscn"

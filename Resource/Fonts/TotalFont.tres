@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=3 format=3 uid="uid://dpnyvd0lccapo"]
+
+[ext_resource type="FontFile" uid="uid://br5fvxaldccrm" path="res://Resource/Fonts/SPYmouse_efigs.ttf" id="1_x2i1n"]
+[ext_resource type="FontFile" uid="uid://cj5fhsauecpeh" path="res://Resource/Fonts/SPYmouse_chinese.ttf" id="2_r65py"]
+
+[resource]
+fallbacks = Array[Font]([ExtResource("2_r65py")])
+base_font = ExtResource("1_x2i1n")

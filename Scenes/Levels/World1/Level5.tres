@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=6 format=3 uid="uid://gb236xekwth5"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_lr153"]
+[ext_resource type="Script" path="res://Scripts/Classes/LevelInfo.gd" id="2_gy26q"]
+
+[sub_resource type="Resource" id="Resource_j5st1"]
+script = ExtResource("1_lr153")
+type = 6
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_f5fvx"]
+script = ExtResource("1_lr153")
+type = 2
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_d1d8k"]
+script = ExtResource("1_lr153")
+type = 3
+value = 12.0
+
+[resource]
+script = ExtResource("2_gy26q")
+level_name = "Pass The Pounce"
+belong_world = 1
+level_id = 105
+level_index = "1-5"
+achievements = Array[ExtResource("1_lr153")]([SubResource("Resource_j5st1"), SubResource("Resource_f5fvx"), SubResource("Resource_d1d8k")])
+scene_path = "res://Scenes/Levels/World1/Level5.tscn"

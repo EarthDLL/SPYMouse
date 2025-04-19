@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=6 format=3 uid="uid://t34iewpsd06i"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_3h1e0"]
+[ext_resource type="Script" path="res://Scripts/Classes/LevelInfo.gd" id="2_mru38"]
+
+[sub_resource type="Resource" id="Resource_5wxqe"]
+script = ExtResource("1_3h1e0")
+type = 4
+value = 0.0
+
+[sub_resource type="Resource" id="Resource_if02d"]
+script = ExtResource("1_3h1e0")
+type = 2
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_8x534"]
+script = ExtResource("1_3h1e0")
+type = 3
+value = 10.0
+
+[resource]
+script = ExtResource("2_mru38")
+level_name = "Double Trouble"
+belong_world = 1
+level_id = 103
+level_index = "1-3"
+achievements = Array[ExtResource("1_3h1e0")]([SubResource("Resource_5wxqe"), SubResource("Resource_if02d"), SubResource("Resource_8x534")])
+scene_path = "res://Scenes/Levels/World1/Level3.tscn"

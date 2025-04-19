@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://v22rj5ys5gyb"]
+
+[ext_resource type="Script" path="res://Scenes/Layers/Data.gd" id="1_dmhka"]
+
+[node name="Save" type="Node"]
+script = ExtResource("1_dmhka")

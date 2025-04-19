@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=6 format=3 uid="uid://djl3bdsek4onc"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_juuxt"]
+[ext_resource type="Script" path="res://Scripts/Classes/LevelInfo.gd" id="2_ejf8u"]
+
+[sub_resource type="Resource" id="Resource_sme3g"]
+script = ExtResource("1_juuxt")
+type = 4
+value = 0.0
+
+[sub_resource type="Resource" id="Resource_ya1q5"]
+script = ExtResource("1_juuxt")
+type = 2
+value = 4.0
+
+[sub_resource type="Resource" id="Resource_4bqk3"]
+script = ExtResource("1_juuxt")
+type = 5
+value = 0.0
+
+[resource]
+script = ExtResource("2_ejf8u")
+level_name = "Born To Run"
+belong_world = 1
+level_id = 111
+level_index = "1-11"
+achievements = Array[ExtResource("1_juuxt")]([SubResource("Resource_sme3g"), SubResource("Resource_ya1q5"), SubResource("Resource_4bqk3")])
+scene_path = "res://Scenes/Levels/World1/Level11.tscn"

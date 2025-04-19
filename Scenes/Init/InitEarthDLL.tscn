@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbdsqodx6d5ih"]
+
+[ext_resource type="Script" path="res://Scenes/Init/Init.gd" id="1_bgk0m"]
+[ext_resource type="PackedScene" uid="uid://bhc4qoar58imh" path="res://Scenes/Init/InitGodot.tscn" id="2_dltkb"]
+[ext_resource type="FontFile" uid="uid://br5fvxaldccrm" path="res://Resource/Fonts/SPYmouse_efigs.ttf" id="4_mobei"]
+[ext_resource type="Texture2D" uid="uid://esd0wx7na1r4" path="res://Resource/EarthDLL.png" id="4_vr2ki"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aow3r"]
+line_spacing = 0.0
+font = ExtResource("4_mobei")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_0rvam"]
+line_spacing = 0.0
+font = ExtResource("4_mobei")
+font_size = 93
+
+[node name="InitEarthDLL" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bgk0m")
+next_scene = ExtResource("2_dltkb")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[node name="Texture" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 150.0
+offset_right = -140.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Texture" type="TextureRect" parent="Texture"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_vr2ki")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Texture"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Texture/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+size_flags_stretch_ratio = 4.0
+text = "Made by"
+label_settings = SubResource("LabelSettings_aow3r")
+vertical_alignment = 2
+
+[node name="Name" type="Label" parent="Texture/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 6.0
+theme_override_constants/line_spacing = 0
+text = "EarthDLL"
+label_settings = SubResource("LabelSettings_0rvam")

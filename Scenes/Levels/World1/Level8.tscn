@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://koes0yogtkhk"]
+
+[ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_4fwda"]
+[ext_resource type="Resource" uid="uid://2amkt51i5wpd" path="res://Scenes/Levels/World1/Level8.tres" id="2_2bqw2"]
+[ext_resource type="Texture2D" uid="uid://cxhwd21ueti3x" path="res://Resource/MapBG/map11/map.jpg" id="2_fk4ip"]
+[ext_resource type="Texture2D" uid="uid://d36ex5gecyywl" path="res://Resource/MapBG/map11/map_padleft.jpg" id="3_ejhgq"]
+[ext_resource type="Texture2D" uid="uid://bd1frs533ltme" path="res://Resource/MapBG/map11/map_padright.jpg" id="4_pc1wm"]
+[ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="6_11tev"]
+[ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="6_es2da"]
+[ext_resource type="PackedScene" uid="uid://butxvt8wsf12l" path="res://Scenes/Sprites/Cheese/Cheese02.tscn" id="7_r7oww"]
+[ext_resource type="PackedScene" uid="uid://cqyhy4q4rbd27" path="res://Scenes/Sprites/Door.tscn" id="8_3bdol"]
+[ext_resource type="PackedScene" uid="uid://dxuhy444a8twt" path="res://Scenes/Sprites/Cats/StupidCat.tscn" id="10_s1vgv"]
+[ext_resource type="PackedScene" uid="uid://c1anr5pg2nitu" path="res://Scenes/Sprites/Hole/MouseHole.tscn" id="11_xklfr"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xofu4"]
+vertices = PackedVector2Array(350.961, 140.156, 16, 143.898, 16, 76.2891, 206.18, 34.5781, 203.18, -212.078, 350.031, -212.906, -8, 40.5781, -8, 72.2813, -164.719, -206.109, 89.3438, -208.844, 92.6484, -65, -122.906, -65, -176.719, -165.148, -123.898, 98.7422, -336.039, 95.2422, -336.961, -203.383, -274.461, -163.852, -285.422, -204.688)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 0), PackedInt32Array(6, 3, 2, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(11, 13, 14, 15, 16), PackedInt32Array(15, 17, 16), PackedInt32Array(12, 11, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-388, -263, -383, 138, -73, 126, 55, 215, 408, 212, 398, -266)])
+parsed_geometry_type = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"Blocker"
+agent_radius = 15.0
+
+[node name="Level" node_paths=PackedStringArray("player", "parts", "doors") instance=ExtResource("1_4fwda")]
+level_info = ExtResource("2_2bqw2")
+player = NodePath("Part1/Player")
+parts = [NodePath("Part1")]
+doors = [NodePath("Part1/Door")]
+time_min = 12
+time_max = 40
+max_time_score = 50
+
+[node name="Part1" parent="." index="1" node_paths=PackedStringArray("anima_point", "access_nodes")]
+cheese_count = 1
+anima_point = NodePath("Player")
+access_nodes = [NodePath("Door")]
+
+[node name="Main" type="Sprite2D" parent="Part1/Bg" index="0"]
+texture = ExtResource("2_fk4ip")
+
+[node name="Left" type="Sprite2D" parent="Part1/Bg" index="1"]
+position = Vector2(-560, 0)
+texture = ExtResource("3_ejhgq")
+
+[node name="Right" type="Sprite2D" parent="Part1/Bg" index="2"]
+position = Vector2(560, 0)
+texture = ExtResource("4_pc1wm")
+
+[node name="1" type="StaticBody2D" parent="Part1/Walls" index="0" groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/1" index="0"]
+polygon = PackedVector2Array(-419, -284, -422, 166, -57, 165, -56, -9, 155, -15, 158, -285, -416, -283, -352, -218, -274, -220, -263, -179, -188, -180, -176, -221, 104, -224, 108, -50, -108, -50, -109, 114, -351, 110, -352, -216)
+
+[node name="2" type="StaticBody2D" parent="Part1/Walls" index="1" groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/2" index="0"]
+polygon = PackedVector2Array(-77, 169, -74, 235, 421, 234, 420, -283, 160, -282, 159, -12, -52, -4, -54, 165, 1, 158, 1, 89, -23, 85, -23, 26, 191, 20, 188, -227, 365, -228, 366, 155, 8, 159)
+
+[node name="CatPath" parent="Part1/CatPaths" index="0" instance=ExtResource("6_es2da")]
+points = PackedVector2Array(170, 124, 329, 124, 332, -193, 228, -192, 231, 59, 40, 58, 39, 125, 170, 124)
+
+[node name="Region" parent="Part1" index="3"]
+navigation_polygon = SubResource("NavigationPolygon_xofu4")
+
+[node name="Player" parent="Part1" index="5" instance=ExtResource("6_11tev")]
+position = Vector2(-229, 13)
+collectable_items_count = 3
+
+[node name="Cheese" parent="Part1" index="6" instance=ExtResource("7_r7oww")]
+position = Vector2(280, -48)
+
+[node name="Door" parent="Part1" index="7" instance=ExtResource("8_3bdol")]
+position = Vector2(-146, -236)
+rotation = -1.5708
+
+[node name="StupidCat" parent="Part1" index="8" instance=ExtResource("10_s1vgv")]
+position = Vector2(179, 129)
+
+[node name="MouseHole" parent="Part1" index="9" instance=ExtResource("11_xklfr")]
+position = Vector2(-29, -35)
+rotation = 3.14159
+direction = 0
+
+[node name="MouseHole2" parent="Part1" index="10" instance=ExtResource("11_xklfr")]
+position = Vector2(116, 8)

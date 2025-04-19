@@ -1,0 +1,63 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://306eqlapftlh"]
+
+[ext_resource type="Texture2D" uid="uid://1w1cjoy0m2lu" path="res://Resource/ui/checkbox_checked.png" id="1_ksmi5"]
+[ext_resource type="Texture2D" uid="uid://cty5isq143lwj" path="res://Resource/ui/checkbox.png" id="2_qvrgp"]
+[ext_resource type="Texture2D" uid="uid://d2cn40y0ugqsv" path="res://Resource/ui/slider_handle.png" id="3_djprf"]
+[ext_resource type="Texture2D" uid="uid://bkqgahc8gptuh" path="res://Resource/ui/slider_handle_over.png" id="4_wdg8l"]
+[ext_resource type="Texture2D" uid="uid://ddm2y3ttqr2eq" path="res://Resource/ui/slider_h_bg.png" id="5_ade2r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88ysk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5w1x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e6olm"]
+texture = ExtResource("5_ade2r")
+texture_margin_left = 10.0
+texture_margin_right = 10.0
+expand_margin_top = 40.0
+expand_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_febgv"]
+bg_color = Color(1, 0.896334, 0.640625, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnuhr"]
+bg_color = Color(1, 0.943576, 0.796875, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 6.0
+
+[resource]
+CheckButton/colors/font_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_disabled_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_focus_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_hover_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_outline_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+CheckButton/icons/checked = ExtResource("1_ksmi5")
+CheckButton/icons/checked_disabled = ExtResource("1_ksmi5")
+CheckButton/icons/checked_disabled_mirrored = ExtResource("1_ksmi5")
+CheckButton/icons/checked_mirrored = ExtResource("1_ksmi5")
+CheckButton/icons/unchecked = ExtResource("2_qvrgp")
+CheckButton/icons/unchecked_disabled = ExtResource("2_qvrgp")
+CheckButton/icons/unchecked_disabled_mirrored = ExtResource("2_qvrgp")
+CheckButton/icons/unchecked_mirrored = ExtResource("2_qvrgp")
+HSlider/icons/grabber = ExtResource("3_djprf")
+HSlider/icons/grabber_disabled = ExtResource("3_djprf")
+HSlider/icons/grabber_highlight = ExtResource("4_wdg8l")
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_88ysk")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_j5w1x")
+HSlider/styles/slider = SubResource("StyleBoxTexture_e6olm")
+Label/colors/font_color = Color(0, 0, 0, 1)
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_febgv")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_febgv")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_febgv")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_jnuhr")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_jnuhr")

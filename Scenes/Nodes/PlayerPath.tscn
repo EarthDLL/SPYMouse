@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://25enveqr4jbj"]
+
+[ext_resource type="Texture2D" uid="uid://dllnwxmt3188e" path="res://Resource/sprites/line.png" id="1_i5bfq"]
+[ext_resource type="Script" path="res://Scenes/Nodes/PlayerPath.gd" id="2_tsqjh"]
+[ext_resource type="Texture2D" uid="uid://bya6qkyf42plx" path="res://Resource/sprites/lines.png" id="3_t2atc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_map7k"]
+radius = 24.0
+
+[node name="PlayerPath" type="Line2D"]
+z_index = 20
+z_as_relative = false
+texture_repeat = 2
+width = 8.0
+texture = ExtResource("1_i5bfq")
+texture_mode = 1
+joint_mode = 1
+script = ExtResource("2_tsqjh")
+
+[node name="Point" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_t2atc")
+vframes = 3
+frame = 2
+
+[node name="CollectArea" type="Area2D" parent="Point"]
+scale = Vector2(4, 4)
+collision_layer = 0
+collision_mask = 12
+
+[node name="Collision" type="CollisionShape2D" parent="Point/CollectArea"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_map7k")
+debug_color = Color(0, 0.7, 0.2275, 0.42)
+
+[node name="TestBody" type="CharacterBody2D" parent="." groups=["TestBody"]]
+collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+platform_on_leave = 2
+safe_margin = 0.5
+
+[node name="Collision" type="CollisionShape2D" parent="TestBody"]
+debug_color = Color(0, 1, 0.85, 0.42)
+
+[connection signal="body_entered" from="Point/CollectArea" to="." method="collect_entity"]

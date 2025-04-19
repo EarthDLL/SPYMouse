@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuvfb731upw3c"]
+
+[ext_resource type="Texture2D" uid="uid://86oqut381if0" path="res://Resource/world/aliveness/bird.png" id="1_4oo6e"]
+[ext_resource type="Script" path="res://Scenes/Worlds/Decorations/bird.gd" id="2_snjo2"]
+
+[node name="Bird" type="Sprite2D"]
+texture = ExtResource("1_4oo6e")
+hframes = 3
+script = ExtResource("2_snjo2")
+
+[node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1.5, 0)
+scale = Vector2(1.85, 1)
+
+[connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]

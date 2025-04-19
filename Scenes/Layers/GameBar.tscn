@@ -1,0 +1,247 @@
+[gd_scene load_steps=21 format=3 uid="uid://b0hg3bxgmvvnl"]
+
+[ext_resource type="Script" path="res://Scenes/Layers/GameBar.gd" id="1_p5jgi"]
+[ext_resource type="Texture2D" uid="uid://c721sg47uwdkl" path="res://Resource/Hud/hud_paws.png" id="1_pghgc"]
+[ext_resource type="Texture2D" uid="uid://30l3ooqbxva1" path="res://Resource/Hud/hud_paws_over.png" id="2_ucktr"]
+[ext_resource type="BitMap" uid="uid://3v5h3p4an86h" path="res://Resource/Hud/hud_paws_bitmap.png" id="3_0hgug"]
+[ext_resource type="Texture2D" uid="uid://gto0kgie3srj" path="res://Resource/Hud/hud_elem_left.png" id="4_ya3d8"]
+[ext_resource type="Texture2D" uid="uid://knml7bccvnbh" path="res://Resource/Hud/hud_elem_mid.png" id="5_5fekm"]
+[ext_resource type="Texture2D" uid="uid://b1xejqeqsptob" path="res://Resource/Hud/hud_elem_right.png" id="6_fgucu"]
+[ext_resource type="Texture2D" uid="uid://b7j2u0nc3ftgk" path="res://Resource/Hud/hud_elem_right_cap.png" id="7_bh56j"]
+[ext_resource type="Texture2D" uid="uid://c4xnxyyulmh0g" path="res://Resource/Hud/hud_cheese_icon.png" id="8_61xa4"]
+[ext_resource type="FontFile" uid="uid://br5fvxaldccrm" path="res://Resource/Fonts/SPYmouse_efigs.ttf" id="9_43tgu"]
+[ext_resource type="Texture2D" uid="uid://p46dom25a6g4" path="res://Resource/Hud/hud_cheese.png" id="11_23p56"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dme5"]
+atlas = ExtResource("11_23p56")
+region = Rect2(40, 4, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l70fy"]
+atlas = ExtResource("11_23p56")
+region = Rect2(80, 4, 34, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mefkn"]
+atlas = ExtResource("11_23p56")
+region = Rect2(117, 4, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dewku"]
+atlas = ExtResource("11_23p56")
+region = Rect2(153, 2, 37, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuvxn"]
+atlas = ExtResource("11_23p56")
+region = Rect2(194, 4, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56kt7"]
+atlas = ExtResource("11_23p56")
+region = Rect2(234, 5, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nax6"]
+atlas = ExtResource("11_23p56")
+region = Rect2(271, 4, 29, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80xnb"]
+atlas = ExtResource("11_23p56")
+region = Rect2(309, 3, 28, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx241"]
+atlas = ExtResource("11_23p56")
+region = Rect2(6, 6, 26, 26)
+
+[node name="GameBar" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_p5jgi")
+cheese_icons = Array[Texture2D]([SubResource("AtlasTexture_3dme5"), SubResource("AtlasTexture_l70fy"), SubResource("AtlasTexture_mefkn"), SubResource("AtlasTexture_dewku"), SubResource("AtlasTexture_vuvxn"), SubResource("AtlasTexture_56kt7"), SubResource("AtlasTexture_4nax6"), SubResource("AtlasTexture_80xnb"), SubResource("AtlasTexture_jx241")])
+
+[node name="Bar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pause" type="TextureButton" parent="Bar"]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 10.0
+offset_right = -42.0
+offset_bottom = 58.0
+grow_horizontal = 0
+texture_normal = ExtResource("1_pghgc")
+texture_pressed = ExtResource("2_ucktr")
+texture_hover = ExtResource("2_ucktr")
+texture_disabled = ExtResource("1_pghgc")
+texture_click_mask = ExtResource("3_0hgug")
+
+[node name="CheeseScore" type="Control" parent="Bar"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 15.0
+offset_right = 240.0
+offset_bottom = 55.0
+mouse_filter = 2
+
+[node name="Texture" type="HBoxContainer" parent="Bar/CheeseScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Left" type="TextureRect" parent="Bar/CheeseScore/Texture"]
+layout_mode = 2
+texture = ExtResource("4_ya3d8")
+
+[node name="Middle" type="TextureRect" parent="Bar/CheeseScore/Texture"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_5fekm")
+stretch_mode = 1
+
+[node name="Right1" type="TextureRect" parent="Bar/CheeseScore/Texture"]
+layout_mode = 2
+texture = ExtResource("6_fgucu")
+
+[node name="Right2" type="TextureRect" parent="Bar/CheeseScore/Texture"]
+layout_mode = 2
+texture = ExtResource("7_bh56j")
+
+[node name="CheeseIcon" type="TextureRect" parent="Bar/CheeseScore"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -7.0
+offset_right = 68.0
+offset_bottom = 47.0
+texture = ExtResource("8_61xa4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Score" type="Label" parent="Bar/CheeseScore"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 7.0
+offset_right = -30.0
+offset_bottom = 38.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("9_43tgu")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AnimaPos" type="Control" parent="Bar/CheeseScore"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 108.0
+offset_top = 20.0
+offset_right = 108.0
+offset_bottom = 20.0
+
+[node name="CheeseBar" type="Control" parent="Bar"]
+anchors_preset = 0
+offset_left = 248.0
+offset_top = 15.0
+offset_right = 348.0
+offset_bottom = 55.0
+mouse_filter = 2
+
+[node name="Texture" type="HBoxContainer" parent="Bar/CheeseBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.5
+offset_top = -7.0
+offset_right = 7.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Left" type="TextureRect" parent="Bar/CheeseBar/Texture"]
+layout_mode = 2
+texture = ExtResource("4_ya3d8")
+
+[node name="Middle" type="TextureRect" parent="Bar/CheeseBar/Texture"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_5fekm")
+stretch_mode = 1
+
+[node name="Right1" type="TextureRect" parent="Bar/CheeseBar/Texture"]
+layout_mode = 2
+texture = ExtResource("6_fgucu")
+
+[node name="Right2" type="TextureRect" parent="Bar/CheeseBar/Texture"]
+layout_mode = 2
+texture = ExtResource("7_bh56j")
+
+[node name="Holes" type="HBoxContainer" parent="Bar/CheeseBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -4.0
+offset_right = 29.0
+offset_bottom = 10.0
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Hole1" type="TextureRect" parent="Bar/CheeseBar/Holes"]
+custom_minimum_size = Vector2(28, 54)
+layout_mode = 2
+texture = SubResource("AtlasTexture_jx241")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hole2" type="TextureRect" parent="Bar/CheeseBar/Holes"]
+visible = false
+custom_minimum_size = Vector2(28, 54)
+layout_mode = 2
+texture = SubResource("AtlasTexture_jx241")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hole3" type="TextureRect" parent="Bar/CheeseBar/Holes"]
+visible = false
+custom_minimum_size = Vector2(28, 54)
+layout_mode = 2
+texture = SubResource("AtlasTexture_jx241")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hole4" type="TextureRect" parent="Bar/CheeseBar/Holes"]
+visible = false
+custom_minimum_size = Vector2(28, 54)
+layout_mode = 2
+texture = SubResource("AtlasTexture_jx241")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hole5" type="TextureRect" parent="Bar/CheeseBar/Holes"]
+visible = false
+custom_minimum_size = Vector2(28, 54)
+layout_mode = 2
+texture = SubResource("AtlasTexture_jx241")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="Bar/Pause" to="." method="_on_pause_pressed"]

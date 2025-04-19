@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=6 format=3 uid="uid://bx3grsk6w0a3i"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_rynrg"]
+[ext_resource type="Script" path="res://Scripts/Classes/LevelInfo.gd" id="2_m0jeo"]
+
+[sub_resource type="Resource" id="Resource_fh8of"]
+script = ExtResource("1_rynrg")
+type = 4
+value = 0.0
+
+[sub_resource type="Resource" id="Resource_uyjwd"]
+script = ExtResource("1_rynrg")
+type = 2
+value = 2.0
+
+[sub_resource type="Resource" id="Resource_0gqmf"]
+script = ExtResource("1_rynrg")
+type = 1
+value = 80.0
+
+[resource]
+script = ExtResource("2_m0jeo")
+level_name = "Fake Mouse"
+belong_world = 1
+level_id = 109
+level_index = "1-9"
+achievements = Array[ExtResource("1_rynrg")]([SubResource("Resource_fh8of"), SubResource("Resource_uyjwd"), SubResource("Resource_0gqmf")])
+scene_path = "res://Scenes/Levels/World1/Level9.tscn"

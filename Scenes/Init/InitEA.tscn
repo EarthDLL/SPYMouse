@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cut2igj6ricos"]
+
+[ext_resource type="Script" path="res://Scenes/Init/Init.gd" id="1_hv6kl"]
+[ext_resource type="PackedScene" uid="uid://bt0mhcdbvw7c2" path="res://Scenes/Init/InitVideo.tscn" id="2_xfi1n"]
+[ext_resource type="Texture2D" uid="uid://b1ndi011is8er" path="res://Resource/Init/ea_splash.png" id="3_s2bx4"]
+
+[node name="InitEA" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hv6kl")
+next_scene = ExtResource("2_xfi1n")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Texture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s2bx4")
+expand_mode = 1

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhc4qoar58imh"]
+
+[ext_resource type="Script" path="res://Scenes/Init/Init.gd" id="1_0swro"]
+[ext_resource type="PackedScene" uid="uid://cut2igj6ricos" path="res://Scenes/Init/InitEA.tscn" id="2_hhnm7"]
+[ext_resource type="Texture2D" uid="uid://d0r01q52rs3vj" path="res://Resource/Init/godot.png" id="2_xlg20"]
+
+[node name="InitGodot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0swro")
+next_scene = ExtResource("2_hhnm7")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[node name="Texture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 150.0
+offset_right = -140.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xlg20")
+expand_mode = 1
+stretch_mode = 5

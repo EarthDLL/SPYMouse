@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://dx1i7qqbipkg4"]
+
+[ext_resource type="Script" path="res://Scenes/Layers/MoveBgLayer.gd" id="1_hdiij"]
+[ext_resource type="Script" path="res://Scripts/Layers/MoveShape.gd" id="1_sgprl"]
+[ext_resource type="Material" uid="uid://bgcqws266isvk" path="res://EngineResources/Shaders/moveBg.tres" id="2_wvq1m"]
+[ext_resource type="Script" path="res://Scripts/Layers/MoveBg.gd" id="3_pxsdb"]
+[ext_resource type="Shader" path="res://EngineResources/Shaders/BlackScreen.gdshader" id="5_wcwwr"]
+[ext_resource type="Script" path="res://Scenes/Layers/Black_screen.gd" id="5_xtvsq"]
+[ext_resource type="Script" path="res://Scenes/Layers/Black_screen_texture.gd" id="7_vtgta"]
+[ext_resource type="FontFile" uid="uid://br5fvxaldccrm" path="res://Resource/Fonts/SPYmouse_efigs.ttf" id="8_vu80p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1wvk"]
+shader = ExtResource("5_wcwwr")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_10e1j"]
+viewport_path = NodePath("BlackScreen/BlackScreenTexture")
+
+[sub_resource type="LabelSettings" id="LabelSettings_clwr4"]
+font_size = 22
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MoveBg" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_hdiij")
+
+[node name="BlackScreen" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.470588)
+material = SubResource("ShaderMaterial_o1wvk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("ViewportTexture_10e1j")
+expand_mode = 1
+script = ExtResource("5_xtvsq")
+
+[node name="BlackScreenTexture" type="SubViewport" parent="BlackScreen"]
+gui_embed_subwindows = true
+
+[node name="Texture" type="Control" parent="BlackScreen/BlackScreenTexture"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_vtgta")
+
+[node name="LevelName" type="Label" parent="."]
+visible = false
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.036
+offset_top = 40.0
+offset_bottom = 45.96
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_vu80p")
+theme_override_font_sizes/font_size = 22
+text = "Level Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShapeLayer" type="CanvasLayer" parent="."]
+layer = 12
+
+[node name="MoveShape" type="Control" parent="ShapeLayer"]
+clip_children = 1
+z_index = 2
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_sgprl")
+
+[node name="MoveBg" type="Control" parent="ShapeLayer/MoveShape"]
+material = ExtResource("2_wvq1m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_pxsdb")
+
+[node name="Loading" type="Label" parent="ShapeLayer/MoveShape"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -37.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "正在加载"
+label_settings = SubResource("LabelSettings_clwr4")
+horizontal_alignment = 2

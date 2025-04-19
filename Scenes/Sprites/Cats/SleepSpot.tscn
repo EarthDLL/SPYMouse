@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7xiljobxi2rc"]
+
+[ext_resource type="Script" path="res://Scenes/Sprites/Cats/SleepSpot.gd" id="1_fa8w3"]
+[ext_resource type="Texture2D" uid="uid://bwpphsdnf5iea" path="res://Resource/sprites/sleepspot.png" id="1_qlehw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rt4nf"]
+radius = 22.0227
+
+[node name="SleepSpot" type="Area2D"]
+collision_layer = 32
+collision_mask = 16
+monitorable = false
+script = ExtResource("1_fa8w3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_qlehw")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.6)
+scale = Vector2(1, 0.435)
+shape = SubResource("CircleShape2D_rt4nf")
+
+[connection signal="body_entered" from="." to="." method="found_target"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1anr5pg2nitu"]
+
+[ext_resource type="Script" path="res://Scenes/Sprites/Hole/MouseHole.gd" id="1_xboe6"]
+[ext_resource type="Texture2D" uid="uid://cwsb34m7veiv4" path="res://Resource/sprites/mouse_hole_u.png" id="1_y6wxh"]
+[ext_resource type="Texture2D" uid="uid://k3bja8oj5w3e" path="res://Resource/sprites/flare.png" id="2_21ndq"]
+[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="4_dcmsd"]
+[ext_resource type="AudioStream" uid="uid://dvde05rxnkgoo" path="res://Resource/sound/mousehole_enter.wav" id="5_tgt6l"]
+[ext_resource type="AudioStream" uid="uid://c17vf31rchnce" path="res://Resource/sound/mousehole_exit.wav" id="6_o5pb2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8s548"]
+size = Vector2(37, 23)
+
+[node name="MouseHole" type="Area2D" groups=["Hole"]]
+z_index = 30
+z_as_relative = false
+collision_layer = 8
+script = ExtResource("1_xboe6")
+
+[node name="Light" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 3)
+texture = ExtResource("2_21ndq")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.866667, 0, 1)
+texture = ExtResource("1_y6wxh")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 9.5)
+shape = SubResource("RectangleShape2D_8s548")
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_dcmsd")
+sounds = {
+"Enter": ExtResource("5_tgt6l"),
+"Exit": ExtResource("6_o5pb2")
+}
+
+[node name="ItemPoint" type="Node2D" parent="."]
+position = Vector2(0, 21)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

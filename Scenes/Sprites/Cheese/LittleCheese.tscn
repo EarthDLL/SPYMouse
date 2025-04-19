@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://re5n37m18uxt"]
+
+[ext_resource type="Texture2D" uid="uid://dujvhw2cg0k5b" path="res://Resource/sprites/cheese_inf.png" id="1_jn312"]
+[ext_resource type="Script" path="res://Scenes/Sprites/Cheese/LittleCheese.gd" id="2_msyis"]
+[ext_resource type="AudioStream" uid="uid://yeqmyjmeo3tv" path="res://Resource/sound/eat_food.wav" id="3_ogbr4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_teahd"]
+
+[node name="LittleCheese" type="Area2D" groups=["LittleCheese"]]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("2_msyis")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_teahd")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 45
+z_as_relative = false
+texture = ExtResource("1_jn312")
+hframes = 4
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[node name="CommonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ogbr4")

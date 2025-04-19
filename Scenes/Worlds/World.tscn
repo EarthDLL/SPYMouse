@@ -1,0 +1,191 @@
+[gd_scene load_steps=25 format=3 uid="uid://d2bnkjii6mbot"]
+
+[ext_resource type="Script" path="res://Scenes/Worlds/World.gd" id="1_25ihr"]
+[ext_resource type="Texture2D" uid="uid://cuv8vltjfn7r8" path="res://Resource/ui/node_highlight.png" id="2_dw4pc"]
+[ext_resource type="Texture2D" uid="uid://2l1knbnki8c3" path="res://Resource/ui/node_select.png" id="3_clgvh"]
+[ext_resource type="Texture2D" uid="uid://s2gol3nn6pfv" path="res://Resource/world/world01/world01_map01.png" id="4_mo5tm"]
+[ext_resource type="Texture2D" uid="uid://cvsng334pwgc3" path="res://Resource/world/world01/world01_map03.png" id="5_8vf08"]
+[ext_resource type="Texture2D" uid="uid://d348se4fa6k4m" path="res://Resource/world/world_01_padleft.jpg" id="6_yp0t5"]
+[ext_resource type="Texture2D" uid="uid://bpt1e57dxq3p3" path="res://Resource/world/world_01_padright.jpg" id="7_6womi"]
+[ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="8_8tnxr"]
+[ext_resource type="AudioStream" uid="uid://bc3oiiq7uilsn" path="res://Resource/Music/CM_Menu1.ogg" id="8_sq6vf"]
+[ext_resource type="PackedScene" uid="uid://25enveqr4jbj" path="res://Scenes/Nodes/PlayerPath.tscn" id="9_ds2eq"]
+[ext_resource type="Texture2D" uid="uid://dyit42xxul4y3" path="res://Resource/ui/play_background.png" id="10_p2r07"]
+[ext_resource type="Texture2D" uid="uid://cwxsgiciqv1vq" path="res://Resource/ui/btn_play_worldmap.png" id="11_28yfd"]
+[ext_resource type="Texture2D" uid="uid://cxxcd5snvwt3d" path="res://Resource/ui/btn_play_worldmap_over.png" id="12_07t54"]
+[ext_resource type="BitMap" uid="uid://dae7eth7bajeg" path="res://Resource/ui/btn_results_cont_bitmask.png" id="13_2lw0i"]
+[ext_resource type="Script" path="res://Scenes/Worlds/PlayBtn.gd" id="14_7rhdg"]
+[ext_resource type="FontVariation" uid="uid://dpnyvd0lccapo" path="res://Resource/Fonts/TotalFont.tres" id="15_2q31q"]
+[ext_resource type="Texture2D" uid="uid://bmng405rxm71i" path="res://Resource/ui/btn_back.png" id="16_h8kcn"]
+[ext_resource type="Texture2D" uid="uid://bvi2q3ptj7cg8" path="res://Resource/ui/btn_back_over.png" id="17_epat5"]
+[ext_resource type="BitMap" uid="uid://od4elqafup87" path="res://Resource/ui/btn_back_bitmap.png" id="18_4dsjj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra4hu"]
+atlas = ExtResource("5_8vf08")
+region = Rect2(0, 138, 960, 502)
+
+[sub_resource type="Animation" id="Animation_i31w8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelButtom:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_asdym"]
+resource_name = "Scale"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelButtom:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynasn"]
+_data = {
+"RESET": SubResource("Animation_i31w8"),
+"Scale": SubResource("Animation_asdym")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg5j0"]
+bg_color = Color(0, 0, 0, 0.352941)
+
+[node name="World" type="Node2D" node_paths=PackedStringArray("high_light", "level_buttom", "default_position", "player")]
+script = ExtResource("1_25ihr")
+high_light = NodePath("HighLight")
+level_buttom = NodePath("LevelButtom")
+default_position = NodePath("DefaultPosition")
+player = NodePath("Player")
+
+[node name="HighLight" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+position = Vector2(0, -20)
+texture = ExtResource("2_dw4pc")
+
+[node name="LevelButtom" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+position = Vector2(0, -20)
+texture = ExtResource("3_clgvh")
+
+[node name="Bg" type="Node2D" parent="."]
+
+[node name="Bg" type="Sprite2D" parent="Bg"]
+texture = ExtResource("4_mo5tm")
+
+[node name="Roads" type="Sprite2D" parent="Bg"]
+position = Vector2(1, 69)
+texture = SubResource("AtlasTexture_ra4hu")
+
+[node name="PaddingLeft" type="Sprite2D" parent="Bg"]
+position = Vector2(-559, 0)
+texture = ExtResource("6_yp0t5")
+
+[node name="PaddingRight" type="Sprite2D" parent="Bg"]
+position = Vector2(560, 0)
+texture = ExtResource("7_6womi")
+
+[node name="Things" type="Node2D" parent="."]
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="Levels" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("8_8tnxr")]
+
+[node name="PlayerPath" parent="." instance=ExtResource("9_ds2eq")]
+z_index = 1
+is_pickable = false
+
+[node name="Buildings" type="Node2D" parent="."]
+z_index = 2
+z_as_relative = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PathLine" type="Line2D" parent="."]
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_sq6vf")
+autoplay = true
+bus = &"Music"
+
+[node name="DefaultPosition" type="Node2D" parent="."]
+position = Vector2(-415, 268)
+
+[node name="Anima" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ynasn")
+}
+
+[node name="Play" type="Node2D" parent="."]
+visible = false
+z_index = 4
+z_as_relative = false
+scale = Vector2(0.8, 0.8)
+
+[node name="PlayBg" type="Sprite2D" parent="Play"]
+texture = ExtResource("10_p2r07")
+
+[node name="Btn" type="TouchScreenButton" parent="Play"]
+position = Vector2(-51, -52)
+texture_normal = ExtResource("11_28yfd")
+texture_pressed = ExtResource("12_07t54")
+bitmask = ExtResource("13_2lw0i")
+shape_visible = false
+script = ExtResource("14_7rhdg")
+font = ExtResource("15_2q31q")
+size = 28.0
+text = "游戏!"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="LevelLabel" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -480.0
+offset_top = 40.0
+offset_right = 480.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("15_2q31q")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg5j0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="TextureButton" parent="UI/LevelLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 28.0
+offset_top = -13.0
+offset_right = 97.0
+offset_bottom = 59.0
+texture_normal = ExtResource("16_h8kcn")
+texture_pressed = ExtResource("17_epat5")
+texture_hover = ExtResource("17_epat5")
+texture_disabled = ExtResource("16_h8kcn")
+texture_click_mask = ExtResource("18_4dsjj")
+
+[connection signal="pressed" from="Play/Btn" to="." method="start_level"]
+[connection signal="pressed" from="UI/LevelLabel/Back" to="." method="back_to_start"]

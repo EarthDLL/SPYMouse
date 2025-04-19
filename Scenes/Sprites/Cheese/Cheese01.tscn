@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3bta2d5i436m"]
+
+[ext_resource type="PackedScene" uid="uid://dbuebbt0st5es" path="res://Scenes/Sprites/Cheese/Cheese.tscn" id="1_0ims1"]
+[ext_resource type="Texture2D" uid="uid://41bvhrv7x6fe" path="res://Resource/sprites/cheese02.png" id="2_t4l3b"]
+
+[node name="Cheese" instance=ExtResource("1_0ims1")]
+single_score = 15
+type = 1
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_t4l3b")

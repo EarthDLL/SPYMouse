@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=6 format=3 uid="uid://dd348oip73lhq"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_v63c0"]
+[ext_resource type="Script" path="res://Scripts/Classes/LevelInfo.gd" id="2_lcfh5"]
+
+[sub_resource type="Resource" id="Resource_0vc01"]
+script = ExtResource("1_v63c0")
+type = 4
+value = 0.0
+
+[sub_resource type="Resource" id="Resource_xu23i"]
+script = ExtResource("1_v63c0")
+type = 2
+value = 3.0
+
+[sub_resource type="Resource" id="Resource_gaffm"]
+script = ExtResource("1_v63c0")
+type = 3
+value = 20.0
+
+[resource]
+script = ExtResource("2_lcfh5")
+level_name = "Two By Two"
+belong_world = 1
+level_id = 110
+level_index = "1-10"
+achievements = Array[ExtResource("1_v63c0")]([SubResource("Resource_0vc01"), SubResource("Resource_xu23i"), SubResource("Resource_gaffm")])
+scene_path = "res://Scenes/Levels/World1/Level10.tscn"

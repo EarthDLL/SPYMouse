@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=6 format=3 uid="uid://2amkt51i5wpd"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_husry"]
+[ext_resource type="Script" path="res://Scripts/Classes/LevelInfo.gd" id="2_npfoj"]
+
+[sub_resource type="Resource" id="Resource_v7d7k"]
+script = ExtResource("1_husry")
+type = 4
+value = 0.0
+
+[sub_resource type="Resource" id="Resource_7fwyh"]
+script = ExtResource("1_husry")
+type = 2
+value = 3.0
+
+[sub_resource type="Resource" id="Resource_hytg4"]
+script = ExtResource("1_husry")
+type = 3
+value = 10.0
+
+[resource]
+script = ExtResource("2_npfoj")
+level_name = "Mouse Holes"
+belong_world = 1
+level_id = 108
+level_index = "1-8"
+achievements = Array[ExtResource("1_husry")]([SubResource("Resource_v7d7k"), SubResource("Resource_7fwyh"), SubResource("Resource_hytg4")])
+scene_path = "res://Scenes/Levels/World1/Level8.tscn"

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://butxvt8wsf12l"]
+
+[ext_resource type="PackedScene" uid="uid://dbuebbt0st5es" path="res://Scenes/Sprites/Cheese/Cheese.tscn" id="1_ussbx"]
+[ext_resource type="Texture2D" uid="uid://weoy1120u3e4" path="res://Resource/sprites/cheese03.png" id="2_3lebu"]
+
+[node name="Cheese" instance=ExtResource("1_ussbx")]
+single_score = 20
+type = 2
+weight_rate = 0.8
+metadata/_edit_vertical_guides_ = [-59.0]
+metadata/_edit_horizontal_guides_ = [-22.0]
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_3lebu")
+
+[node name="CollectShape" parent="." index="3"]
+position = Vector2(0, 3)

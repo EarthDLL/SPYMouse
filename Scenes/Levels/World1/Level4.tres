@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=6 format=3 uid="uid://b83swgrpbfuw1"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_o78gt"]
+[ext_resource type="Script" path="res://Scripts/Classes/LevelInfo.gd" id="2_njyod"]
+
+[sub_resource type="Resource" id="Resource_a6v28"]
+script = ExtResource("1_o78gt")
+type = 2
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_8geq3"]
+script = ExtResource("1_o78gt")
+type = 6
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_hi7vm"]
+script = ExtResource("1_o78gt")
+type = 1
+value = 100.0
+
+[resource]
+script = ExtResource("2_njyod")
+level_name = "Catch Me If You Can"
+belong_world = 1
+level_id = 104
+level_index = "1-4"
+achievements = Array[ExtResource("1_o78gt")]([SubResource("Resource_a6v28"), SubResource("Resource_8geq3"), SubResource("Resource_hi7vm")])
+scene_path = "res://Scenes/Levels/World1/Level4.tscn"

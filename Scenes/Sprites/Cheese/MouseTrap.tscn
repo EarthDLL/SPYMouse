@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt4162t1jb6o1"]
+
+[ext_resource type="Texture2D" uid="uid://dgm60gaaigwja" path="res://Resource/sprites/mouse_trap.png" id="1_cefw2"]
+[ext_resource type="Script" path="res://Scenes/Sprites/Cheese/MouseTrap.gd" id="1_pfso3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frwdl"]
+radius = 32.0
+
+[node name="MouseTrap" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_pfso3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("1_cefw2")
+hframes = 8
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_frwdl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

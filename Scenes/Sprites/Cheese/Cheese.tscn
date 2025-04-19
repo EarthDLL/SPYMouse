@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbuebbt0st5es"]
+
+[ext_resource type="Script" path="res://Scenes/Sprites/Cheese/Cheese.gd" id="1_psyni"]
+[ext_resource type="Texture2D" uid="uid://udpnvuqr63ob" path="res://Resource/sprites/cheese01.png" id="1_y6l6b"]
+[ext_resource type="Texture2D" uid="uid://v4cke1vlq8lp" path="res://Resource/sprites/cheesetrail_effect.png" id="2_kqxhj"]
+[ext_resource type="Texture2D" uid="uid://dtuy7v15pyrvk" path="res://Resource/sprites/shadow_generic.png" id="3_y3ty3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3byxn"]
+
+[node name="Cheese" type="CharacterBody2D" node_paths=PackedStringArray("get_effect", "navigation", "sprite")]
+z_index = 45
+z_as_relative = false
+collision_layer = 4
+collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_psyni")
+get_effect = NodePath("GetEffect")
+weight_rate = 0.95
+navigation = NodePath("Navigation")
+sprite = NodePath("Sprite2D")
+follow_length = 25.0
+collect_sound_id = "GetFood"
+
+[node name="GetEffect" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -19)
+texture = ExtResource("2_kqxhj")
+hframes = 5
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("3_y3ty3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y6l6b")
+hframes = 16
+
+[node name="CollectShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3byxn")
+
+[node name="Navigation" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+path_metadata_flags = 0

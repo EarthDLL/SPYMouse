@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcda1lat0ycyf"]
+
+[ext_resource type="Script" path="res://Scenes/Layers/Game.gd" id="1_xnje0"]
+[ext_resource type="PackedScene" uid="uid://c342p6mgdh6vx" path="res://Scenes/Levels/Common/Result.tscn" id="2_uuef6"]
+[ext_resource type="PackedScene" uid="uid://qjstn0i1xmeu" path="res://Scenes/Levels/Common/FinishedLabel.tscn" id="3_ix6fa"]
+[ext_resource type="AudioStream" uid="uid://nd7xwdh6s3oa" path="res://Resource/Music/CM_Apartments_Win.ogg" id="4_b47x4"]
+[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="4_ox6oe"]
+[ext_resource type="AudioStream" uid="uid://bkyurto4m4rdr" path="res://Resource/sound/ui/ui_button.wav" id="6_hnjwt"]
+[ext_resource type="AudioStream" uid="uid://cqwsagiqr0kj6" path="res://Resource/sound/ui/ui_wobble.wav" id="7_q5und"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_xnje0")
+result_scene = ExtResource("2_uuef6")
+finished_label = ExtResource("3_ix6fa")
+global_sounds = {
+"Finish": ExtResource("4_b47x4")
+}
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_ox6oe")
+sounds = {
+"Pop": ExtResource("7_q5und")
+}
+
+[node name="Button" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hnjwt")
+max_polyphony = 4

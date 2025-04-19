@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctt5syxdhwhcc"]
+
+[ext_resource type="Texture2D" uid="uid://dxs48qig5rfl8" path="res://Resource/ui/mouse_pose/world01/mm_mouse.png" id="1_t5iqu"]
+[ext_resource type="Texture2D" uid="uid://d1o37w04ttb0l" path="res://Resource/ui/mouse_pose/world01/mm_mouse_open.png" id="2_eqfw3"]
+
+[node name="Mouse" type="Sprite2D"]
+texture = ExtResource("1_t5iqu")
+
+[node name="Eyes" type="Sprite2D" parent="."]
+position = Vector2(-1, -65)
+texture = ExtResource("2_eqfw3")

@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://dq33ukpjy6ukm"]
+
+[ext_resource type="Texture2D" uid="uid://v3oc5xdhc333" path="res://Resource/sprites/sleep_ptcl.png" id="1_cklac"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30pcv"]
+atlas = ExtResource("1_cklac")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eomw1"]
+atlas = ExtResource("1_cklac")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75i1y"]
+atlas = ExtResource("1_cklac")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c43c"]
+atlas = ExtResource("1_cklac")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68q0h"]
+atlas = ExtResource("1_cklac")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cidve"]
+atlas = ExtResource("1_cklac")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngrj4"]
+atlas = ExtResource("1_cklac")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qud2m"]
+atlas = ExtResource("1_cklac")
+region = Rect2(224, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30pcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eomw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75i1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c43c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68q0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cidve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngrj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qud2m")
+}],
+"loop": true,
+"name": &"BrownCat",
+"speed": 6.0
+}]

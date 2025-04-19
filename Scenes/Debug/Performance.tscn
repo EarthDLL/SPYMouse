@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cinugah15f8bc"]
+
+[ext_resource type="Script" path="res://Scenes/Debug/Performance.gd" id="1_iauq5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xnc25"]
+line_spacing = 0.0
+font_size = 15
+
+[node name="Debug" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_iauq5")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -263.0
+offset_right = 562.0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_xnc25")
+vertical_alignment = 2
