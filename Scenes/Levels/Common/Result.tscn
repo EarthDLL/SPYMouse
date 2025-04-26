@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://c342p6mgdh6vx"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Common/Result.gd" id="1_u2w0w"]
+[ext_resource type="Script" uid="uid://ucnl5kvlph8q" path="res://Scenes/Levels/Common/Result.gd" id="1_u2w0w"]
 [ext_resource type="Texture2D" uid="uid://cdd2e0gpf7f6k" path="res://Resource/ui/results_popup.png" id="2_y7sms"]
 [ext_resource type="FontFile" uid="uid://br5fvxaldccrm" path="res://Resource/Fonts/SPYmouse_efigs.ttf" id="3_xmobr"]
 [ext_resource type="Texture2D" uid="uid://c8l0b04tfd8je" path="res://Resource/ui/ui_cheese.png" id="4_qpcb4"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://vnmdhg823vm3" path="res://Resource/ui/btn_pause_retry_over.png" id="11_fwln5"]
 [ext_resource type="Texture2D" uid="uid://gemxui0cshbr" path="res://Resource/ui/goals/star_time_gold.png" id="12_i4b0n"]
 [ext_resource type="Texture2D" uid="uid://b6yy6mira23ry" path="res://Resource/ui/rosetta_popup_mid.png" id="13_52kn4"]
-[ext_resource type="Script" path="res://Scenes/Levels/Common/AchievementIcon.gd" id="13_y4nn5"]
+[ext_resource type="Script" uid="uid://dyaxiecvjujmc" path="res://Scenes/Levels/Common/AchievementIcon.gd" id="13_y4nn5"]
 [ext_resource type="Texture2D" uid="uid://1cktilth6is8" path="res://Resource/ui/rosetta_popup_right.png" id="14_auggs"]
 [ext_resource type="Texture2D" uid="uid://drugb8sj1ur6g" path="res://Resource/ui/btn_kiska_wait.png" id="17_7oayu"]
 [ext_resource type="AudioStream" uid="uid://ca5aungaecfnh" path="res://Resource/sound/ui/ui_scorecount_loop.wav" id="17_53deo"]

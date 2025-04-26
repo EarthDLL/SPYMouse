@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dblfy2cb3fmu4"]
 
 [ext_resource type="PackedScene" uid="uid://cdcd8i0l6shwx" path="res://Scenes/UI/TextBar.tscn" id="1_ajgtr"]
-[ext_resource type="Script" path="res://Scenes/UI/setting_bar.gd" id="2_jgh0p"]
+[ext_resource type="Script" uid="uid://b4bwfs3y4ge2l" path="res://Scenes/UI/setting_bar.gd" id="2_jgh0p"]
 
 [node name="SettingBar" instance=ExtResource("1_ajgtr")]
 script = ExtResource("2_jgh0p")

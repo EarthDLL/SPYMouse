@@ -1,11 +1,8 @@
 [gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://cajs3og65atqa"]
 
-[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_3t183"]
+[ext_resource type="Script" uid="uid://b4au2fv05n4ls" path="res://Scripts/Classes/Achievement.gd" id="1_3t183"]
 
 [resource]
 script = ExtResource("1_3t183")
-mode = 0
-type = "Founded"
-description = "不要被发现了"
-min_value = 0.0
-max_value = 1.0
+type = 1
+value = 0.0

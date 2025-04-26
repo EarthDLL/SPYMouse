@@ -1,11 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://driw67e7078en"]
+[gd_scene load_steps=15 format=3 uid="uid://driw67e7078en"]
 
 [ext_resource type="PackedScene" uid="uid://w821cv67qtui" path="res://Scenes/Levels/BossLevel.tscn" id="1_yskvx"]
+[ext_resource type="Resource" uid="uid://cbrqtmfuricp4" path="res://Scenes/Levels/World1/Level-Boss.tres" id="2_1b023"]
 [ext_resource type="Texture2D" uid="uid://cxy5bescpr1vq" path="res://Resource/MapBG/map736/map736.jpg" id="2_vf8mn"]
+[ext_resource type="Script" uid="uid://dehp13f7igwvr" path="res://Scripts/Classes/BossLevelRespawner.gd" id="2_vibig"]
 [ext_resource type="Texture2D" uid="uid://dpq2j4ut6n6w3" path="res://Resource/MapBG/map736/map736_1.jpg" id="3_q31kt"]
 [ext_resource type="AudioStream" uid="uid://l0p0jx78axka" path="res://Resource/Music/CM_Alleys.ogg" id="4_6lyjb"]
 [ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="5_2xxsl"]
 [ext_resource type="PackedScene" uid="uid://ck5qqv3nnlhm2" path="res://Scenes/Sprites/Cats/BossCat.tscn" id="6_fdxyp"]
+
+[sub_resource type="Resource" id="Resource_p4cjo"]
+script = ExtResource("2_vibig")
+store_x_vectors = [737.0, 2228.0]
+player_respawn_pos = [Vector2(474, -114), Vector2(2120, 205)]
+cat_respawn_index = [7, 18]
+metadata/_custom_type_script = "uid://dehp13f7igwvr"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asrf7"]
 size = Vector2(73, 72)
@@ -25,8 +34,10 @@ size = Vector2(231, 74)
 [node name="BossLevel" node_paths=PackedStringArray("signaler", "camera") instance=ExtResource("1_yskvx")]
 signaler = NodePath("Player/Visible")
 camera = NodePath("BossCat/Camera2D")
-metadata/_edit_vertical_guides_ = [-1024.0, 3068.0]
-metadata/_edit_horizontal_guides_ = [-383.0, -384.0]
+respawner = SubResource("Resource_p4cjo")
+level_info = ExtResource("2_1b023")
+metadata/_edit_vertical_guides_ = [737.0, 471.0, 2227.0, 2120.0, 2228.0]
+metadata/_edit_horizontal_guides_ = [-113.0, 205.0, -71.0]
 
 [node name="1" type="Sprite2D" parent="Bg" index="0"]
 texture = ExtResource("2_vf8mn")
@@ -105,8 +116,10 @@ shape = SubResource("RectangleShape2D_2q7wy")
 
 [node name="Player" parent="." index="3"]
 position = Vector2(-780, 0)
+speed = 3.0
 
 [node name="Visible" type="VisibleOnScreenNotifier2D" parent="Player" index="7"]
+visible = false
 position = Vector2(-2.49998, -11.5)
 scale = Vector2(3.85, 3.45)
 
@@ -114,11 +127,12 @@ scale = Vector2(3.85, 3.45)
 stream = ExtResource("4_6lyjb")
 
 [node name="CatPath" parent="." index="8" instance=ExtResource("5_2xxsl")]
-points = PackedVector2Array(-607, 0, -506, 0, -447, -81, -251, -79, -80, 63, 198, 61, 351, -71, 744, -73, 744, 175, 1050, 175, 1154, -53, 1337, -53, 1379, 51, 1609, 49, 1610, -102, 1958, -104, 1957, 179, 2223, 178, 2318, 75, 2317, -104, 2368, -150, 2603, -150, 2712, -35, 3009, -35)
+points = PackedVector2Array(-607, 0, -506, 0, -447, -81, -251, -79, -80, 63, 198, 61, 351, -71, 613.899, -72.3379, 744, -73, 744, 175, 1050, 175, 1154, -53, 1337, -53, 1379, 51, 1609, 49, 1610, -102, 1958, -104, 1957, 179, 2223, 178, 2318, 75, 2317, -104, 2368, -150, 2603, -150, 2712, -35, 3009, -35)
 
 [node name="BossCat" parent="." index="9" instance=ExtResource("6_fdxyp")]
 position = Vector2(-609, 4)
 state = 1
+speed = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="BossCat" index="5"]
 limit_left = -1024

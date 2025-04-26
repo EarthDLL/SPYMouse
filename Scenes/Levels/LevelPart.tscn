@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1pboitrb00yq"]
+
+[ext_resource type="Script" uid="uid://iy3sjrky7a8u" path="res://Scenes/Levels/LevelPart.gd" id="1_go61o"]
+[ext_resource type="NavigationPolygon" uid="uid://bunwyui4sfsvo" path="res://Scenes/Levels/Navigation.tres" id="2_31w5d"]
+
+[node name="Part1" type="Node2D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_go61o")
+camera = NodePath("Camera2D")
+
+[node name="Bg" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="CatPaths" type="Node2D" parent="."]
+
+[node name="Region" type="NavigationRegion2D" parent="."]
+navigation_polygon = ExtResource("2_31w5d")
+
+[node name="Camera2D" type="Camera2D" parent="."]

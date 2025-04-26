@@ -9,7 +9,7 @@ var last_anima : Array[String] = []
 @export var global_effects : Dictionary = {}
 @onready var sound_player: SoundPlayer = $SoundPlayer
 @onready var button: AudioStreamPlayer = $Button
-
+var last_level_point_id : int = -1
 
 #传入的位置是一个全局位置
 func animaed_change_scene(scene : PackedScene , bg : String = "yellow", shape : String = "hole" , pos : Vector2 = Vector2.ZERO) -> void:
@@ -53,7 +53,19 @@ func jump_to_level( id : int ) -> void:
 		if is_instance_valid(info):
 			get_tree().change_scene_to_file(info.scene_path)
 	
-
+func save_level_cache(info : Dictionary) -> void:
+	var file := FileAccess.open("user://level_cache.json",FileAccess.WRITE)
+	if is_instance_valid(file):
+		file.store_string(JSON.stringify(info))
+		file.close()
+		last_level_point_id = info.get("level_id",-1)
+		
+func get_level_cache() -> Dictionary:
+	var file := FileAccess.open("user://level_cache.json",FileAccess.READ)
+	if is_instance_valid(file):
+		var info : Dictionary = JSON.parse_string(file.get_as_text()) as Dictionary
+		return info
+	return {}
 func get_global_effect(id : String) -> EffectTexture:
 	if global_effects.has(id):
 		return global_effects.get(id,null) as EffectTexture

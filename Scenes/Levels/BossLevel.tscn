@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://w821cv67qtui"]
+[gd_scene load_steps=11 format=3 uid="uid://w821cv67qtui"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/BossLevel.gd" id="1_xhnxx"]
+[ext_resource type="Script" uid="uid://cxwf3so610v38" path="res://Scenes/Levels/BossLevel.gd" id="1_xhnxx"]
 [ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="2_f11ck"]
 [ext_resource type="PackedScene" uid="uid://25enveqr4jbj" path="res://Scenes/Nodes/PlayerPath.tscn" id="3_syt17"]
 [ext_resource type="PackedScene" uid="uid://x4cac5vgqxm7" path="res://Scenes/Levels/Common/Data.tscn" id="4_kejn0"]
-[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="5_utxna"]
+[ext_resource type="Script" uid="uid://c3cq058lcherf" path="res://Scripts/Classes/SoundPlayer.gd" id="5_utxna"]
 [ext_resource type="AudioStream" uid="uid://gmqvsbyq8ruo" path="res://Resource/sound/ui/mouse_dies.wav" id="6_l5bl5"]
 [ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="6_lqlvd"]
 [ext_resource type="AudioStream" uid="uid://csmg2flhys7xc" path="res://Resource/sound/ui/ui_newroom.wav" id="7_y8ijf"]
+[ext_resource type="Script" uid="uid://bxubqkdddjxbl" path="res://Scenes/Levels/Common/FailEffect.gd" id="9_nq28u"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oidsc"]
 parsed_geometry_type = 1
@@ -44,3 +45,22 @@ sounds = {
 stream = ExtResource("6_lqlvd")
 autoplay = true
 bus = &"Music"
+
+[node name="FailEffect" type="Node2D" parent="."]
+process_mode = 3
+visible = false
+z_index = 100
+z_as_relative = false
+script = ExtResource("9_nq28u")
+
+[node name="Label" type="Label" parent="FailEffect"]
+visible = false
+offset_left = -36.0
+offset_top = -77.0
+offset_right = 36.0
+offset_bottom = -46.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "失败！"

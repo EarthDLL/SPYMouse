@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cut2igj6ricos"]
 
-[ext_resource type="Script" path="res://Scenes/Init/Init.gd" id="1_hv6kl"]
+[ext_resource type="Script" uid="uid://br0vfn17a238g" path="res://Scenes/Init/Init.gd" id="1_hv6kl"]
 [ext_resource type="PackedScene" uid="uid://bt0mhcdbvw7c2" path="res://Scenes/Init/InitVideo.tscn" id="2_xfi1n"]
 [ext_resource type="Texture2D" uid="uid://b1ndi011is8er" path="res://Resource/Init/ea_splash.png" id="3_s2bx4"]
 

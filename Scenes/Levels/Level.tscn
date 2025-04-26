@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2ey2q3q6pner"]
+[gd_scene load_steps=9 format=3 uid="uid://c2ey2q3q6pner"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_2nhsp"]
-[ext_resource type="Script" path="res://Scenes/Levels/LevelPart.gd" id="2_4v7v4"]
+[ext_resource type="Script" uid="uid://dr4l4a7lhonns" path="res://Scenes/Levels/Level.gd" id="1_2nhsp"]
 [ext_resource type="PackedScene" uid="uid://25enveqr4jbj" path="res://Scenes/Nodes/PlayerPath.tscn" id="2_lln7s"]
-[ext_resource type="NavigationPolygon" uid="uid://bunwyui4sfsvo" path="res://Scenes/Levels/Navigation.tres" id="4_wt4ew"]
+[ext_resource type="PackedScene" uid="uid://b1pboitrb00yq" path="res://Scenes/Levels/LevelPart.tscn" id="3_etd3f"]
 [ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="5_qh2dg"]
 [ext_resource type="AudioStream" uid="uid://gmqvsbyq8ruo" path="res://Resource/sound/ui/mouse_dies.wav" id="5_vqbjt"]
-[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="6_vrc30"]
+[ext_resource type="Script" uid="uid://c3cq058lcherf" path="res://Scripts/Classes/SoundPlayer.gd" id="6_vrc30"]
 [ext_resource type="PackedScene" uid="uid://x4cac5vgqxm7" path="res://Scenes/Levels/Common/Data.tscn" id="7_s2bfw"]
 [ext_resource type="AudioStream" uid="uid://csmg2flhys7xc" path="res://Resource/sound/ui/ui_newroom.wav" id="7_yonl1"]
 
@@ -16,21 +15,7 @@ data = NodePath("Data")
 
 [node name="PlayerPath" parent="." instance=ExtResource("2_lln7s")]
 
-[node name="Part1" type="Node2D" parent="." node_paths=PackedStringArray("camera")]
-script = ExtResource("2_4v7v4")
-camera = NodePath("Camera2D")
-
-[node name="Bg" type="Node2D" parent="Part1"]
-metadata/_edit_lock_ = true
-
-[node name="Walls" type="Node2D" parent="Part1"]
-
-[node name="CatPaths" type="Node2D" parent="Part1"]
-
-[node name="Region" type="NavigationRegion2D" parent="Part1"]
-navigation_polygon = ExtResource("4_wt4ew")
-
-[node name="Camera2D" type="Camera2D" parent="Part1"]
+[node name="Part1" parent="." instance=ExtResource("3_etd3f")]
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qh2dg")
@@ -46,3 +31,5 @@ sounds = {
 }
 
 [node name="Data" parent="." instance=ExtResource("7_s2bfw")]
+
+[editable path="Part1"]

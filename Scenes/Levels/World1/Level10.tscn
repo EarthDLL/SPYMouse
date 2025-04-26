@@ -131,3 +131,5 @@ position = Vector2(-361, -190)
 [node name="StupidCat2" parent="Part1" index="20" instance=ExtResource("12_uff5p")]
 position = Vector2(362, 191)
 id = 1
+
+[editable path="Part1"]

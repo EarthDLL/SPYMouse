@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbdsqodx6d5ih"]
 
-[ext_resource type="Script" path="res://Scenes/Init/Init.gd" id="1_bgk0m"]
+[ext_resource type="Script" uid="uid://br0vfn17a238g" path="res://Scenes/Init/Init.gd" id="1_bgk0m"]
 [ext_resource type="PackedScene" uid="uid://bhc4qoar58imh" path="res://Scenes/Init/InitGodot.tscn" id="2_dltkb"]
 [ext_resource type="FontFile" uid="uid://br5fvxaldccrm" path="res://Resource/Fonts/SPYmouse_efigs.ttf" id="4_mobei"]
 [ext_resource type="Texture2D" uid="uid://esd0wx7na1r4" path="res://Resource/EarthDLL.png" id="4_vr2ki"]

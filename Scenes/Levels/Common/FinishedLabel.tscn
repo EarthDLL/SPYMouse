@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://qjstn0i1xmeu"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Common/FinishLabel.gd" id="1_xna5i"]
+[ext_resource type="Script" uid="uid://diphsd0js0b1k" path="res://Scenes/Levels/Common/FinishLabel.gd" id="1_xna5i"]
 [ext_resource type="FontVariation" uid="uid://dpnyvd0lccapo" path="res://Resource/Fonts/TotalFont.tres" id="2_tj0d7"]
 
 [node name="FinishedLabel" type="CanvasLayer"]

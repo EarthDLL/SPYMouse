@@ -13,7 +13,10 @@ var textures : Array[Texture2D] = [
 	load("uid://bee2m2kbjo3ot")
 ]
 var is_finished := false
+var is_started := false
+#is_start为true后才开始检测玩家
 @onready var view: RayCast2D = $View
+@onready var catch_area: Area2D = $CatchArea
 
 func set_texture(id : int):
 	if id < textures.size():
@@ -47,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		if direction != Vector2():
 			set_direction_by_vector2(direction)
 			play_direction_anima(view_direction,"")
-	if !is_finished:
+	if !is_finished && is_started == true:
 		scan_player()
 
 func scan_player() -> void:
@@ -60,6 +63,13 @@ func scan_player() -> void:
 			if angle > -1.05 && angle < 1.05:
 				emit_signal("fail")
 				is_finished = true
+				return
+	for body in catch_area.get_overlapping_bodies():
+		if body == player && player.is_active():
+			body.be_catched(CATCH_TYPE.CATCH)
+			sound_player.play_sound("Fight")
+			hide()
+			set_physics_process(false)
 
 func draw_circle_arc_poly(center : Vector2, radius : float, angle_from : float, angle_to : float, color : Color):
 	var nb_points := 32

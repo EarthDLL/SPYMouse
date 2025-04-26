@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c1anr5pg2nitu"]
 
-[ext_resource type="Script" path="res://Scenes/Sprites/Hole/MouseHole.gd" id="1_xboe6"]
+[ext_resource type="Script" uid="uid://dgu1qt74hlop5" path="res://Scenes/Sprites/Hole/MouseHole.gd" id="1_xboe6"]
 [ext_resource type="Texture2D" uid="uid://cwsb34m7veiv4" path="res://Resource/sprites/mouse_hole_u.png" id="1_y6wxh"]
 [ext_resource type="Texture2D" uid="uid://k3bja8oj5w3e" path="res://Resource/sprites/flare.png" id="2_21ndq"]
-[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="4_dcmsd"]
+[ext_resource type="Script" uid="uid://c3cq058lcherf" path="res://Scripts/Classes/SoundPlayer.gd" id="4_dcmsd"]
 [ext_resource type="AudioStream" uid="uid://dvde05rxnkgoo" path="res://Resource/sound/mousehole_enter.wav" id="5_tgt6l"]
 [ext_resource type="AudioStream" uid="uid://c17vf31rchnce" path="res://Resource/sound/mousehole_exit.wav" id="6_o5pb2"]
 

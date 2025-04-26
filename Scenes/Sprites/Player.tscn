@@ -1,12 +1,12 @@
 [gd_scene load_steps=35 format=3 uid="uid://c2lbjxaqnvmce"]
 
-[ext_resource type="Script" path="res://Scenes/Sprites/Player.gd" id="1_ln0pj"]
+[ext_resource type="Script" uid="uid://ctx5ewmggondy" path="res://Scenes/Sprites/Player.gd" id="1_ln0pj"]
 [ext_resource type="Texture2D" uid="uid://b16u0hglo5w4s" path="res://Resource/sprites/player_main.png" id="2_2kpgt"]
-[ext_resource type="Shader" path="res://EngineResources/Shaders/Player.gdshader" id="2_rf86v"]
-[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="3_u855s"]
+[ext_resource type="Shader" uid="uid://cxx60la4xs0v3" path="res://EngineResources/Shaders/Player.gdshader" id="2_rf86v"]
+[ext_resource type="Script" uid="uid://c3cq058lcherf" path="res://Scripts/Classes/SoundPlayer.gd" id="3_u855s"]
 [ext_resource type="AudioStream" uid="uid://dwkck5uajkfj2" path="res://Resource/sound/pickup_food.wav" id="4_o4t4y"]
 [ext_resource type="AudioStream" uid="uid://cjj351noqlonx" path="res://Resource/sound/pickup_toy.wav" id="5_rfh5d"]
-[ext_resource type="Script" path="res://Scenes/Sprites/Smokes.gd" id="7_f2m5h"]
+[ext_resource type="Script" uid="uid://djfjo0176gux6" path="res://Scenes/Sprites/Smokes.gd" id="7_f2m5h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tmshu"]
 shader = ExtResource("2_rf86v")
@@ -411,29 +411,29 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vx7t4"]
 _data = {
-"CheckMap": SubResource("Animation_4xyy1"),
-"Down": SubResource("Animation_urlhf"),
-"EatFood": SubResource("Animation_1fth1"),
-"Left": SubResource("Animation_o00rp"),
-"R1": SubResource("Animation_aae7p"),
-"R10": SubResource("Animation_qqoqo"),
-"R11": SubResource("Animation_7pt6q"),
-"R12": SubResource("Animation_kb70p"),
-"R2": SubResource("Animation_0buuw"),
-"R3": SubResource("Animation_wtci4"),
-"R4": SubResource("Animation_m337f"),
-"R5": SubResource("Animation_6a3i1"),
-"R6": SubResource("Animation_70qb4"),
-"R7": SubResource("Animation_055ts"),
-"R8": SubResource("Animation_bj50t"),
-"R9": SubResource("Animation_rheu3"),
-"RESET": SubResource("Animation_ypxa3"),
-"Right": SubResource("Animation_5sv3l"),
-"StandDown": SubResource("Animation_w6ibi"),
-"StandDownLeft": SubResource("Animation_v8w4f"),
-"StandDownRight": SubResource("Animation_sdpl7"),
-"StandUp": SubResource("Animation_5dpxj"),
-"Up": SubResource("Animation_xlvay")
+&"CheckMap": SubResource("Animation_4xyy1"),
+&"Down": SubResource("Animation_urlhf"),
+&"EatFood": SubResource("Animation_1fth1"),
+&"Left": SubResource("Animation_o00rp"),
+&"R1": SubResource("Animation_aae7p"),
+&"R10": SubResource("Animation_qqoqo"),
+&"R11": SubResource("Animation_7pt6q"),
+&"R12": SubResource("Animation_kb70p"),
+&"R2": SubResource("Animation_0buuw"),
+&"R3": SubResource("Animation_wtci4"),
+&"R4": SubResource("Animation_m337f"),
+&"R5": SubResource("Animation_6a3i1"),
+&"R6": SubResource("Animation_70qb4"),
+&"R7": SubResource("Animation_055ts"),
+&"R8": SubResource("Animation_bj50t"),
+&"R9": SubResource("Animation_rheu3"),
+&"RESET": SubResource("Animation_ypxa3"),
+&"Right": SubResource("Animation_5sv3l"),
+&"StandDown": SubResource("Animation_w6ibi"),
+&"StandDownLeft": SubResource("Animation_v8w4f"),
+&"StandDownRight": SubResource("Animation_sdpl7"),
+&"StandUp": SubResource("Animation_5dpxj"),
+&"Up": SubResource("Animation_xlvay")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_leubu"]
@@ -447,7 +447,6 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 safe_margin = 0.5
 script = ExtResource("1_ln0pj")
-speed = 2.0
 collect_item_follow_length = 28.0
 metadata/_edit_vertical_guides_ = [-32.0]
 
@@ -466,7 +465,7 @@ shape = SubResource("CapsuleShape2D_7qkvl")
 
 [node name="Anima" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_vx7t4")
+&"": SubResource("AnimationLibrary_vx7t4")
 }
 playback_auto_capture = false
 

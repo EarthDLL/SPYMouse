@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsebqj4hr1tjj"]
+[gd_scene load_steps=14 format=3 uid="uid://dsebqj4hr1tjj"]
 
 [ext_resource type="Texture2D" uid="uid://b7h33fhstjrg5" path="res://Resource/ui/popup_pause_2.png" id="1_ppj35"]
-[ext_resource type="Script" path="res://Scenes/UI/PauseBar.gd" id="1_s1d3t"]
+[ext_resource type="Script" uid="uid://cgdacrl3nrint" path="res://Scenes/UI/PauseBar.gd" id="1_s1d3t"]
 [ext_resource type="Texture2D" uid="uid://cxmw7lli65gek" path="res://Resource/ui/btn_pause_home.png" id="2_830yw"]
 [ext_resource type="PackedScene" uid="uid://cpn2q2r1n3ibn" path="res://Scenes/Layers/BaseLayer.tscn" id="2_oov15"]
 [ext_resource type="Texture2D" uid="uid://do42o1ex81fnk" path="res://Resource/ui/btn_pause_home_over.png" id="3_ci602"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cou5rn0hoit2p" path="res://Resource/ui/btn_pause_continue.png" id="7_35wrl"]
 [ext_resource type="Texture2D" uid="uid://cftjbf3tedrju" path="res://Resource/ui/btn_pause_continue_over.png" id="8_ssiba"]
 [ext_resource type="Texture2D" uid="uid://b0o17g1n8n1hm" path="res://Resource/ui/pause_dashed_line.png" id="9_rbdjj"]
+[ext_resource type="Texture2D" uid="uid://b8xbcjc6nb6k4" path="res://Resource/ui/boss_face.png" id="11_33nqa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xk283"]
 font_size = 40
@@ -229,6 +230,17 @@ offset_top = 140.72
 offset_right = 0.117981
 offset_bottom = 140.72
 texture = ExtResource("9_rbdjj")
+
+[node name="BossIcon" type="TextureRect" parent="PauseBar/Container/Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 132.0
+offset_top = 335.0
+offset_right = 384.0
+offset_bottom = 513.2
+texture = ExtResource("11_33nqa")
+expand_mode = 1
 
 [node name="UI" parent="PauseBar" instance=ExtResource("2_oov15")]
 

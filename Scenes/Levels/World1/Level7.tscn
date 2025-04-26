@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://coy2pecrivldb" path="res://Resource/MapBG/map98/map.jpg" id="3_rfhv3"]
 [ext_resource type="Texture2D" uid="uid://cfbogyteo124r" path="res://Resource/MapBG/map98/map_padleft.jpg" id="4_uxmlr"]
 [ext_resource type="Texture2D" uid="uid://do36eqk34mc2m" path="res://Resource/MapBG/map98/map_padright.jpg" id="5_ed6tq"]
-[ext_resource type="Script" path="res://Scenes/Levels/LevelPart.gd" id="6_bwlms"]
 [ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="6_pi84f"]
 [ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="7_kv2c3"]
 [ext_resource type="PackedScene" uid="uid://butxvt8wsf12l" path="res://Scenes/Sprites/Cheese/Cheese02.tscn" id="8_875ef"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c7xiljobxi2rc" path="res://Scenes/Sprites/Cats/SleepSpot.tscn" id="11_4tq44"]
 [ext_resource type="Texture2D" uid="uid://curh203ihsloj" path="res://Resource/MapBG/map98/map98_1.jpg" id="12_bsan2"]
 [ext_resource type="PackedScene" uid="uid://cbrmfmy6fdtpu" path="res://Scenes/Sprites/Access/AccessEmpty.tscn" id="12_ptc8r"]
+[ext_resource type="PackedScene" uid="uid://b1pboitrb00yq" path="res://Scenes/Levels/LevelPart.tscn" id="13_8dk64"]
 [ext_resource type="Texture2D" uid="uid://c6qenibii6xre" path="res://Resource/MapBG/map98/map98_1_padleft.jpg" id="13_gm3j8"]
 [ext_resource type="Texture2D" uid="uid://dqo8r3bbtyw1s" path="res://Resource/MapBG/map98/map98_1_padright.jpg" id="14_p1lum"]
 [ext_resource type="PackedScene" uid="uid://re5n37m18uxt" path="res://Scenes/Sprites/Cheese/LittleCheese.tscn" id="17_e3o8u"]
@@ -27,10 +27,10 @@ source_geometry_mode = 1
 source_geometry_group_name = &"Blocker"
 agent_radius = 15.0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_i2af2"]
-vertices = PackedVector2Array(399.531, -200, 421.938, -283.906, 421.063, -21.1484, 393.156, -176.227, 387.742, -155, 393.156, -223.773, -486.773, -155.156, -500.742, -141.18, -500.117, -214.148, -501.82, -14.1328, -501.203, -87.2734, -486.773, -72.8438, 375.773, -241.156, -463, -161.531, -149.18, -217.828, -439.227, -155.156, -421.844, -137.773, -150.188, -136.688, 259, -84.0078, -415.469, -114, 198.672, -92.1016, -463, -66.4688, -439.227, -72.8438, -421.844, -90.2266, 310.844, -223.758, 309.617, -219.211, 259, -225.992, 83.1797, -282.07, 382.211, -165.289, 366.719, -115.781, 319.328, -92.1016, 352, -247.531, 328.227, -241.156, 198.672, -217.922, 155.727, -196.43, 133, -202.531, 109.227, -196.156, 91.8438, -178.773, 75.1875, -141.289, 85.4688, -155, 91.8438, -131.227, 133, -107.469, 155.719, -113.547, 109.227, -113.844)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(1, 0, 5), PackedInt32Array(6, 7, 8), PackedInt32Array(9, 10, 11), PackedInt32Array(1, 5, 12), PackedInt32Array(13, 6, 8), PackedInt32Array(13, 8, 14, 15), PackedInt32Array(16, 15, 14, 17), PackedInt32Array(18, 2, 19, 16, 17, 20), PackedInt32Array(9, 11, 21), PackedInt32Array(2, 9, 21, 22), PackedInt32Array(2, 22, 23), PackedInt32Array(2, 23, 19), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(4, 28, 3), PackedInt32Array(29, 4, 2), PackedInt32Array(30, 29, 2), PackedInt32Array(1, 12, 31), PackedInt32Array(27, 1, 31, 32), PackedInt32Array(27, 32, 24), PackedInt32Array(27, 26, 33), PackedInt32Array(27, 33, 34, 35), PackedInt32Array(27, 35, 36), PackedInt32Array(27, 36, 37), PackedInt32Array(38, 27, 37, 39), PackedInt32Array(38, 39, 40), PackedInt32Array(18, 30, 2), PackedInt32Array(41, 42, 20), PackedInt32Array(41, 20, 17), PackedInt32Array(43, 41, 17), PackedInt32Array(43, 17, 38, 40)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-550, -329, -554, 34, 468, 30, 476, -345)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8dk64"]
+vertices = PackedVector2Array(-393.57, -32.8984, -424.906, -197.219, -218, -199.813, -218, -126.367, 382.813, -27.1094, 90.7578, -118.648, 380.188, -246.898, 99.8672, -226.953)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 4, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-443, -212, -406, -18, 398, -12, 395, -263, 86, -241, 77, -134, -203, -141, -203, -215)])
 parsed_geometry_type = 1
 source_geometry_mode = 1
 source_geometry_group_name = &"Blocker"
@@ -49,6 +49,7 @@ time_max = 40
 max_time_score = 50
 
 [node name="Part1" parent="." index="1" node_paths=PackedStringArray("anima_point", "access_nodes", "spawn_point")]
+visible = false
 cheese_count = 1
 anima_point = NodePath("Player")
 access_nodes = [NodePath("Door")]
@@ -110,16 +111,10 @@ position = Vector2(-8, -8)
 [node name="Spawn" type="Node2D" parent="Part1" index="11"]
 position = Vector2(20, 192)
 
-[node name="Part2" type="Node2D" parent="." index="2" node_paths=PackedStringArray("camera", "anima_point", "spawn_point")]
-visible = false
-script = ExtResource("6_bwlms")
+[node name="Part2" parent="." index="2" node_paths=PackedStringArray("anima_point", "spawn_point") instance=ExtResource("13_8dk64")]
 is_hidden = true
-camera = NodePath("Camera2D")
 anima_point = NodePath("../Part1/Player")
 spawn_point = NodePath("Spawn")
-
-[node name="Bg" type="Node2D" parent="Part2" index="0"]
-metadata/_edit_lock_ = true
 
 [node name="Main" type="Sprite2D" parent="Part2/Bg" index="0"]
 texture = ExtResource("12_bsan2")
@@ -131,8 +126,6 @@ texture = ExtResource("13_gm3j8")
 [node name="Right" type="Sprite2D" parent="Part2/Bg" index="2"]
 position = Vector2(560, 0)
 texture = ExtResource("14_p1lum")
-
-[node name="Walls" type="Node2D" parent="Part2" index="1"]
 
 [node name="1" type="StaticBody2D" parent="Part2/Walls" index="0" groups=["Wall"]]
 collision_layer = 2
@@ -180,14 +173,8 @@ collision_mask = 0
 [node name="Collision" type="CollisionPolygon2D" parent="Part2/Walls/6" index="0"]
 polygon = PackedVector2Array(-91, -30, -59, -46, -25, -50, 9, -46, 33, -36, 67, -7, 79, -3, 108, -9, 120, -2, 124, 12, 119, 22, 74, 40, 21, 48, -37, 46, -77, 32, -96, 12)
 
-[node name="CatPaths" type="Node2D" parent="Part2" index="2"]
-
-[node name="Region" type="NavigationRegion2D" parent="Part2" index="3"]
-position = Vector2(-1, -10)
-navigation_polygon = SubResource("NavigationPolygon_i2af2")
-enabled = false
-
-[node name="Camera2D" type="Camera2D" parent="Part2" index="4"]
+[node name="Region" parent="Part2" index="3"]
+navigation_polygon = SubResource("NavigationPolygon_8dk64")
 
 [node name="Spawn" type="Node2D" parent="Part2" index="5"]
 position = Vector2(408, -201)
@@ -259,5 +246,7 @@ note_index = 12
 position = Vector2(-201, -185)
 note_index = 11
 
+[editable path="Part1"]
 [editable path="Part1/Access"]
+[editable path="Part2"]
 [editable path="Part2/Access"]

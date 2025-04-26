@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhc4qoar58imh"]
 
-[ext_resource type="Script" path="res://Scenes/Init/Init.gd" id="1_0swro"]
+[ext_resource type="Script" uid="uid://br0vfn17a238g" path="res://Scenes/Init/Init.gd" id="1_0swro"]
 [ext_resource type="PackedScene" uid="uid://cut2igj6ricos" path="res://Scenes/Init/InitEA.tscn" id="2_hhnm7"]
 [ext_resource type="Texture2D" uid="uid://d0r01q52rs3vj" path="res://Resource/Init/godot.png" id="2_xlg20"]
 

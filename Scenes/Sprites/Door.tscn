@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://cqyhy4q4rbd27"]
 
 [ext_resource type="Texture2D" uid="uid://b31npdo36v1dp" path="res://Resource/sprites/home_mousehole_r.png" id="1_28me7"]
-[ext_resource type="Script" path="res://Scenes/Sprites/Door.gd" id="1_a1fq5"]
+[ext_resource type="Script" uid="uid://ivyf3rwuday4" path="res://Scenes/Sprites/Door.gd" id="1_a1fq5"]
 [ext_resource type="Texture2D" uid="uid://shdg0s2b5eqs" path="res://Resource/sprites/arrow.png" id="1_o2pa3"]
-[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="4_wf2l4"]
+[ext_resource type="Script" uid="uid://c3cq058lcherf" path="res://Scripts/Classes/SoundPlayer.gd" id="4_wf2l4"]
 [ext_resource type="AudioStream" uid="uid://cw7vmb775520m" path="res://Resource/sound/exit_ready.wav" id="5_fq1b3"]
 [ext_resource type="AudioStream" uid="uid://rdp1wup6bw8k" path="res://Resource/sound/use_exit.wav" id="6_rdqxm"]
 
@@ -62,9 +62,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hsljp"]
 _data = {
-"Idle": SubResource("Animation_3b7by"),
-"Move": SubResource("Animation_a7jqp"),
-"RESET": SubResource("Animation_auts2")
+&"Idle": SubResource("Animation_3b7by"),
+&"Move": SubResource("Animation_a7jqp"),
+&"RESET": SubResource("Animation_auts2")
 }
 
 [node name="Door" type="Node2D" node_paths=PackedStringArray("anima_point", "item_point", "main_sprite")]

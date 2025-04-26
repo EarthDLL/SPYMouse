@@ -7,6 +7,8 @@ enum COMMITTYPE{
 }
 
 signal update_cheese_grayscale
+signal continued
+signal paused
 
 @export var level_info : LevelInfo = null
 
@@ -73,12 +75,16 @@ func update_cheese(count : int) -> void:
 		is_item_collectable = true
 		
 func pause() -> void:
+	emit_signal("paused")
 	set_process_mode(Node.PROCESS_MODE_DISABLED)
 
 func contin() -> void:
+	#继续，continue的缩写
+	emit_signal("continued")
 	set_process_mode(Node.PROCESS_MODE_INHERIT)
 
 func _ready() -> void:
+	
 	game_bar = BgLayer.game_bar.instantiate()
 	add_child(game_bar)
 	
@@ -179,12 +185,27 @@ func start() -> void:
 	data.start()
 	started = true
 
+#存档点机制
+func save_level() -> Dictionary:
+	var info := {}
+	for player in get_tree().get_nodes_in_group("Player"):
+		if player is Player:
+			info[str(get_path_to(player))] = player.get_game_info()
+	return info
+			
+func restore_level(info : Dictionary) -> void:
+	pass
+
 func add_score(count :int) -> void:
 	point_score += count
 	game_bar.set_score(point_score)
 
 func show_sprite(pos : Vector2 , effect_id : String , time : float) -> void:
-	var part := get_current_part()
+	var part : Node
+	if self is BossLevel:
+		part = self
+	else:
+		part = get_current_part()
 	var node := AnimatedSprite2D.new()
 	node.global_position = pos
 	node.sprite_frames = effects

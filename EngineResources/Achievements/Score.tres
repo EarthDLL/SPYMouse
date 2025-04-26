@@ -1,11 +1,8 @@
 [gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://cuikjlkdcv2lf"]
 
-[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_lu58v"]
+[ext_resource type="Script" uid="uid://b4au2fv05n4ls" path="res://Scripts/Classes/Achievement.gd" id="1_lu58v"]
 
 [resource]
 script = ExtResource("1_lu58v")
-mode = 1
 type = 1
-description = "得分 "
-min_value = 0.0
-max_value = 0.0
+value = 0.0

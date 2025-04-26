@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cinugah15f8bc"]
 
-[ext_resource type="Script" path="res://Scenes/Debug/Performance.gd" id="1_iauq5"]
+[ext_resource type="Script" uid="uid://d0mq33a7xsx5w" path="res://Scenes/Debug/Performance.gd" id="1_iauq5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xnc25"]
 line_spacing = 0.0

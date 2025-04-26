@@ -30,7 +30,7 @@ var path : PlayerPath = null :
 			path.set_collision($Shape)
 
 
-@export var speed : float = 1.8
+@export var speed : float = 2.0
 @export var touch_rect : Rect2 = Rect2(-30,-40,60,60)
 @export var collectable_items_count : int = 1
 var state : State = State.IDLE:
@@ -318,6 +318,12 @@ func update_little_cheese_score() -> void:
 func clear_state() -> void:
 	if is_instance_valid(path):
 		path.clear_all_points()
+		
+func get_game_info() -> Dictionary:
+	return {
+		"collectable_items_count" : collectable_items_count,
+		
+	}
 
 func enter_hole(color : int , anima_pos : Vector2 , item_pos : Vector2) -> void:
 	var current_layer := collision_layer

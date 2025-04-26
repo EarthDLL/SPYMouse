@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://dx1i7qqbipkg4"]
 
-[ext_resource type="Script" path="res://Scenes/Layers/MoveBgLayer.gd" id="1_hdiij"]
-[ext_resource type="Script" path="res://Scripts/Layers/MoveShape.gd" id="1_sgprl"]
+[ext_resource type="Script" uid="uid://cbbuwthiyqa6p" path="res://Scenes/Layers/MoveBgLayer.gd" id="1_hdiij"]
+[ext_resource type="Script" uid="uid://chuwxeufj1k6u" path="res://Scripts/Layers/MoveShape.gd" id="1_sgprl"]
 [ext_resource type="Material" uid="uid://bgcqws266isvk" path="res://EngineResources/Shaders/moveBg.tres" id="2_wvq1m"]
-[ext_resource type="Script" path="res://Scripts/Layers/MoveBg.gd" id="3_pxsdb"]
-[ext_resource type="Shader" path="res://EngineResources/Shaders/BlackScreen.gdshader" id="5_wcwwr"]
-[ext_resource type="Script" path="res://Scenes/Layers/Black_screen.gd" id="5_xtvsq"]
-[ext_resource type="Script" path="res://Scenes/Layers/Black_screen_texture.gd" id="7_vtgta"]
+[ext_resource type="Script" uid="uid://dwf03gikq4igi" path="res://Scripts/Layers/MoveBg.gd" id="3_pxsdb"]
+[ext_resource type="Shader" uid="uid://bt0lrrs467v50" path="res://EngineResources/Shaders/BlackScreen.gdshader" id="5_wcwwr"]
+[ext_resource type="Script" uid="uid://tk0p6rtrte4x" path="res://Scenes/Layers/Black_screen.gd" id="5_xtvsq"]
+[ext_resource type="Script" uid="uid://bpkeilqh6icmn" path="res://Scenes/Layers/Black_screen_texture.gd" id="7_vtgta"]
 [ext_resource type="FontFile" uid="uid://br5fvxaldccrm" path="res://Resource/Fonts/SPYmouse_efigs.ttf" id="8_vu80p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o1wvk"]

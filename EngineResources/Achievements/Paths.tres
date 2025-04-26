@@ -1,11 +1,8 @@
 [gd_resource type="Resource" script_class="Achievement" load_steps=2 format=3 uid="uid://bs31dmie50l00"]
 
-[ext_resource type="Script" path="res://Scripts/Classes/Achievement.gd" id="1_mmkhm"]
+[ext_resource type="Script" uid="uid://b4au2fv05n4ls" path="res://Scripts/Classes/Achievement.gd" id="1_mmkhm"]
 
 [resource]
 script = ExtResource("1_mmkhm")
-mode = 0
 type = 1
-description = "仅1条路径"
-min_value = 1.0
-max_value = 0.0
+value = 0.0

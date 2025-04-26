@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://b0hg3bxgmvvnl"]
 
-[ext_resource type="Script" path="res://Scenes/Layers/GameBar.gd" id="1_p5jgi"]
+[ext_resource type="Script" uid="uid://cf556giglxkpj" path="res://Scenes/Layers/GameBar.gd" id="1_p5jgi"]
 [ext_resource type="Texture2D" uid="uid://c721sg47uwdkl" path="res://Resource/Hud/hud_paws.png" id="1_pghgc"]
 [ext_resource type="Texture2D" uid="uid://30l3ooqbxva1" path="res://Resource/Hud/hud_paws_over.png" id="2_ucktr"]
 [ext_resource type="BitMap" uid="uid://3v5h3p4an86h" path="res://Resource/Hud/hud_paws_bitmap.png" id="3_0hgug"]

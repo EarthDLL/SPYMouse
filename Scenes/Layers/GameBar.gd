@@ -6,6 +6,14 @@ class_name GameBar
 @onready var cheese_score: Control = $Bar/CheeseScore
 @onready var texture: HBoxContainer = $Bar/CheeseBar/Texture
 @onready var score: Label = $Bar/CheeseScore/Score
+@onready var pause_btn: TextureButton = $Bar/Pause
+var pause_bar : CanvasLayer
+var is_game_paused := false
+
+const pause_icon = preload("res://Resource/Hud/hud_paws.png")
+const pause_over_icon = preload("res://Resource/Hud/hud_paws_over.png")
+const continue_icon = preload("res://Resource/Hud/hud_play.png")
+const continue_over_icon = preload("res://Resource/Hud/hud_play_over.png")
 
 var max_count := 1
 @export var cheese_icons : Array[Texture2D] = []
@@ -16,6 +24,13 @@ var current_score := 0 :
 		current_score = v
 		if is_node_ready():
 			score.text = str(current_score)
+			
+func show_pause_only() -> void:
+	if is_node_ready() == false:
+		await ready
+	cheese_score.queue_free()
+	cheese_bar.queue_free()
+	#用于Boss关卡，只显示暂停界面
 
 func set_cheese_max_count(count : int) -> void:
 	if count <= 5:
@@ -79,8 +94,27 @@ func get_score_pos() -> Vector2:
 
 
 func _on_pause_pressed() -> void:
-	Game.current_level.pause()
-	var bar : CanvasLayer = load("res://Scenes/UI/PauseBar.tscn").instantiate()
-	add_child(bar)
-	Animations.pop(bar,true)
+	if is_game_paused == true:
+		is_game_paused = false
+		if is_instance_valid(pause_bar):
+			pause_bar.get_node("PauseBar")._on_continue_pressed()
+			#PauseBar场景内部问题
+		else:
+			Game.current_level.contin()
+			
+		#修改按钮样式
+		pause_btn.texture_normal = pause_icon
+		pause_btn.texture_disabled = pause_icon
+		pause_btn.texture_pressed = pause_over_icon
+		pause_btn.texture_hover = pause_over_icon
+	else:
+		Game.current_level.pause()
+		is_game_paused = true
+		pause_bar = load("res://Scenes/UI/PauseBar.tscn").instantiate()
+		add_child(pause_bar)
+		Animations.pop(pause_bar,true)
 	
+		pause_btn.texture_normal = continue_icon
+		pause_btn.texture_disabled = continue_icon
+		pause_btn.texture_pressed = continue_over_icon
+		pause_btn.texture_hover = continue_over_icon

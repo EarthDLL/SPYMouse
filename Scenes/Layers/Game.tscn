@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dcda1lat0ycyf"]
 
-[ext_resource type="Script" path="res://Scenes/Layers/Game.gd" id="1_xnje0"]
+[ext_resource type="Script" uid="uid://c40t2ftm30r2k" path="res://Scenes/Layers/Game.gd" id="1_xnje0"]
 [ext_resource type="PackedScene" uid="uid://c342p6mgdh6vx" path="res://Scenes/Levels/Common/Result.tscn" id="2_uuef6"]
 [ext_resource type="PackedScene" uid="uid://qjstn0i1xmeu" path="res://Scenes/Levels/Common/FinishedLabel.tscn" id="3_ix6fa"]
 [ext_resource type="AudioStream" uid="uid://nd7xwdh6s3oa" path="res://Resource/Music/CM_Apartments_Win.ogg" id="4_b47x4"]
-[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="4_ox6oe"]
+[ext_resource type="Script" uid="uid://c3cq058lcherf" path="res://Scripts/Classes/SoundPlayer.gd" id="4_ox6oe"]
 [ext_resource type="AudioStream" uid="uid://bkyurto4m4rdr" path="res://Resource/sound/ui/ui_button.wav" id="6_hnjwt"]
 [ext_resource type="AudioStream" uid="uid://cqwsagiqr0kj6" path="res://Resource/sound/ui/ui_wobble.wav" id="7_q5und"]
 

@@ -1,9 +1,14 @@
 extends Control
 
+
+
 func _ready() -> void:
 	if is_instance_valid(Game.current_level) && is_instance_valid(Game.current_level.level_info):
-		%Index.text = Game.current_level.level_info.level_index
-		%Name.text = Game.current_level.level_info.level_name
+		var info : LevelInfo = Game.current_level.level_info
+		%Index.text = info.level_index
+		%Name.text = info.level_name
+		if info.is_boss_level:
+			%BossIcon.show()
 
 func _on_quit_pressed() -> void:
 	await BgLayer.anima(MoveShape.anima.IN,"blue","hole",Vector2(0,0),true,true)

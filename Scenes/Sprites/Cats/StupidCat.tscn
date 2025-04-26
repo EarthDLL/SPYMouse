@@ -1,9 +1,9 @@
 [gd_scene load_steps=65 format=3 uid="uid://dxuhy444a8twt"]
 
-[ext_resource type="Script" path="res://Scenes/Sprites/Cats/StupidCat.gd" id="1_ksosa"]
+[ext_resource type="Script" uid="uid://cocks1r2umhc" path="res://Scenes/Sprites/Cats/StupidCat.gd" id="1_ksosa"]
 [ext_resource type="Texture2D" uid="uid://cx026756nftfj" path="res://Resource/sprites/browncat_common.png" id="2_f7ij5"]
 [ext_resource type="SpriteFrames" uid="uid://biuhmh0nvuoko" path="res://Scenes/Sprites/Cats/CatEyes.tres" id="3_wtu1h"]
-[ext_resource type="Script" path="res://Scripts/Classes/SoundPlayer.gd" id="4_0fa1s"]
+[ext_resource type="Script" uid="uid://c3cq058lcherf" path="res://Scripts/Classes/SoundPlayer.gd" id="4_0fa1s"]
 [ext_resource type="AudioStream" uid="uid://cikof31jv44r0" path="res://Resource/sound/cat_agro_brown.wav" id="5_j2deq"]
 [ext_resource type="AudioStream" uid="uid://5n8bo2ixbv1m" path="res://Resource/sound/cat_lost.wav" id="6_ladpd"]
 [ext_resource type="AudioStream" uid="uid://cygx1q182p1iy" path="res://Resource/sound/cat_crash.wav" id="7_75d21"]
@@ -1903,50 +1903,50 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gnown"]
 _data = {
-"AngerDown": SubResource("Animation_oum64"),
-"AngerLeft": SubResource("Animation_gi36m"),
-"AngerLeftDown": SubResource("Animation_0umcx"),
-"AngerLeftUp": SubResource("Animation_c4usj"),
-"AngerRight": SubResource("Animation_qx2mo"),
-"AngerRightDown": SubResource("Animation_8vb61"),
-"AngerRightUp": SubResource("Animation_0u3bp"),
-"AngerUp": SubResource("Animation_s7ej8"),
-"Awake": SubResource("Animation_vgtws"),
-"BoomDown": SubResource("Animation_ps0m2"),
-"BoomLeft": SubResource("Animation_qxlgl"),
-"BoomLeftDown": SubResource("Animation_r5q07"),
-"BoomLeftUp": SubResource("Animation_qu3up"),
-"BoomRight": SubResource("Animation_yhwku"),
-"BoomRightDown": SubResource("Animation_wnolw"),
-"BoomRightUp": SubResource("Animation_4r6ut"),
-"BoomUp": SubResource("Animation_nojsf"),
-"FoundDown": SubResource("Animation_owtc8"),
-"FoundLeft": SubResource("Animation_fcf20"),
-"FoundLeftDown": SubResource("Animation_ybxa2"),
-"FoundLeftUp": SubResource("Animation_nw2sa"),
-"FoundRight": SubResource("Animation_urdos"),
-"FoundRightDown": SubResource("Animation_esxpe"),
-"FoundRightUp": SubResource("Animation_8cbj0"),
-"FoundUp": SubResource("Animation_xbqsp"),
-"RESET": SubResource("Animation_cparh"),
-"Sleep": SubResource("Animation_y8ls5"),
-"Sleeping": SubResource("Animation_hj0tb"),
-"StunDown": SubResource("Animation_euiyb"),
-"StunLeft": SubResource("Animation_y57bd"),
-"StunLeftDown": SubResource("Animation_r08j5"),
-"StunLeftUp": SubResource("Animation_wbhaq"),
-"StunRight": SubResource("Animation_rnnqf"),
-"StunRightDown": SubResource("Animation_l8w1p"),
-"StunRightUp": SubResource("Animation_sdbsw"),
-"StunUp": SubResource("Animation_782bm"),
-"WalkDown": SubResource("Animation_tppxy"),
-"WalkLeft": SubResource("Animation_71aqq"),
-"WalkLeftDown": SubResource("Animation_2yhn5"),
-"WalkLeftUp": SubResource("Animation_q8lrx"),
-"WalkRight": SubResource("Animation_gb3jo"),
-"WalkRightDown": SubResource("Animation_r0a1w"),
-"WalkRightUp": SubResource("Animation_y4vtq"),
-"WalkUp": SubResource("Animation_pu2uj")
+&"AngerDown": SubResource("Animation_oum64"),
+&"AngerLeft": SubResource("Animation_gi36m"),
+&"AngerLeftDown": SubResource("Animation_0umcx"),
+&"AngerLeftUp": SubResource("Animation_c4usj"),
+&"AngerRight": SubResource("Animation_qx2mo"),
+&"AngerRightDown": SubResource("Animation_8vb61"),
+&"AngerRightUp": SubResource("Animation_0u3bp"),
+&"AngerUp": SubResource("Animation_s7ej8"),
+&"Awake": SubResource("Animation_vgtws"),
+&"BoomDown": SubResource("Animation_ps0m2"),
+&"BoomLeft": SubResource("Animation_qxlgl"),
+&"BoomLeftDown": SubResource("Animation_r5q07"),
+&"BoomLeftUp": SubResource("Animation_qu3up"),
+&"BoomRight": SubResource("Animation_yhwku"),
+&"BoomRightDown": SubResource("Animation_wnolw"),
+&"BoomRightUp": SubResource("Animation_4r6ut"),
+&"BoomUp": SubResource("Animation_nojsf"),
+&"FoundDown": SubResource("Animation_owtc8"),
+&"FoundLeft": SubResource("Animation_fcf20"),
+&"FoundLeftDown": SubResource("Animation_ybxa2"),
+&"FoundLeftUp": SubResource("Animation_nw2sa"),
+&"FoundRight": SubResource("Animation_urdos"),
+&"FoundRightDown": SubResource("Animation_esxpe"),
+&"FoundRightUp": SubResource("Animation_8cbj0"),
+&"FoundUp": SubResource("Animation_xbqsp"),
+&"RESET": SubResource("Animation_cparh"),
+&"Sleep": SubResource("Animation_y8ls5"),
+&"Sleeping": SubResource("Animation_hj0tb"),
+&"StunDown": SubResource("Animation_euiyb"),
+&"StunLeft": SubResource("Animation_y57bd"),
+&"StunLeftDown": SubResource("Animation_r08j5"),
+&"StunLeftUp": SubResource("Animation_wbhaq"),
+&"StunRight": SubResource("Animation_rnnqf"),
+&"StunRightDown": SubResource("Animation_l8w1p"),
+&"StunRightUp": SubResource("Animation_sdbsw"),
+&"StunUp": SubResource("Animation_782bm"),
+&"WalkDown": SubResource("Animation_tppxy"),
+&"WalkLeft": SubResource("Animation_71aqq"),
+&"WalkLeftDown": SubResource("Animation_2yhn5"),
+&"WalkLeftUp": SubResource("Animation_q8lrx"),
+&"WalkRight": SubResource("Animation_gb3jo"),
+&"WalkRightDown": SubResource("Animation_r0a1w"),
+&"WalkRightUp": SubResource("Animation_y4vtq"),
+&"WalkUp": SubResource("Animation_pu2uj")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_es8h2"]
@@ -1994,7 +1994,7 @@ shape = SubResource("CircleShape2D_x7iod")
 [node name="Anima" type="AnimationPlayer" parent="."]
 callback_mode_method = 1
 libraries = {
-"": SubResource("AnimationLibrary_gnown")
+&"": SubResource("AnimationLibrary_gnown")
 }
 
 [node name="Navigation" type="NavigationAgent2D" parent="."]

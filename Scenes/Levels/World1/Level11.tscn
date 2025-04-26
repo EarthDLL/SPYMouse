@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://uc4s2hoi67ss" path="res://Scenes/Sprites/MouseToy.tscn" id="9_34qb2"]
 [ext_resource type="PackedScene" uid="uid://c1anr5pg2nitu" path="res://Scenes/Sprites/Hole/MouseHole.tscn" id="10_fl8c1"]
 [ext_resource type="PackedScene" uid="uid://cqyhy4q4rbd27" path="res://Scenes/Sprites/Door.tscn" id="11_aynk2"]
-[ext_resource type="Script" path="res://Scenes/Levels/LevelPart.gd" id="12_cfg1x"]
 [ext_resource type="PackedScene" uid="uid://dxuhy444a8twt" path="res://Scenes/Sprites/Cats/StupidCat.tscn" id="13_gsctc"]
 [ext_resource type="Texture2D" uid="uid://6tc871n2vmpo" path="res://Resource/MapBG/map507/map507_1.jpg" id="13_tixda"]
 [ext_resource type="Texture2D" uid="uid://bfq5js0cxg8eu" path="res://Resource/MapBG/map507/map507_1_padleft.jpg" id="14_8fvll"]
 [ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="14_kmnfq"]
+[ext_resource type="PackedScene" uid="uid://b1pboitrb00yq" path="res://Scenes/Levels/LevelPart.tscn" id="15_nb0yl"]
 [ext_resource type="Texture2D" uid="uid://cq1vfku4jcrq7" path="res://Resource/MapBG/map507/map507_1_padright.jpg" id="15_u68rm"]
 [ext_resource type="PackedScene" uid="uid://re5n37m18uxt" path="res://Scenes/Sprites/Cheese/LittleCheese.tscn" id="16_2pxwx"]
 [ext_resource type="PackedScene" uid="uid://dgsjcob3jh2rq" path="res://Scenes/Sprites/Pepper.tscn" id="17_h2uec"]
@@ -148,16 +148,11 @@ position = Vector2(-207, -204)
 points = PackedVector2Array(-210, -221, 218, -218, 218, 198)
 is_loop = true
 
-[node name="Part2" type="Node2D" parent="." index="2" node_paths=PackedStringArray("camera", "access_nodes", "spawn_point")]
+[node name="Part2" parent="." index="2" node_paths=PackedStringArray("access_nodes", "spawn_point") instance=ExtResource("15_nb0yl")]
 visible = false
-script = ExtResource("12_cfg1x")
 is_hidden = true
-camera = NodePath("Camera2D")
 access_nodes = [NodePath("Access")]
 spawn_point = NodePath("SpawnPoint")
-
-[node name="Bg" type="Node2D" parent="Part2" index="0"]
-metadata/_edit_lock_ = true
 
 [node name="Main" type="Sprite2D" parent="Part2/Bg" index="0"]
 texture = ExtResource("13_tixda")
@@ -169,8 +164,6 @@ texture = ExtResource("14_8fvll")
 [node name="Right" type="Sprite2D" parent="Part2/Bg" index="2"]
 position = Vector2(560, 0)
 texture = ExtResource("15_u68rm")
-
-[node name="Walls" type="Node2D" parent="Part2" index="1"]
 
 [node name="1" type="StaticBody2D" parent="Part2/Walls" index="0"]
 collision_layer = 2
@@ -200,12 +193,8 @@ collision_mask = 0
 [node name="Collision" type="CollisionPolygon2D" parent="Part2/Walls/4" index="0"]
 polygon = PackedVector2Array(-647, -185, -643, -137, 644, -139, 657, -197)
 
-[node name="CatPaths" type="Node2D" parent="Part2" index="2"]
-
-[node name="Region" type="NavigationRegion2D" parent="Part2" index="3"]
+[node name="Region" parent="Part2" index="3"]
 navigation_polygon = SubResource("NavigationPolygon_nmbj6")
-
-[node name="Camera2D" type="Camera2D" parent="Part2" index="4"]
 
 [node name="LittleCheese" parent="Part2" index="5" instance=ExtResource("16_2pxwx")]
 position = Vector2(-332, 129)
@@ -292,5 +281,7 @@ position = Vector2(0.75, 0.25)
 [node name="SpawnPoint" type="Node2D" parent="Part2" index="25"]
 position = Vector2(-315, 186)
 
+[editable path="Part1"]
 [editable path="Part1/Access"]
+[editable path="Part2"]
 [editable path="Part2/Access"]

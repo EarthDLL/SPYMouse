@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbuebbt0st5es"]
 
-[ext_resource type="Script" path="res://Scenes/Sprites/Cheese/Cheese.gd" id="1_psyni"]
+[ext_resource type="Script" uid="uid://bttdw136mw1c1" path="res://Scenes/Sprites/Cheese/Cheese.gd" id="1_psyni"]
 [ext_resource type="Texture2D" uid="uid://udpnvuqr63ob" path="res://Resource/sprites/cheese01.png" id="1_y6l6b"]
 [ext_resource type="Texture2D" uid="uid://v4cke1vlq8lp" path="res://Resource/sprites/cheesetrail_effect.png" id="2_kqxhj"]
 [ext_resource type="Texture2D" uid="uid://dtuy7v15pyrvk" path="res://Resource/sprites/shadow_generic.png" id="3_y3ty3"]

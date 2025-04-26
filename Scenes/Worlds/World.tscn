@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://d2bnkjii6mbot"]
 
-[ext_resource type="Script" path="res://Scenes/Worlds/World.gd" id="1_25ihr"]
+[ext_resource type="Script" uid="uid://bky3pepdhok2w" path="res://Scenes/Worlds/World.gd" id="1_25ihr"]
 [ext_resource type="Texture2D" uid="uid://cuv8vltjfn7r8" path="res://Resource/ui/node_highlight.png" id="2_dw4pc"]
 [ext_resource type="Texture2D" uid="uid://2l1knbnki8c3" path="res://Resource/ui/node_select.png" id="3_clgvh"]
 [ext_resource type="Texture2D" uid="uid://s2gol3nn6pfv" path="res://Resource/world/world01/world01_map01.png" id="4_mo5tm"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cwxsgiciqv1vq" path="res://Resource/ui/btn_play_worldmap.png" id="11_28yfd"]
 [ext_resource type="Texture2D" uid="uid://cxxcd5snvwt3d" path="res://Resource/ui/btn_play_worldmap_over.png" id="12_07t54"]
 [ext_resource type="BitMap" uid="uid://dae7eth7bajeg" path="res://Resource/ui/btn_results_cont_bitmask.png" id="13_2lw0i"]
-[ext_resource type="Script" path="res://Scenes/Worlds/PlayBtn.gd" id="14_7rhdg"]
+[ext_resource type="Script" uid="uid://dlsxjsvs4a4s2" path="res://Scenes/Worlds/PlayBtn.gd" id="14_7rhdg"]
 [ext_resource type="FontVariation" uid="uid://dpnyvd0lccapo" path="res://Resource/Fonts/TotalFont.tres" id="15_2q31q"]
 [ext_resource type="Texture2D" uid="uid://bmng405rxm71i" path="res://Resource/ui/btn_back.png" id="16_h8kcn"]
 [ext_resource type="Texture2D" uid="uid://bvi2q3ptj7cg8" path="res://Resource/ui/btn_back_over.png" id="17_epat5"]
@@ -58,8 +58,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ynasn"]
 _data = {
-"RESET": SubResource("Animation_i31w8"),
-"Scale": SubResource("Animation_asdym")
+&"RESET": SubResource("Animation_i31w8"),
+&"Scale": SubResource("Animation_asdym")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg5j0"]
