@@ -9,6 +9,7 @@
 [ext_resource type="BitMap" uid="uid://c157qjtvi83qd" path="res://Resource/ui/btn_opt_help_bitmap.png" id="3_l04cy"]
 
 [node name="UI" type="CanvasLayer"]
+layer = 4
 script = ExtResource("1_vhpqu")
 
 [node name="SettingBtn" type="TextureButton" parent="."]

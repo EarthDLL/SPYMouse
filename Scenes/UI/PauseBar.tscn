@@ -243,6 +243,7 @@ texture = ExtResource("11_33nqa")
 expand_mode = 1
 
 [node name="UI" parent="PauseBar" instance=ExtResource("2_oov15")]
+layer = 12
 
 [connection signal="pressed" from="PauseBar/Container/Panel/Box/BtnBox/Vbox/Quit" to="PauseBar" method="_on_quit_pressed"]
 [connection signal="pressed" from="PauseBar/Container/Panel/Box/BtnBox2/Vbox/Reload" to="PauseBar" method="_on_reload_pressed"]

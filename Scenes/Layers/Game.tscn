@@ -17,6 +17,7 @@ global_sounds = {
 }
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
 script = ExtResource("4_ox6oe")
 sounds = {
 "Pop": ExtResource("7_q5und")
@@ -25,3 +26,4 @@ sounds = {
 [node name="Button" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hnjwt")
 max_polyphony = 4
+bus = &"Sound"

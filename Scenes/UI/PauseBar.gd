@@ -20,7 +20,8 @@ func _on_quit_pressed() -> void:
 
 
 func _on_reload_pressed() -> void:
-	await BgLayer.anima(MoveShape.anima.IN,"blue","hole",Vector2(0,0),true,true)
+	BgLayer.anima(MoveShape.anima.IN,"blue","hole",Vector2(0,0),true,true)
+	await  BgLayer.anima_finsished
 	if is_instance_valid(Game.current_level) && is_instance_valid(Game.current_level.level_info):
 		var level_id : int = Game.current_level.level_info.level_id
 		if Save.has_level(level_id):

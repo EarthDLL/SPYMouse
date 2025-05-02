@@ -15,6 +15,7 @@ enum State {
 	ACCESS,
 	CATCHED,
 	INHOLE,
+	PUSHED,
 }
 
 @onready var smokes: Node2D = $Smokes

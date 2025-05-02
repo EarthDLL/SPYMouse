@@ -35,6 +35,7 @@ navigation_polygon = SubResource("NavigationPolygon_oidsc")
 [node name="Data" parent="." instance=ExtResource("4_kejn0")]
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
 script = ExtResource("5_utxna")
 sounds = {
 "Die": ExtResource("6_l5bl5"),

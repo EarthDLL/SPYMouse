@@ -533,6 +533,7 @@ libraries = {
 }
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
 script = ExtResource("4_7bj07")
 sounds = {
 "Fight": ExtResource("5_mompr")

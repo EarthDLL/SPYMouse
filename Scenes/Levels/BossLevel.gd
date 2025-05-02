@@ -41,7 +41,6 @@ func _ready() -> void:
 			cat.fail.connect(fail_by_checked)
 			
 	if Game.last_level_point_id == level_info.level_id:
-		print("yes")
 		restore_level(Game.get_level_cache())
 	Game.last_level_point_id = -1
 			
@@ -54,6 +53,8 @@ func restore_level(info : Dictionary) -> void:
 		player.global_position = respawner.player_respawn_pos[info.index]
 		boss_cat.global_position = boss_cat.path.get_point_position(respawner.cat_respawn_index[info.index])
 		boss_cat.current_path_index = respawner.cat_respawn_index[info.index]
+		restore_index = info.index
+		
 func save_level() -> Dictionary:
 	return {
 		"level_id" : level_info.level_id,
@@ -63,15 +64,18 @@ func save_level() -> Dictionary:
 func _physics_process(delta: float) -> void:
 	if Engine.get_physics_frames() % 30 == 0 && is_finished == false:
 		if respawner.store_x_vectors.size() > restore_index + 1:
-			var index := restore_index +1
+			var index := restore_index + 1
 			if player.global_position.x >= respawner.store_x_vectors[index]:
 				restore_index += 1
+				
+func fail(wait_time : float , anima_pos : Vector2) -> void:
+	if restore_index > -1:
+		Game.save_level_cache(save_level())
+	super(wait_time , anima_pos)
 	
 func fail_by_checked() -> void:
 	player.path.clear_all_points()
 	process_mode = Node.PROCESS_MODE_DISABLED
 	fail(3.0,player.global_position)
-	if restore_index > -1:
-		Game.save_level_cache(save_level())
 	if is_instance_valid(boss_cat):
 		fail_effect.start(boss_cat.global_position,player.global_position)

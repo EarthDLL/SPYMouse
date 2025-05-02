@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c2lbjxaqnvmce"]
+[gd_scene load_steps=36 format=3 uid="uid://c2lbjxaqnvmce"]
 
 [ext_resource type="Script" uid="uid://ctx5ewmggondy" path="res://Scenes/Sprites/Player.gd" id="1_ln0pj"]
 [ext_resource type="Texture2D" uid="uid://b16u0hglo5w4s" path="res://Resource/sprites/player_main.png" id="2_2kpgt"]
@@ -82,6 +82,24 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [19, 16, 17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_p63x1"]
+resource_name = "PushWall"
+length = 7.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 3, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.6, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.6, 5.7, 5.8, 6.1, 6.2, 6.3, 6.4, 6.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [96, 97, 98, 99, 96, 97, 98, 99, 96, 97, 98, 99, 96, 97, 98, 99, 100, 101, 102, 103, 102, 103, 102, 103, 101, 102, 103, 102, 103, 102, 103, 102, 103, 102, 103, 100, 96, 97, 98, 99, 100, 101, 102, 103, 101, 102, 103, 102, 103, 100]
 }
 
 [sub_resource type="Animation" id="Animation_aae7p"]
@@ -415,6 +433,7 @@ _data = {
 &"Down": SubResource("Animation_urlhf"),
 &"EatFood": SubResource("Animation_1fth1"),
 &"Left": SubResource("Animation_o00rp"),
+&"PushWall": SubResource("Animation_p63x1"),
 &"R1": SubResource("Animation_aae7p"),
 &"R10": SubResource("Animation_qqoqo"),
 &"R11": SubResource("Animation_7pt6q"),
@@ -448,7 +467,6 @@ wall_min_slide_angle = 0.0
 safe_margin = 0.5
 script = ExtResource("1_ln0pj")
 collect_item_follow_length = 28.0
-metadata/_edit_vertical_guides_ = [-32.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_tmshu")
