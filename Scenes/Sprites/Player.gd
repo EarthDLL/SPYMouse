@@ -6,6 +6,15 @@ signal access_anima_finished
 signal hole_changed
 signal picked_cheese
 signal is_walking_changed
+signal commit_cheeses
+signal seeking_record
+#seeking_record:玩家开始画路线时发生信号，开始游戏计时并添加路径统计数
+
+enum COMMITTYPE{
+	NORMAL,
+	DOOR,
+	FREE
+}
 
 enum State {
 	STAND,
@@ -16,6 +25,7 @@ enum State {
 	CATCHED,
 	INHOLE,
 	PUSHED,
+	BOSS_ANIMA, #boss关进出口的固定动画状态
 }
 
 @onready var smokes: Node2D = $Smokes
@@ -68,8 +78,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if path != null && is_active():
 		if event is InputEventScreenTouch:
 			if touch_rect.has_point(make_input_local(event).position):
-				path.player_seek_record(event.index , global_position)
-			
+				if path.is_pickable:
+					path.player_seek_record(event.index , global_position)
+					emit_signal("seeking_record")
+				path_start_record()
 func _enter_tree() -> void:
 	Game.current_player = self
 	
@@ -109,8 +121,20 @@ func _physics_process(delta: float) -> void:
 			state = State.WALK
 	elif state == State.ACCESS:
 		move = target_move * delta * 3
+	elif state == State.BOSS_ANIMA:
+		move = Vector2(get_speed(),0)
+	elif state == State.PUSHED:
+		velocity = Vector2(1.5/delta,0)
+		anima.play("PushWall")
+		if move_and_slide() == true:
+			var collision := get_slide_collision(get_slide_collision_count() - 1)
+			var angle := collision.get_angle() / PI * 180
+			if clampf(angle , 70 , 110) == angle:
+				Game.current_level.show_sprite(global_position,"Smoke",1.0)
+				queue_free()
+				Game.current_level.fail(1,global_position)
 	
-	if move != Vector2.ZERO:
+	if move != Vector2.ZERO && state != State.PUSHED:
 		var angle := int(move.angle()/(PI/16))
 		if Engine.get_physics_frames()%5 == 0:
 			match angle:
@@ -176,6 +200,9 @@ func _physics_process(delta: float) -> void:
 	move_and_collide(move)
 	for body in collecting_area.get_overlapping_bodies():
 		collect_entity(body)
+	test_smoke()
+		
+func test_smoke() -> void:
 	if is_active() && is_instance_valid(pepper_effect):
 		smokes.emitting = true
 		if Engine.get_physics_frames() % 60 == 0:
@@ -243,7 +270,7 @@ func get_collected_cheeses() -> Array[Cheese]:
 	return value
 	
 func is_active() -> bool:
-	if state == State.DIE || state == State.ACCESS || state == State.CATCHED || state == State.INHOLE:
+	if state == State.DIE || state == State.ACCESS || state == State.CATCHED || state == State.INHOLE || state == State.BOSS_ANIMA:
 		return false
 	return true
 	
@@ -287,7 +314,8 @@ func collect_area(area : Area2D) -> void:
 				collected_items[index].finish_to_door(door.get_point(),index)
 			#玩家进洞时间+进洞数*0.1
 			door.player_in_door(0.4 + 0.1 * collected_items.size())
-			Game.current_level.commit_cheese(self,Level.COMMITTYPE.DOOR)
+			emit_signal("commit_cheeses",COMMITTYPE.DOOR)
+			#Game.current_level.commit_cheese(Level.COMMITTYPE.DOOR)
 	elif area.is_in_group("LittleCheese"):
 		area.collect()
 	elif area.is_in_group("Access"):
@@ -297,7 +325,8 @@ func collect_area(area : Area2D) -> void:
 			enter_access(access.get_point(),access.get_item_point(),false)
 func clear_all_cheese() -> void:
 	for cheese : CollectItem in collected_items:
-		cheese.unlock()
+		if is_instance_valid(cheese) && cheese is Cheese:
+			cheese.unlock()
 	collected_items = []
 
 func be_catched(reason : Cat.CATCH_TYPE) -> void:
@@ -319,6 +348,10 @@ func update_little_cheese_score() -> void:
 func clear_state() -> void:
 	if is_instance_valid(path):
 		path.clear_all_points()
+		
+func path_start_record() ->void:
+	if state == State.PUSHED:
+		state = State.WALK
 		
 func get_game_info() -> Dictionary:
 	return {

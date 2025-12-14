@@ -1,6 +1,13 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://58v6u7c1pqwl"]
+[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://58v6u7c1pqwl"]
 
 [ext_resource type="Texture2D" uid="uid://0t8niu874scr" path="res://Resource/sprites/fight.png" id="1_x6y2o"]
+[ext_resource type="Texture2D" uid="uid://djqxwc3ihstkb" path="res://Resource/sprites/Smokes/0.tres" id="2_1khm7"]
+[ext_resource type="Texture2D" uid="uid://dvmo5dbyrd0hw" path="res://Resource/sprites/Smokes/1.tres" id="3_4eqxo"]
+[ext_resource type="Texture2D" uid="uid://dy8fv5st7aa85" path="res://Resource/sprites/Smokes/2.tres" id="4_fb20f"]
+[ext_resource type="Texture2D" uid="uid://chqxuaxgyoate" path="res://Resource/sprites/Smokes/3.tres" id="5_c4yn6"]
+[ext_resource type="Texture2D" uid="uid://b6pwfi0i3ck4s" path="res://Resource/sprites/Smokes/4.tres" id="6_xj1nm"]
+[ext_resource type="Texture2D" uid="uid://cljqa3u71tkjk" path="res://Resource/sprites/Smokes/5.tres" id="7_ttnko"]
+[ext_resource type="Texture2D" uid="uid://lfw2dnlau7bg" path="res://Resource/sprites/Smokes/6.tres" id="8_gbn5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttr84"]
 atlas = ExtResource("1_x6y2o")
@@ -50,4 +57,30 @@ animations = [{
 "loop": true,
 "name": &"Fight",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1khm7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4eqxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fb20f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c4yn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xj1nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ttnko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gbn5w")
+}],
+"loop": false,
+"name": &"Smoke",
+"speed": 8.0
 }]

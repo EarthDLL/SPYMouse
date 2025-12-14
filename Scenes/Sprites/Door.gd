@@ -4,7 +4,6 @@ class_name Door
 
 
 @onready var anima: AnimationPlayer = $Anima
-@onready var level : Level = null
 @onready var sound_player: SoundPlayer = $SoundPlayer
 @export var is_hidden := false
 

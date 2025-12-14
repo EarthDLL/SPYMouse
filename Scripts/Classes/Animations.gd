@@ -36,6 +36,6 @@ static func little_cheese_ainma(pos : Vector2 , score : int) -> void:
 	var tween : Tween = Game.current_level.create_tween()
 	tween.tween_property(label,"global_position",label.global_position+Vector2(5,-5),0.3)
 	tween.tween_property(label,"global_position",label.global_position+Vector2(0,-10),0.3)
-	tween.tween_property(label,"global_position",Game.current_level.game_bar.get_score_pos(),0.6)
+	tween.tween_property(label,"global_position",Game.current_level.game_bar.get_score_pos(pos),0.6)
 	tween.finished.connect(label.queue_free)
 	

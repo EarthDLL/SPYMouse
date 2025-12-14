@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://driw67e7078en"]
+[gd_scene load_steps=33 format=3 uid="uid://driw67e7078en"]
 
 [ext_resource type="PackedScene" uid="uid://w821cv67qtui" path="res://Scenes/Levels/BossLevel.tscn" id="1_yskvx"]
 [ext_resource type="Resource" uid="uid://cbrqtmfuricp4" path="res://Scenes/Levels/World1/Level-Boss.tres" id="2_1b023"]
@@ -9,9 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="5_2xxsl"]
 [ext_resource type="PackedScene" uid="uid://re5n37m18uxt" path="res://Scenes/Sprites/Cheese/LittleCheese.tscn" id="6_bclbv"]
 [ext_resource type="PackedScene" uid="uid://ck5qqv3nnlhm2" path="res://Scenes/Sprites/Cats/BossCat.tscn" id="6_fdxyp"]
+[ext_resource type="Texture2D" uid="uid://7myrf0a1lel" path="res://Resource/sprites/exit_map736.png" id="6_wndwj"]
 [ext_resource type="PackedScene" uid="uid://uc4s2hoi67ss" path="res://Scenes/Sprites/MouseToy.tscn" id="7_d7k3p"]
 [ext_resource type="PackedScene" uid="uid://bt4162t1jb6o1" path="res://Scenes/Sprites/Cheese/MouseTrap.tscn" id="8_wndwj"]
 [ext_resource type="PackedScene" uid="uid://dbuebbt0st5es" path="res://Scenes/Sprites/Cheese/Cheese.tscn" id="9_ggvj5"]
+[ext_resource type="Texture2D" uid="uid://db7rdagsdugkj" path="res://Resource/sprites/exit_door.png" id="14_ggvj5"]
 
 [sub_resource type="Resource" id="Resource_p4cjo"]
 script = ExtResource("2_vibig")
@@ -35,9 +37,93 @@ size = Vector2(148, 74)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2q7wy"]
 size = Vector2(231, 74)
 
-[node name="BossLevel" node_paths=PackedStringArray("signaler", "camera") instance=ExtResource("1_yskvx")]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bclbv"]
+vertices = PackedVector2Array(901, 125, 1333, 93, 1467, 83.5, 1467, 187.5, 708.133, 212.977, 1154, 93, 1645, 187.5, 1732.27, 212.008, 2001.11, -126.094, 2003.11, 139.531, 1922, 38, 1922, -66, 1205.94, -130.961, 1564, -89.5, 1734.27, 105.18, 1645, 83.5, 1661, 38, 1661, -66, 1564, 14.5, 1154, -10.5, 901, 23, 1091.04, -45.0391, 798, 125, 786.844, -42.8906, 798, 23, 694.133, -23.1875, 717.844, -135.141, 1333, -10.5, 1386, 14.5, 2256.87, -48.8906, 2125.68, -49.8828, 2129.32, -130.781, 2257.12, -128.906, 2379.7, -100.109, -227.172, 133.313, -225.383, 205, -303.859, 205, -303.141, 130.242, -249.109, 131.133, -211.258, 74.9688, -179.352, 91.7813, -503.453, 63.0469, -911, 66.1094, -911, -63.9219, -522.867, -56.8516, -445.453, -12.9609, -471.789, -136.961, -228.898, -136.023, -252.953, -14.0313, -67.9531, 12.9297, -208.633, 29.0234, 550.25, 134.609, 551.719, 216.094, 249.891, 217.961, 359.883, 129.609, 718.844, -228, 920.82, -228, 920.156, -171.773, 788.148, -169.781, 2382.28, 31.4922, 2495.12, 35.4766, 2495.87, 120, 2389.98, 120, 2258.07, 83.1875, 2852.95, -51.0391, 2954.89, -50.1328, 2954.05, 71.7422, 2816.75, 214.852, 2783.36, 214.109, 2614.12, 79.8516, 2616.13, -41.6328, 2263.99, 214.977, 1849.2, 214.031, 1843.19, 103.82, 2673.98, -185.008, 2535.86, -98.9609, 2314.2, -185.977, 2180.02, 145.172, 361.117, -18.8125, 134.852, 109.922, 121.938, 15.0781, 192.023, -68.6094, 289.453, -131.039, -118.922, 94.1484, -84.2891, 112.938, 1386, -89.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 1, 0), PackedInt32Array(6, 7, 4, 3), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 8, 11, 13), PackedInt32Array(14, 7, 6, 15, 16), PackedInt32Array(17, 16, 15, 18, 13), PackedInt32Array(19, 5, 0, 20, 21), PackedInt32Array(22, 0, 4), PackedInt32Array(23, 24, 22, 4, 25, 26), PackedInt32Array(2, 1, 27, 28), PackedInt32Array(29, 30, 31, 32, 33), PackedInt32Array(34, 35, 36, 37, 38), PackedInt32Array(34, 38, 39, 40), PackedInt32Array(41, 42, 43, 44, 45), PackedInt32Array(45, 44, 46, 47, 48), PackedInt32Array(48, 47, 49, 50), PackedInt32Array(51, 52, 53, 54), PackedInt32Array(55, 56, 57, 58), PackedInt32Array(26, 55, 58, 23), PackedInt32Array(59, 60, 61, 62, 63), PackedInt32Array(64, 65, 66, 67, 68, 69, 70), PackedInt32Array(71, 72, 73, 9), PackedInt32Array(74, 64, 70, 75), PackedInt32Array(76, 74, 75, 33, 32), PackedInt32Array(29, 33, 59, 63), PackedInt32Array(63, 62, 71, 77), PackedInt32Array(78, 54, 53, 79, 80, 81, 82), PackedInt32Array(40, 39, 50, 49, 83), PackedInt32Array(79, 84, 83, 49, 80), PackedInt32Array(78, 82, 26, 25), PackedInt32Array(24, 23, 21, 20), PackedInt32Array(27, 19, 21, 12, 85), PackedInt32Array(16, 10, 9, 73), PackedInt32Array(9, 77, 71), PackedInt32Array(16, 73, 14), PackedInt32Array(18, 15, 2, 28), PackedInt32Array(85, 28, 27), PackedInt32Array(11, 17, 13), PackedInt32Array(85, 12, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-926, -346, -926, 290, 3028, 317, 3024, -350)])
+parsed_geometry_type = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"Blocker"
+agent_radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wndwj"]
+size = Vector2(240, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqknm"]
+atlas = ExtResource("14_ggvj5")
+region = Rect2(768, 0, 96, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw0jw"]
+atlas = ExtResource("14_ggvj5")
+region = Rect2(672, 0, 96, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi533"]
+atlas = ExtResource("14_ggvj5")
+region = Rect2(576, 0, 96, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck0t8"]
+atlas = ExtResource("14_ggvj5")
+region = Rect2(480, 0, 96, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfabx"]
+atlas = ExtResource("14_ggvj5")
+region = Rect2(384, 0, 96, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sod7h"]
+atlas = ExtResource("14_ggvj5")
+region = Rect2(288, 0, 96, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnmjt"]
+atlas = ExtResource("14_ggvj5")
+region = Rect2(192, 0, 96, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my8nc"]
+atlas = ExtResource("14_ggvj5")
+region = Rect2(96, 0, 96, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68f04"]
+atlas = ExtResource("14_ggvj5")
+region = Rect2(0, 0, 96, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nss3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqknm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw0jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi533")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck0t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfabx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sod7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnmjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my8nc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68f04")
+}],
+"loop": true,
+"name": &"Close",
+"speed": 5.0
+}]
+
+[node name="BossLevel" node_paths=PackedStringArray("signaler", "camera", "entrance_area") instance=ExtResource("1_yskvx")]
 signaler = NodePath("Player/Visible")
 camera = NodePath("BossCat/Camera2D")
+entrance_area = NodePath("EntranceArea")
 respawner = SubResource("Resource_p4cjo")
 level_info = ExtResource("2_1b023")
 
@@ -48,7 +134,13 @@ texture = ExtResource("2_vf8mn")
 position = Vector2(2048, 0)
 texture = ExtResource("3_q31kt")
 
-[node name="Tip" type="Label" parent="Bg" index="2"]
+[node name="ExitMask" type="Sprite2D" parent="Bg" index="2"]
+z_index = 80
+z_as_relative = false
+position = Vector2(3038, 1)
+texture = ExtResource("6_wndwj")
+
+[node name="Tip" type="Label" parent="Bg" index="3"]
 modulate = Color(1, 1, 1, 0.541176)
 offset_left = -662.0
 offset_top = 158.0
@@ -62,7 +154,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="Collision" type="CollisionPolygon2D" parent="Bodies/1" index="0"]
-polygon = PackedVector2Array(-1025, -387, -1025, -81, -531, -72, -480, -152, -223, -151, -62, -2, 115, 0, 182, -80, 285, -146, 703, -150, 704, -243, 936, -243, 935, -157, 803, -155, 802, -58, 1086, -60, 1201, -146, 2016, -141, 2018, 125, 2175, 130, 2243, 76, 2242, -34, 2110, -35, 2115, -146, 2251, -144, 2308, -201, 2679, -200, 2858, -66, 2970, -65, 2969, 80, 3077, 84, 3071, -384)
+polygon = PackedVector2Array(-1025, -387, -1025, -81, -531, -72, -480, -152, -223, -151, -62, -2, 115, 0, 182, -80, 285, -146, 703, -150, 704, -243, 936, -243, 935, -157, 803, -155, 802, -58, 1086, -60, 1201, -146, 2016, -141, 2018, 125, 2175, 130, 2243, 76, 2242, -34, 2110, -35, 2115, -146, 2251, -144, 2308, -201, 2679, -200, 2858, -66, 2970, -65, 3077, -64, 3071, -384)
 
 [node name="2" type="StaticBody2D" parent="Bodies" index="1"]
 collision_layer = 2
@@ -115,6 +207,9 @@ collision_mask = 0
 [node name="Collision" type="CollisionShape2D" parent="Bodies/7" index="0"]
 position = Vector2(-8.5, 4)
 shape = SubResource("RectangleShape2D_2q7wy")
+
+[node name="Region" parent="." index="2"]
+navigation_polygon = SubResource("NavigationPolygon_bclbv")
 
 [node name="Items" type="Node2D" parent="." index="3"]
 
@@ -250,22 +345,18 @@ position = Vector2(2691, 103)
 
 [node name="Player" parent="." index="4"]
 position = Vector2(-780, 0)
-speed = 3.0
+collectable_items_count = 5
 
 [node name="Visible" type="VisibleOnScreenNotifier2D" parent="Player" index="7"]
-position = Vector2(-36, -11.5)
-scale = Vector2(0.499999, 3.45)
+position = Vector2(-35, -11.5)
+scale = Vector2(0.400001, 3.45)
 
-[node name="BgMusic" parent="." index="8"]
-stream = ExtResource("4_6lyjb")
+[node name="CatPath" parent="." index="6" instance=ExtResource("5_2xxsl")]
+points = PackedVector2Array(-607, 0, -506, 0, -447, -81, -251, -79, -80, 63, 198, 61, 351, -71, 613.899, -72.3379, 744, -73, 744, 175, 1050, 175, 1154, -53, 1337, -53, 1379, 51, 1609, 49, 1610, -102, 1958, -104, 1957, 179, 2223, 178, 2318, 75, 2317, -104, 2368, -150, 2603, -150, 2709, -6, 3069, -6)
 
-[node name="CatPath" parent="." index="9" instance=ExtResource("5_2xxsl")]
-points = PackedVector2Array(-607, 0, -506, 0, -447, -81, -251, -79, -80, 63, 198, 61, 351, -71, 613.899, -72.3379, 744, -73, 744, 175, 1050, 175, 1154, -53, 1337, -53, 1379, 51, 1609, 49, 1610, -102, 1958, -104, 1957, 179, 2223, 178, 2318, 75, 2317, -104, 2368, -150, 2603, -150, 2712, -35, 3009, -35)
-
-[node name="BossCat" parent="." index="10" instance=ExtResource("6_fdxyp")]
+[node name="BossCat" parent="." index="7" instance=ExtResource("6_fdxyp")]
 position = Vector2(-609, 4)
 state = 1
-speed = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="BossCat" index="5"]
 limit_left = -1024
@@ -279,3 +370,20 @@ drag_vertical_enabled = true
 drag_top_margin = 1.0
 drag_bottom_margin = 1.0
 editor_draw_drag_margin = true
+
+[node name="EntranceArea" type="Area2D" parent="." index="8"]
+collision_layer = 0
+
+[node name="Collision" type="CollisionShape2D" parent="EntranceArea" index="0"]
+position = Vector2(3073, -6.5)
+shape = SubResource("RectangleShape2D_wndwj")
+
+[node name="BgMusic" parent="." index="11"]
+stream = ExtResource("4_6lyjb")
+
+[node name="ExitDoor" type="AnimatedSprite2D" parent="." index="13"]
+z_index = 90
+z_as_relative = false
+position = Vector2(2997, -4)
+sprite_frames = SubResource("SpriteFrames_nss3h")
+animation = &"Close"

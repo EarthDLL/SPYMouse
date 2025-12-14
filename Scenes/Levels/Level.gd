@@ -1,11 +1,6 @@
 extends Node
 class_name Level
 
-enum COMMITTYPE{
-	NORMAL,
-	DOOR
-}
-
 signal update_cheese_grayscale
 signal continued
 signal paused
@@ -91,9 +86,11 @@ func _ready() -> void:
 	Save.set_setting("last_played_level",level_info.level_id)
 			
 	game_bar.set_cheese_max_count(player.collectable_items_count)
+	player.commit_cheeses.connect(commit_cheese)
 	player.path = player_path
 	player.update_cheese.connect(update_cheese)
 	player.is_walking_changed.connect(data.update_timer)
+	player.seeking_record.connect(player_seek_record)
 	for cat : Node in get_tree().get_nodes_in_group("Cat"):
 		if cat is Cat:
 			cat.match_path()
@@ -170,14 +167,21 @@ func get_time_score() -> int:
 	else:
 		return roundi(max_time_score * (1 - (time - time_min) / (time_max - time_min)))
 
-func commit_cheese(player : Player,type : COMMITTYPE) -> void:
+func add_score_after_commiting(type : Player.COMMITTYPE) -> void:
 	var score : int = 0
 	for cheese : Cheese in player.get_collected_cheeses():
 		score += cheese.single_score
 	match type:
-		COMMITTYPE.DOOR:
+		Player.COMMITTYPE.DOOR:
 			score = score * 2
 	add_score(score)
+
+func commit_cheese(type : Player.COMMITTYPE) -> void:
+	add_score_after_commiting(type)
+	if type == Player.COMMITTYPE.FREE:
+		for item : CollectItem in player.collected_items:
+			if item is Cheese:
+				item.queue_free()
 	player.clear_all_cheese()
 	game_bar.update_items(player.collected_items)
 
@@ -195,6 +199,11 @@ func save_level() -> Dictionary:
 			
 func restore_level(info : Dictionary) -> void:
 	pass
+	
+func player_seek_record() -> void:
+	if !started:
+		start()
+	data.total_paths += 1
 
 func add_score(count :int) -> void:
 	point_score += count

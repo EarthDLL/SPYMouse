@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1bxgiks7cush"]
+[gd_scene load_steps=7 format=3 uid="uid://deswefnlfepgr"]
 
-[ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_hm2y6"]
-[ext_resource type="Resource" uid="uid://ik6ujlgbvrsn" path="res://Scenes/Levels/World1/Level1.tres" id="2_0okk4"]
-[ext_resource type="Texture2D" uid="uid://u0r1uugnjwr6" path="res://Resource/MapBG/map10/map.jpg" id="3_2ef0a"]
-[ext_resource type="Texture2D" uid="uid://bxutpthfgitpw" path="res://Resource/MapBG/map10/map_padleft.jpg" id="4_ldvs6"]
-[ext_resource type="Texture2D" uid="uid://ddwndngltrj0v" path="res://Resource/MapBG/map10/map_padright.jpg" id="5_hodkn"]
+[ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_pmf1q"]
+[ext_resource type="Resource" uid="uid://ik6ujlgbvrsn" path="res://Scenes/Levels/World1/Level1.tres" id="2_721xn"]
+[ext_resource type="Texture2D" uid="uid://u0r1uugnjwr6" path="res://Resource/MapBG/map10/map.jpg" id="3_ydidg"]
+[ext_resource type="Texture2D" uid="uid://bxutpthfgitpw" path="res://Resource/MapBG/map10/map_padleft.jpg" id="4_tufnl"]
+[ext_resource type="Texture2D" uid="uid://ddwndngltrj0v" path="res://Resource/MapBG/map10/map_padright.jpg" id="5_r4ih0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_aisfp"]
 vertices = PackedVector2Array(269.148, -87, 269.852, -15, 132, -15, 174, -87, -47, 125.961, -167, 126.891, -167, 32, 35, -119, 137.156, -119, 143.156, -134, 174, -134, -177, 32, -177, -54.1016, 35, -135, -190, -76.0938, -190, -135, 131.422, 45.7422, 128.453, 145, -21.9531, 145, 132, 45.7031)
@@ -15,8 +15,8 @@ source_geometry_mode = 1
 source_geometry_group_name = &"Blocker"
 agent_radius = 15.0
 
-[node name="Level" node_paths=PackedStringArray("player", "parts", "doors") instance=ExtResource("1_hm2y6")]
-level_info = ExtResource("2_0okk4")
+[node name="Level" node_paths=PackedStringArray("player", "parts", "doors") instance=ExtResource("1_pmf1q")]
+level_info = ExtResource("2_721xn")
 player = NodePath("")
 parts = [NodePath("Part1")]
 doors = [NodePath("")]
@@ -30,15 +30,15 @@ anima_point = NodePath("")
 access_nodes = [NodePath("")]
 
 [node name="Main" type="Sprite2D" parent="Part1/Bg" index="0"]
-texture = ExtResource("3_2ef0a")
+texture = ExtResource("3_ydidg")
 
 [node name="Left" type="Sprite2D" parent="Part1/Bg" index="1"]
 position = Vector2(-567, -1)
-texture = ExtResource("4_ldvs6")
+texture = ExtResource("4_tufnl")
 
 [node name="Right" type="Sprite2D" parent="Part1/Bg" index="2"]
 position = Vector2(561, -1)
-texture = ExtResource("5_hodkn")
+texture = ExtResource("5_r4ih0")
 
 [node name="1" type="StaticBody2D" parent="Part1/Walls" index="0" groups=["Wall"]]
 collision_layer = 2

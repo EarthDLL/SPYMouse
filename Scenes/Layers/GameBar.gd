@@ -16,6 +16,7 @@ const continue_icon = preload("res://Resource/Hud/hud_play.png")
 const continue_over_icon = preload("res://Resource/Hud/hud_play_over.png")
 
 var max_count := 1
+var is_pause_only := false
 @export var cheese_icons : Array[Texture2D] = []
 
 var anima : Tween = null
@@ -28,6 +29,8 @@ var current_score := 0 :
 func show_pause_only() -> void:
 	if is_node_ready() == false:
 		await ready
+	is_pause_only = true
+	BgLayer.black_screen_hide.disconnect(popup)
 	cheese_score.queue_free()
 	cheese_bar.queue_free()
 	#用于Boss关卡，只显示暂停界面
@@ -89,18 +92,24 @@ func update_items(items : Array[CollectItem]) -> void:
 				holes.get_child(i).texture = cheese_icons[6]
 		bright()
 
-func get_score_pos() -> Vector2:
+func get_score_pos(origin : Vector2) -> Vector2:
+	if is_pause_only:
+		return origin
 	return Game.screen_pos_to_global_pos(%AnimaPos.global_position)
 
+func await_and_clear_pause_bar(bar : CanvasLayer) -> void:
+	await get_tree().create_timer(0.2).timeout
+	bar.queue_free()
 
 func _on_pause_pressed() -> void:
+	Game.button_sound()
 	if is_game_paused == true:
 		is_game_paused = false
 		if is_instance_valid(pause_bar):
-			pause_bar.get_node("PauseBar")._on_continue_pressed()
-			#PauseBar场景内部问题
-		else:
-			Game.current_level.contin()
+			pass
+			Animations.pop(pause_bar.get_node("PauseBar"),false)
+			await_and_clear_pause_bar(pause_bar)
+		Game.current_level.contin()
 			
 		#修改按钮样式
 		pause_btn.texture_normal = pause_icon
@@ -112,6 +121,7 @@ func _on_pause_pressed() -> void:
 		is_game_paused = true
 		pause_bar = load("res://Scenes/UI/PauseBar.tscn").instantiate()
 		add_child(pause_bar)
+		pause_bar.get_node("PauseBar").contin.connect(Callable(self,"_on_pause_pressed"))
 		Animations.pop(pause_bar,true)
 	
 		pause_btn.texture_normal = continue_icon

@@ -76,6 +76,7 @@ func unlock() -> void:
 		collecter.hole_changed.disconnect(collected_player_enter_access)
 	collecter = null
 	follower = null
+	
 	state = CollectItem.STATE.IDLE
 	is_collected = false
 

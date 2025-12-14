@@ -34,6 +34,14 @@ func show_label(text : String , is_finished : bool = false) -> void:
 		
 func show_finish_label() -> void:
 	show_label("Mission\nAccomplished!",true)
+	
+#让游戏内元素通过此方法改变Data内的数据，避免引用level
+func change_level_data_by_adding(data_name : String , count : int = 0) -> bool:
+	if !is_instance_valid(current_level):
+		return false
+	current_level.data.set(data_name , int(current_level.data.get(data_name)) + count)
+	
+	return true
 
 func global_pos_to_screen_pos(pos : Vector2) -> Vector2:
 	return get_tree().get_root().canvas_transform.origin + pos

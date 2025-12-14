@@ -24,6 +24,7 @@ func set_texture(id : int):
 
 func next_path_point() -> void:
 	if current_path_index == path.points.size() - 1:
+		set_physics_process(false)
 		return
 	super()
 	

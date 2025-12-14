@@ -1,6 +1,6 @@
 extends Control
 
-
+signal contin
 
 func _ready() -> void:
 	if is_instance_valid(Game.current_level) && is_instance_valid(Game.current_level.level_info):
@@ -33,8 +33,4 @@ func _on_reload_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Start/Start.tscn")
 
 func _on_continue_pressed() -> void:
-	Game.button_sound()
-	Animations.pop(self,false)
-	await get_tree().create_timer(0.2).timeout
-	queue_free()
-	Game.current_level.contin()
+	emit_signal("contin")

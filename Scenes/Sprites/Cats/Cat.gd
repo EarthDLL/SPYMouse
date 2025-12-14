@@ -27,6 +27,8 @@ enum CATCH_TYPE{
 	CATCH
 }
 
+signal complete_path
+
 var signs : Array[Texture2D] = [
 	preload("res://Resource/sprites/cat_peer.png"),
 	preload("res://Resource/sprites/cat_alert.png"),
@@ -192,9 +194,11 @@ func next_path_point() -> void:
 		if current_path_index == 0:
 			is_path_back = false
 			current_path_index += 1
+			emit_signal("complete_path")
 		elif current_path_index == path.points.size() - 1:
 			is_path_back = true
 			current_path_index -= 1
+			emit_signal("complete_path")
 		else:
 			if is_path_back:
 				current_path_index -= 1
@@ -202,6 +206,8 @@ func next_path_point() -> void:
 				current_path_index += 1
 	else:
 		current_path_index = (current_path_index + 1)%path.points.size()
+		if current_path_index == 0:
+			emit_signal("complete_path")
 		
 func update_target(player : Player) -> void:
 	if player == null:
@@ -217,7 +223,8 @@ func discover_target() -> void:
 	eye.hide()
 	set_direction_by_vector2(target.global_position - global_position)
 	if state != STATE.CHASING && state != STATE.SHOOT:
-		Game.current_level.data.found_time += 1
+		Game.change_level_data_by_adding("found_time" , 1)
+		#Game.current_level.data.found_time += 1
 		sound_player.play_sound("Discover")
 		play_direction_anima(view_direction,"Found")
 		state = STATE.FOUND

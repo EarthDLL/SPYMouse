@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://bg0virlehhyk4"]
+
+[ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_bs5md"]
+[ext_resource type="Resource" uid="uid://gb236xekwth5" path="res://Scenes/Levels/World1/Level5.tres" id="2_etnwf"]
+[ext_resource type="Texture2D" uid="uid://cfiv4p82cgmu7" path="res://Resource/MapBG/map790/map790.jpg" id="3_ibo4x"]
+[ext_resource type="Texture2D" uid="uid://bk7clgfnfeke3" path="res://Resource/MapBG/map790/map790_padleft.jpg" id="4_x0ro1"]
+[ext_resource type="Texture2D" uid="uid://c17vualhasgi8" path="res://Resource/MapBG/map790/map790_padright.jpg" id="5_ybcgb"]
+[ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="6_i1qkl"]
+[ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="7_gflte"]
+[ext_resource type="PackedScene" uid="uid://butxvt8wsf12l" path="res://Scenes/Sprites/Cheese/Cheese02.tscn" id="8_pl576"]
+[ext_resource type="PackedScene" uid="uid://cqyhy4q4rbd27" path="res://Scenes/Sprites/Door.tscn" id="9_wfyi7"]
+[ext_resource type="PackedScene" uid="uid://dxuhy444a8twt" path="res://Scenes/Sprites/Cats/StupidCat.tscn" id="10_7law5"]
+[ext_resource type="PackedScene" uid="uid://re5n37m18uxt" path="res://Scenes/Sprites/Cheese/LittleCheese.tscn" id="11_lg1as"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4jupr"]
+vertices = PackedVector2Array(-297.977, 115.594, -297.039, -192.258, -211.938, -196.281, -210.938, 66.3594, -288.602, 135, 291.922, -150, 290.078, 192.461, 206.477, 189.5, 195.461, -114.281, -92.2813, -150, 113.211, -112.719, -96.2734, 63.6563, 109.211, 165.719, -89.4375, 124.5, -201.539, 135, -188.313, 120.75, -85.4609, 162.227)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 5, 8, 10), PackedInt32Array(11, 9, 10, 12, 13), PackedInt32Array(14, 4, 3, 15), PackedInt32Array(15, 3, 11, 13), PackedInt32Array(13, 12, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-333, -236, -336, 216, 340, 231, 355, -241)])
+parsed_geometry_type = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"Blocker"
+agent_radius = 15.0
+
+[node name="Level" node_paths=PackedStringArray("player", "parts", "doors") instance=ExtResource("1_bs5md")]
+level_info = ExtResource("2_etnwf")
+player = NodePath("Part1/Player")
+parts = [NodePath("Part1")]
+doors = [NodePath("Part1/Door")]
+time_min = 13
+time_max = 30
+max_time_score = 50
+
+[node name="Part1" parent="." index="1" node_paths=PackedStringArray("anima_point", "access_nodes")]
+cheese_count = 1
+anima_point = NodePath("Player")
+access_nodes = [NodePath("Door")]
+
+[node name="Main" type="Sprite2D" parent="Part1/Bg" index="0"]
+texture = ExtResource("3_ibo4x")
+
+[node name="Left" type="Sprite2D" parent="Part1/Bg" index="1"]
+position = Vector2(-560, 0)
+texture = ExtResource("4_x0ro1")
+
+[node name="Right" type="Sprite2D" parent="Part1/Bg" index="2"]
+position = Vector2(560, 0)
+texture = ExtResource("5_ybcgb")
+
+[node name="1" type="StaticBody2D" parent="Part1/Walls" index="0"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/1" index="0"]
+polygon = PackedVector2Array(-384, -274, -312, -208, -313, 119, -298, 150, -195, 150, -182, 136, -103, 139, -99, 177, 124, 181, 128, -98, 181, -99, 192, 204, 305, 208, 307, -165, -107, -165, -111, 49, -196, 51, -197, -212, -303, -207, -374, -274, 385, -272, 369, 269, -376, 268)
+
+[node name="CatPath" parent="Part1/CatPaths" index="0" instance=ExtResource("6_i1qkl")]
+points = PackedVector2Array(12, -55, 12, 58)
+is_loop = true
+
+[node name="Region" parent="Part1" index="3"]
+navigation_polygon = SubResource("NavigationPolygon_4jupr")
+
+[node name="Player" parent="Part1" index="5" instance=ExtResource("7_gflte")]
+position = Vector2(245, 155)
+
+[node name="Cheese" parent="Part1" index="6" instance=ExtResource("8_pl576")]
+position = Vector2(-249, 91)
+
+[node name="Door" parent="Part1" index="7" instance=ExtResource("9_wfyi7")]
+position = Vector2(-252, -218)
+rotation = -1.5708
+
+[node name="StupidCat" parent="Part1" index="8" instance=ExtResource("10_7law5")]
+position = Vector2(13, 48)
+
+[node name="LittleCheese" parent="Part1" index="9" instance=ExtResource("11_lg1as")]
+position = Vector2(-78, -152)
+
+[node name="LittleCheese2" parent="Part1" index="10" instance=ExtResource("11_lg1as")]
+position = Vector2(-94, -134)

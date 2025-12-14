@@ -28,13 +28,9 @@ var is_interactable := false
 		#draw_line(from,from + line,Color(1,1,1),3)
 
 func player_seek_record(index : int , pos : Vector2 ) -> void:
-	if !is_pickable:
-		return
-	if !Game.current_level.started:
-		Game.current_level.start()
 	if BgLayer.is_black_screen_poping():
 		BgLayer.hide_black_screen()
-	Game.current_level.data.total_paths += 1
+	
 	
 	clear_all_points()
 	set_point_state(2)
@@ -45,6 +41,7 @@ func player_seek_record(index : int , pos : Vector2 ) -> void:
 	is_interactable = false
 	drag_index = index
 	
+
 func rotate_point(pos : Vector2) -> void:
 	point.rotation = point.global_position.angle_to_point(pos) - PI/2
 

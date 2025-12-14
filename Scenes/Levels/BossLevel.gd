@@ -1,15 +1,20 @@
 extends Level
 class_name BossLevel
 
+enum CheeseCommitType{
+	NORMAL, #像普通关卡一样
+	FREE #捡到立刻删除
+}
+
 @export var signaler : VisibleOnScreenNotifier2D = null
 @export var camera : Camera2D = null
-
+@export var entrance_area : Area2D = null
 @export var respawner : BossLevelRespawner = null
-
+@export var commit_type : CheeseCommitType = 0
 @onready var fail_effect: Node2D = $FailEffect
 var boss_cat : BossCat
 var restore_index := -1
-
+var entrance_able := false
 
 func _ready() -> void:
 	camera.reset_smoothing()
@@ -34,15 +39,21 @@ func _ready() -> void:
 		BgLayer.try_anima(player.global_position,true)
 	
 	if is_instance_valid(signaler):
-		signaler.screen_exited.connect(Callable(self,"fail").bind(0.1,player.global_position))
+		signaler.screen_exited.connect(Callable(self,"out_of_screen"))
+		signaler.screen_entered.connect(Callable(self,"enter_screen"))
 	for cat : Cat in get_tree().get_nodes_in_group("Cat"):
 		if is_instance_valid(cat) && cat is BossCat:
 			boss_cat = cat
 			cat.fail.connect(fail_by_checked)
+	if is_instance_valid(boss_cat):
+		boss_cat.complete_path.connect(Callable(self,"cat_path_complete"))
 			
 	if Game.last_level_point_id == level_info.level_id:
 		restore_level(Game.get_level_cache())
 	Game.last_level_point_id = -1
+	
+	if is_instance_valid(entrance_area):
+		entrance_area.body_entered.connect(Callable(self,"entrance_entered"))
 			
 	#等待一会再检测
 	await get_tree().create_timer(0.5).timeout
@@ -79,3 +90,41 @@ func fail_by_checked() -> void:
 	fail(3.0,player.global_position)
 	if is_instance_valid(boss_cat):
 		fail_effect.start(boss_cat.global_position,player.global_position)
+
+func out_of_screen() -> void:
+	player.state = Player.State.PUSHED
+	player.path.clear_all_points()
+	
+func enter_screen() -> void:
+	if player.state == Player.State.PUSHED:
+		player.state = Player.State.IDLE
+
+func add_score(score : int) -> void:
+	pass
+
+func complete() ->void:
+	#TODO:补充
+	pass
+	
+func commit_cheese(type : Player.COMMITTYPE) -> void:
+	if type == Player.COMMITTYPE.FREE:
+		for item : CollectItem in player.collected_items:
+			if item is Cheese:
+				item.queue_free()
+	player.clear_all_cheese()
+
+func cat_path_complete() -> void:
+	print("complete")
+	boss_cat.queue_free()
+	entrance_able = true
+	
+func entrance_entered(body : Node2D) -> void:
+	if body is Player:
+		player.state = Player.State.BOSS_ANIMA
+		player.collision_layer = 0
+	entrance_area.call_deferred("set_monitoring",false)
+
+func update_cheese(count : int) -> void:
+	is_item_collectable = true
+	if count > 0:
+		commit_cheese(Player.COMMITTYPE.FREE)

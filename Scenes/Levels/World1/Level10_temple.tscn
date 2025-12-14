@@ -1,0 +1,135 @@
+[gd_scene load_steps=14 format=3 uid="uid://brf7xml6eclh3"]
+
+[ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_mfx4q"]
+[ext_resource type="Resource" uid="uid://dd348oip73lhq" path="res://Scenes/Levels/World1/Level10.tres" id="2_el0sp"]
+[ext_resource type="Texture2D" uid="uid://bdielxj0hq1d8" path="res://Resource/MapBG/map534/map534_padleft.jpg" id="3_22wto"]
+[ext_resource type="Texture2D" uid="uid://i3wdpxrv4pdf" path="res://Resource/MapBG/map534/map534.jpg" id="4_b1b5c"]
+[ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="5_oxbr0"]
+[ext_resource type="PackedScene" uid="uid://dbuebbt0st5es" path="res://Scenes/Sprites/Cheese/Cheese.tscn" id="6_jybcl"]
+[ext_resource type="PackedScene" uid="uid://re5n37m18uxt" path="res://Scenes/Sprites/Cheese/LittleCheese.tscn" id="7_bkdve"]
+[ext_resource type="PackedScene" uid="uid://cqyhy4q4rbd27" path="res://Scenes/Sprites/Door.tscn" id="8_2h1gc"]
+[ext_resource type="PackedScene" uid="uid://c1anr5pg2nitu" path="res://Scenes/Sprites/Hole/MouseHole.tscn" id="9_q3bef"]
+[ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="10_jvf71"]
+[ext_resource type="PackedScene" uid="uid://c7xiljobxi2rc" path="res://Scenes/Sprites/Cats/SleepSpot.tscn" id="11_nui2w"]
+[ext_resource type="PackedScene" uid="uid://dxuhy444a8twt" path="res://Scenes/Sprites/Cats/StupidCat.tscn" id="12_re4vb"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8156m"]
+vertices = PackedVector2Array(397.141, -242, 401.852, 256.867, 309.508, 256.094, 311.117, 51.9688, 160.078, -242, 147.938, -50.8984, 62.6328, -62.8672, -165.531, 53.0234, -62, -58.3516, -399.078, 252.219, -401.906, -237, -306.758, -237, -303.75, -52.6484, -169.156, 255.75, -172.68, 72.75, -62, -142.953, -199.453, -152.906, -198.07, -188.742, -184.469, -239.117, 53.7266, -241.828, -167.039, 77.4688, 185.352, 161.938, 187.617, 255.938, -51.1172, 255.047, -51.8828, 161.031)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 5, 3, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 9, 12, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(18, 19, 6, 15), PackedInt32Array(8, 15, 6), PackedInt32Array(12, 8, 7), PackedInt32Array(12, 7, 14), PackedInt32Array(13, 14, 20), PackedInt32Array(21, 22, 23, 24)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-464, -294, -449, 297, 456, 312, 447, -301)])
+parsed_geometry_type = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"Blocker"
+agent_radius = 15.0
+
+[node name="Level" node_paths=PackedStringArray("player", "parts", "doors") instance=ExtResource("1_mfx4q")]
+level_info = ExtResource("2_el0sp")
+player = NodePath("Part1/Player")
+parts = [NodePath("Part1")]
+doors = [NodePath("Part1/Door")]
+time_min = 22
+time_max = 50
+max_time_score = 45
+
+[node name="Part1" parent="." index="1" node_paths=PackedStringArray("anima_point", "access_nodes")]
+cheese_count = 2
+anima_point = NodePath("Player")
+access_nodes = [NodePath("Door")]
+
+[node name="Left" type="Sprite2D" parent="Part1/Bg" index="0"]
+position = Vector2(-560, 0)
+texture = ExtResource("3_22wto")
+
+[node name="Right" type="Sprite2D" parent="Part1/Bg" index="1"]
+position = Vector2(560, 0)
+texture = ExtResource("3_22wto")
+
+[node name="Main" type="Sprite2D" parent="Part1/Bg" index="2"]
+texture = ExtResource("4_b1b5c")
+
+[node name="Walls" parent="Part1" index="1" groups=["Blocker"]]
+
+[node name="1" type="StaticBody2D" parent="Part1/Walls" index="0"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/1" index="0"]
+polygon = PackedVector2Array(-154, 325, -484, 325, -485, -326, 485, -324, 489, 324, 293, 325, 298, 271, 417, 272, 412, -257, 146, -257, 134, -68, 77, -76, 68, -257, -196, -254, -213, -191, -215, -139, -77, -129, -77, -73, -289, -68, -292, -252, -417, -252, -414, 267, -154, 271)
+
+[node name="2" type="StaticBody2D" parent="Part1/Walls" index="1"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/2" index="0"]
+polygon = PackedVector2Array(-155, 68, 296, 67, 294, 324, -155, 326, -152, 74, -67, 147, -66, 270, 203, 271, 200, 147, -62, 146)
+
+[node name="Region" parent="Part1" index="3"]
+navigation_polygon = SubResource("NavigationPolygon_8156m")
+
+[node name="Player" parent="Part1" index="5" instance=ExtResource("5_oxbr0")]
+position = Vector2(-176, -163)
+collectable_items_count = 2
+
+[node name="Cheese" parent="Part1" index="6" instance=ExtResource("6_jybcl")]
+position = Vector2(69, 238)
+
+[node name="Cheese2" parent="Part1" index="7" instance=ExtResource("6_jybcl")]
+position = Vector2(278, -177)
+
+[node name="LittleCheese" parent="Part1" index="8" instance=ExtResource("7_bkdve")]
+position = Vector2(51, -217)
+
+[node name="LittleCheese2" parent="Part1" index="9" instance=ExtResource("7_bkdve")]
+position = Vector2(23, -240)
+
+[node name="Door" parent="Part1" index="10" instance=ExtResource("8_2h1gc")]
+position = Vector2(-230, -165)
+rotation = -3.14159
+
+[node name="MouseHole" parent="Part1" index="11" instance=ExtResource("9_q3bef")]
+position = Vector2(-352, -268)
+color = 6
+
+[node name="MouseHole4" parent="Part1" index="12" instance=ExtResource("9_q3bef")]
+position = Vector2(359, 285)
+rotation = 3.14159
+direction = 0
+color = 4
+
+[node name="MouseHole2" parent="Part1" index="13" instance=ExtResource("9_q3bef")]
+position = Vector2(-77, 204)
+rotation = -1.5708
+direction = 3
+color = 6
+
+[node name="MouseHole3" parent="Part1" index="14" instance=ExtResource("9_q3bef")]
+position = Vector2(215, 209)
+rotation = 1.5708
+direction = 2
+color = 4
+
+[node name="CatPath" parent="Part1" index="15" instance=ExtResource("10_jvf71")]
+points = PackedVector2Array(-359, -201, -359, 200)
+is_loop = true
+
+[node name="CatPath2" parent="Part1" index="16" instance=ExtResource("10_jvf71")]
+points = PackedVector2Array(360, -201, 360, 200)
+id = 1
+is_loop = true
+
+[node name="SleepSpot" parent="Part1" index="17" instance=ExtResource("11_nui2w")]
+position = Vector2(-358, 209)
+sleep_time = 12.0
+
+[node name="SleepSpot2" parent="Part1" index="18" instance=ExtResource("11_nui2w")]
+position = Vector2(360, -208)
+sleep_time = 12.0
+
+[node name="StupidCat" parent="Part1" index="19" instance=ExtResource("12_re4vb")]
+position = Vector2(-361, -190)
+
+[node name="StupidCat2" parent="Part1" index="20" instance=ExtResource("12_re4vb")]
+position = Vector2(362, 191)
+id = 1
+
+[editable path="Part1"]

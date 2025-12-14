@@ -115,7 +115,8 @@ func crash_test() -> void:
 		view.target_position = view_direction_vector.normalized() * shoot_crash_range + collision.position
 		view.force_raycast_update()
 		if view.is_colliding():
-			Game.current_level.data.stupid_cat_crash_count += 1
+			Game.change_level_data_by_adding("stupid_cat_crash_count", 1)
+			#Game.current_level.data.stupid_cat_crash_count += 1
 			sound_player.play_sound("Crash")
 			shoot_type = SHOOT_STEP.ANIMA
 			play_direction_anima(view_direction,"Stun")
