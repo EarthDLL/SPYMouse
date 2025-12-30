@@ -6,7 +6,6 @@
 [sub_resource type="Resource" id="Resource_v7d7k"]
 script = ExtResource("1_husry")
 type = 4
-value = 0.0
 
 [sub_resource type="Resource" id="Resource_7fwyh"]
 script = ExtResource("1_husry")
@@ -21,7 +20,6 @@ value = 10.0
 [resource]
 script = ExtResource("2_npfoj")
 level_name = "Mouse Holes"
-belong_world = 1
 level_id = 108
 level_index = "1-8"
 achievements = Array[ExtResource("1_husry")]([SubResource("Resource_v7d7k"), SubResource("Resource_7fwyh"), SubResource("Resource_hytg4")])

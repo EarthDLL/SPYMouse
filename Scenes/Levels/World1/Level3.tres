@@ -6,7 +6,6 @@
 [sub_resource type="Resource" id="Resource_5wxqe"]
 script = ExtResource("1_3h1e0")
 type = 4
-value = 0.0
 
 [sub_resource type="Resource" id="Resource_if02d"]
 script = ExtResource("1_3h1e0")
@@ -21,7 +20,6 @@ value = 10.0
 [resource]
 script = ExtResource("2_mru38")
 level_name = "Double Trouble"
-belong_world = 1
 level_id = 103
 level_index = "1-3"
 achievements = Array[ExtResource("1_3h1e0")]([SubResource("Resource_5wxqe"), SubResource("Resource_if02d"), SubResource("Resource_8x534")])

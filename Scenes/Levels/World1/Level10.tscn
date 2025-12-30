@@ -63,6 +63,15 @@ collision_mask = 0
 [node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/2" index="0"]
 polygon = PackedVector2Array(-155, 68, 296, 67, 294, 324, -155, 326, -152, 74, -67, 147, -66, 270, 203, 271, 200, 147, -62, 146)
 
+[node name="CatPath" parent="Part1/CatPaths" index="0" instance=ExtResource("10_s5h5g")]
+points = PackedVector2Array(-359, -201, -359, 200)
+is_loop = true
+
+[node name="CatPath2" parent="Part1/CatPaths" index="1" instance=ExtResource("10_s5h5g")]
+points = PackedVector2Array(360, -201, 360, 200)
+id = 1
+is_loop = true
+
 [node name="Region" parent="Part1" index="3"]
 navigation_polygon = SubResource("NavigationPolygon_8156m")
 
@@ -108,27 +117,18 @@ rotation = 1.5708
 direction = 2
 color = 4
 
-[node name="CatPath" parent="Part1" index="15" instance=ExtResource("10_s5h5g")]
-points = PackedVector2Array(-359, -201, -359, 200)
-is_loop = true
-
-[node name="CatPath2" parent="Part1" index="16" instance=ExtResource("10_s5h5g")]
-points = PackedVector2Array(360, -201, 360, 200)
-id = 1
-is_loop = true
-
-[node name="SleepSpot" parent="Part1" index="17" instance=ExtResource("11_llcy3")]
+[node name="SleepSpot" parent="Part1" index="15" instance=ExtResource("11_llcy3")]
 position = Vector2(-358, 209)
 sleep_time = 12.0
 
-[node name="SleepSpot2" parent="Part1" index="18" instance=ExtResource("11_llcy3")]
+[node name="SleepSpot2" parent="Part1" index="16" instance=ExtResource("11_llcy3")]
 position = Vector2(360, -208)
 sleep_time = 12.0
 
-[node name="StupidCat" parent="Part1" index="19" instance=ExtResource("12_uff5p")]
+[node name="StupidCat" parent="Part1" index="17" instance=ExtResource("12_uff5p")]
 position = Vector2(-361, -190)
 
-[node name="StupidCat2" parent="Part1" index="20" instance=ExtResource("12_uff5p")]
+[node name="StupidCat2" parent="Part1" index="18" instance=ExtResource("12_uff5p")]
 position = Vector2(362, 191)
 id = 1
 

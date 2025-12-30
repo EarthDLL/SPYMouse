@@ -6,7 +6,6 @@
 [sub_resource type="Resource" id="Resource_0vc01"]
 script = ExtResource("1_v63c0")
 type = 4
-value = 0.0
 
 [sub_resource type="Resource" id="Resource_xu23i"]
 script = ExtResource("1_v63c0")
@@ -21,9 +20,7 @@ value = 20.0
 [resource]
 script = ExtResource("2_lcfh5")
 level_name = "Two By Two"
-belong_world = 1
 level_id = 110
 level_index = "1-10"
-is_boss_level = false
 achievements = Array[ExtResource("1_v63c0")]([SubResource("Resource_0vc01"), SubResource("Resource_xu23i"), SubResource("Resource_gaffm")])
 scene_path = "res://Scenes/Levels/World1/Level10.tscn"

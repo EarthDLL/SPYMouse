@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pcqgomp1qdmo"]
+[gd_scene load_steps=13 format=3 uid="uid://pcqgomp1qdmo"]
 
 [ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_1ww7h"]
 [ext_resource type="Resource" uid="uid://dbrp2iijymf7" path="res://Scenes/Levels/World1/Level2.tres" id="2_sffww"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cqyhy4q4rbd27" path="res://Scenes/Sprites/Door.tscn" id="7_5jhos"]
 [ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="8_2txo3"]
 [ext_resource type="PackedScene" uid="uid://butxvt8wsf12l" path="res://Scenes/Sprites/Cheese/Cheese02.tscn" id="9_v4aw4"]
+[ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="11_dntkl"]
 [ext_resource type="PackedScene" uid="uid://dxuhy444a8twt" path="res://Scenes/Sprites/Cats/StupidCat.tscn" id="11_uklwq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_omvb7"]
@@ -79,3 +80,8 @@ position = Vector2(97, 23)
 
 [node name="StupidCat" parent="Part1" index="7" instance=ExtResource("11_uklwq")]
 position = Vector2(-112, 155)
+
+[node name="BgMusic" parent="." index="2"]
+stream = ExtResource("11_dntkl")
+
+[editable path="Part1"]

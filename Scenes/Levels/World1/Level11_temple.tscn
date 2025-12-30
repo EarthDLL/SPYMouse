@@ -1,25 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://bcx74d6jb1xph"]
+[gd_scene load_steps=12 format=3 uid="uid://bcx74d6jb1xph"]
 
 [ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_nxljn"]
 [ext_resource type="Resource" uid="uid://djl3bdsek4onc" path="res://Scenes/Levels/World1/Level11.tres" id="2_vb117"]
 [ext_resource type="Texture2D" uid="uid://b0f0yb8upkjob" path="res://Resource/MapBG/map507/map507.jpg" id="3_vscft"]
 [ext_resource type="Texture2D" uid="uid://bb4ccusc5dks8" path="res://Resource/MapBG/map507/map507_padleft.jpg" id="4_n3svw"]
 [ext_resource type="Texture2D" uid="uid://dn0cy4nwttkfe" path="res://Resource/MapBG/map507/map507_padright.jpg" id="5_xr3gh"]
-[ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="6_l57ju"]
-[ext_resource type="PackedScene" uid="uid://dbuebbt0st5es" path="res://Scenes/Sprites/Cheese/Cheese.tscn" id="7_yv521"]
-[ext_resource type="PackedScene" uid="uid://bt4162t1jb6o1" path="res://Scenes/Sprites/Cheese/MouseTrap.tscn" id="8_ptqmb"]
-[ext_resource type="PackedScene" uid="uid://uc4s2hoi67ss" path="res://Scenes/Sprites/MouseToy.tscn" id="9_d3kh5"]
-[ext_resource type="PackedScene" uid="uid://c1anr5pg2nitu" path="res://Scenes/Sprites/Hole/MouseHole.tscn" id="10_0mkne"]
-[ext_resource type="PackedScene" uid="uid://cqyhy4q4rbd27" path="res://Scenes/Sprites/Door.tscn" id="11_x0sxr"]
-[ext_resource type="PackedScene" uid="uid://cbrmfmy6fdtpu" path="res://Scenes/Sprites/Access/AccessEmpty.tscn" id="12_3snx1"]
-[ext_resource type="PackedScene" uid="uid://dxuhy444a8twt" path="res://Scenes/Sprites/Cats/StupidCat.tscn" id="13_4451y"]
-[ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="14_4yhy5"]
 [ext_resource type="PackedScene" uid="uid://b1pboitrb00yq" path="res://Scenes/Levels/LevelPart.tscn" id="15_j5ek0"]
 [ext_resource type="Texture2D" uid="uid://6tc871n2vmpo" path="res://Resource/MapBG/map507/map507_1.jpg" id="16_jws0y"]
 [ext_resource type="Texture2D" uid="uid://bfq5js0cxg8eu" path="res://Resource/MapBG/map507/map507_1_padleft.jpg" id="17_1iows"]
 [ext_resource type="Texture2D" uid="uid://cq1vfku4jcrq7" path="res://Resource/MapBG/map507/map507_1_padright.jpg" id="18_1oxit"]
-[ext_resource type="PackedScene" uid="uid://re5n37m18uxt" path="res://Scenes/Sprites/Cheese/LittleCheese.tscn" id="19_s2vnu"]
-[ext_resource type="PackedScene" uid="uid://dgsjcob3jh2rq" path="res://Scenes/Sprites/Pepper.tscn" id="20_hqyvm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qfyut"]
 vertices = PackedVector2Array(353.641, -251.297, 417.078, -252.672, 419.906, 257.773, 342.648, 192.391, 174.539, 254.156, 266.469, 195.633, 252.461, -260.797, 168.688, -18.7109, 173.297, -91.3984, -414, -251.828, -356.289, -255.141, -349.352, -100.242, -414, -74.7578, -189.297, -74.0469, -261.953, -98.7578, -191.281, -182, -251.922, -254.18, 177.758, -182, -72, -23.5781, -72, -84.4219, -413.141, 252.047, -416.789, 206.508, -188.859, 199.578, 51.2188, 253.93, 53.7734, 84.6172, -183.109, 104.742, -185.688, 78.6406, -415.82, 93.7031, -415.102, 35.8203, -186.672, 33.1719)
@@ -39,20 +28,12 @@ source_geometry_mode = 1
 source_geometry_group_name = &"Blocker"
 agent_radius = 15.0
 
-[node name="Level" node_paths=PackedStringArray("player", "parts", "doors") instance=ExtResource("1_nxljn")]
+[node name="Level" node_paths=PackedStringArray("parts") instance=ExtResource("1_nxljn")]
 level_info = ExtResource("2_vb117")
-player = NodePath("Part1/Player")
 parts = [NodePath("Part1"), NodePath("Part2")]
-doors = [NodePath("Part1/Door")]
 time_min = 32
 time_max = 60
 max_time_score = 40
-
-[node name="Part1" parent="." index="1" node_paths=PackedStringArray("anima_point", "access_nodes", "spawn_point")]
-cheese_count = 2
-anima_point = NodePath("Player")
-access_nodes = [NodePath("Door"), NodePath("Access")]
-spawn_point = NodePath("SpawnPoint")
 
 [node name="Main" type="Sprite2D" parent="Part1/Bg" index="0"]
 texture = ExtResource("3_vscft")
@@ -89,70 +70,9 @@ polygon = PackedVector2Array(-176, -167, -174, -58, -87, -9, -87, -99, 159, -106
 [node name="Region" parent="Part1" index="3"]
 navigation_polygon = SubResource("NavigationPolygon_qfyut")
 
-[node name="Player" parent="Part1" index="5" instance=ExtResource("6_l57ju")]
-position = Vector2(-44, 159)
-collectable_items_count = 2
-
-[node name="Cheese" parent="Part1" index="6" instance=ExtResource("7_yv521")]
-position = Vector2(385, -173)
-
-[node name="MouseTrap" parent="Part1" index="7" instance=ExtResource("8_ptqmb")]
-position = Vector2(-376, 226)
-
-[node name="Cheese2" parent="Part1" index="8" instance=ExtResource("7_yv521")]
-position = Vector2(-369, 229)
-
-[node name="MouseToy" parent="Part1" index="9" instance=ExtResource("9_d3kh5")]
-position = Vector2(-46, -57)
-side = 3
-
-[node name="MouseHole" parent="Part1" index="10" instance=ExtResource("10_0mkne")]
-position = Vector2(-331, 8)
-color = 6
-
-[node name="MouseHole2" parent="Part1" index="11" instance=ExtResource("10_0mkne")]
-position = Vector2(-443, -91)
-rotation = -1.5708
-direction = 3
-color = 6
-
-[node name="MouseHole3" parent="Part1" index="12" instance=ExtResource("10_0mkne")]
-position = Vector2(-98, -56)
-rotation = -1.5708
-direction = 3
-
-[node name="MouseHole4" parent="Part1" index="13" instance=ExtResource("10_0mkne")]
-position = Vector2(-444, 227)
-rotation = -1.5708
-direction = 3
-
-[node name="Door" parent="Part1" index="14" instance=ExtResource("11_x0sxr")]
-position = Vector2(-444, 66)
-rotation = 3.14159
-
-[node name="Access" parent="Part1" index="15" node_paths=PackedStringArray("item_point") instance=ExtResource("12_3snx1")]
-position = Vector2(-340, -244)
-item_point = NodePath("Item")
-target_part = 1
-
-[node name="Item" type="Node2D" parent="Part1/Access" index="2"]
-position = Vector2(-15, 3)
-
-[node name="SpawnPoint" type="Node2D" parent="Part1" index="16"]
-position = Vector2(386, -222)
-
-[node name="StupidCat" parent="Part1" index="17" instance=ExtResource("13_4451y")]
-position = Vector2(-207, -204)
-
-[node name="CatPath" parent="Part1" index="18" instance=ExtResource("14_4yhy5")]
-points = PackedVector2Array(-210, -221, 218, -218, 218, 198)
-is_loop = true
-
-[node name="Part2" parent="." index="2" node_paths=PackedStringArray("access_nodes", "spawn_point") instance=ExtResource("15_j5ek0")]
+[node name="Part2" parent="." index="2" instance=ExtResource("15_j5ek0")]
 visible = false
 is_hidden = true
-access_nodes = [NodePath("Access")]
-spawn_point = NodePath("SpawnPoint")
 
 [node name="Main" type="Sprite2D" parent="Part2/Bg" index="0"]
 texture = ExtResource("16_jws0y")
@@ -196,92 +116,5 @@ polygon = PackedVector2Array(-647, -185, -643, -137, 644, -139, 657, -197)
 [node name="Region" parent="Part2" index="3"]
 navigation_polygon = SubResource("NavigationPolygon_nmbj6")
 
-[node name="LittleCheese" parent="Part2" index="5" instance=ExtResource("19_s2vnu")]
-position = Vector2(-332, 129)
-note_index = 6
-
-[node name="LittleCheese2" parent="Part2" index="6" instance=ExtResource("19_s2vnu")]
-position = Vector2(-345, 66)
-note_index = 5
-
-[node name="LittleCheese3" parent="Part2" index="7" instance=ExtResource("19_s2vnu")]
-position = Vector2(-355, -3)
-note_index = 8
-
-[node name="LittleCheese4" parent="Part2" index="8" instance=ExtResource("19_s2vnu")]
-position = Vector2(-338, -66)
-note_index = 7
-
-[node name="LittleCheese5" parent="Part2" index="9" instance=ExtResource("19_s2vnu")]
-position = Vector2(-282, -99)
-note_index = 13
-
-[node name="LittleCheese6" parent="Part2" index="10" instance=ExtResource("19_s2vnu")]
-position = Vector2(-215, -107)
-note_index = 12
-
-[node name="LittleCheese7" parent="Part2" index="11" instance=ExtResource("19_s2vnu")]
-position = Vector2(-103, -48)
-note_index = 9
-
-[node name="LittleCheese8" parent="Part2" index="12" instance=ExtResource("19_s2vnu")]
-position = Vector2(-76, 14)
-note_index = 10
-
-[node name="LittleCheese9" parent="Part2" index="13" instance=ExtResource("19_s2vnu")]
-position = Vector2(-56, 75)
-note_index = 13
-
-[node name="LittleCheese10" parent="Part2" index="14" instance=ExtResource("19_s2vnu")]
-position = Vector2(-32, 134)
-note_index = 12
-
-[node name="LittleCheese11" parent="Part2" index="15" instance=ExtResource("19_s2vnu")]
-position = Vector2(3, 188)
-note_index = 8
-
-[node name="LittleCheese12" parent="Part2" index="16" instance=ExtResource("19_s2vnu")]
-position = Vector2(63, 220)
-note_index = 7
-
-[node name="LittleCheese13" parent="Part2" index="17" instance=ExtResource("19_s2vnu")]
-position = Vector2(133, 220)
-note_index = 6
-
-[node name="LittleCheese14" parent="Part2" index="18" instance=ExtResource("19_s2vnu")]
-position = Vector2(194, 188)
-note_index = 5
-
-[node name="LittleCheese15" parent="Part2" index="19" instance=ExtResource("19_s2vnu")]
-position = Vector2(244, 147)
-note_index = 4
-
-[node name="LittleCheese16" parent="Part2" index="20" instance=ExtResource("19_s2vnu")]
-position = Vector2(296, 119)
-note_index = 6
-
-[node name="LittleCheese17" parent="Part2" index="21" instance=ExtResource("19_s2vnu")]
-position = Vector2(350, 133)
-note_index = 5
-
-[node name="LittleCheese18" parent="Part2" index="22" instance=ExtResource("19_s2vnu")]
-position = Vector2(363, 183)
-note_index = 4
-
-[node name="Pepper" parent="Part2" index="23" instance=ExtResource("20_hqyvm")]
-position = Vector2(-151, -93)
-
-[node name="Access" parent="Part2" index="24" node_paths=PackedStringArray("item_point") instance=ExtResource("12_3snx1")]
-position = Vector2(339, 231)
-item_point = NodePath("Point")
-
-[node name="Collision" parent="Part2/Access/Area" index="0"]
-position = Vector2(0.75, 0.25)
-
-[node name="SpawnPoint" type="Node2D" parent="Part2" index="25"]
-position = Vector2(-315, 186)
-
 [editable path="Part1"]
-[editable path="Part1/Access"]
 [editable path="Part2"]
-[editable path="Part2/Access"]

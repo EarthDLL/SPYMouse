@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbhhgccgiges2"]
+[gd_scene load_steps=17 format=3 uid="uid://dbhhgccgiges2"]
 
 [ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_131km"]
 [ext_resource type="Resource" uid="uid://bx3grsk6w0a3i" path="res://Scenes/Levels/World1/Level9.tres" id="2_4uj7q"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://uc4s2hoi67ss" path="res://Scenes/Sprites/MouseToy.tscn" id="12_jhmoq"]
 [ext_resource type="PackedScene" uid="uid://bt4162t1jb6o1" path="res://Scenes/Sprites/Cheese/MouseTrap.tscn" id="13_lw012"]
 [ext_resource type="PackedScene" uid="uid://dbuebbt0st5es" path="res://Scenes/Sprites/Cheese/Cheese.tscn" id="14_r4lcu"]
+[ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="15_7xntg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ki6ee"]
 vertices = PackedVector2Array(-172.109, -147.656, -401.148, -152.656, -396.531, -235.961, -52.8594, -235.008, 320.867, -118.461, 321.867, -238.688, 391.047, -237.289, 392.938, 239.117, 307.82, 239.859, 304.82, -14.4219, 275.141, -120.094, 98.2891, -8.59375, 25.9609, -50.0234, 79.2891, -117.922, 163.063, -129.008, 247.469, -129.961, 16.2109, 24.7031, -337.523, 239.148, -400.047, 239.828, -400.953, -30.6797, -333.523, 116, -279.102, -36.3281, -275.117, 31.3203, -289.273, 116, 201.703, 79.6016, 198.313, 239, 81, 239, 81, 118, 96.7188, 69.6094, -177.141, -62.0781, -39.9922, -220.156, 16, -218.828, 29.2109, -235.102, 77.25, -235.781, 33.3828, 114.711, -197.633, 143.906, -238.117, 143.07, -145.781, 116, -110.711, 116, -16.1094, 144, -65.7109, 144)
@@ -123,3 +124,8 @@ position = Vector2(154, 131)
 
 [node name="Cheese" parent="Part1" index="18" instance=ExtResource("14_r4lcu")]
 position = Vector2(164, 132)
+
+[node name="BgMusic" parent="." index="2"]
+stream = ExtResource("15_7xntg")
+
+[editable path="Part1"]

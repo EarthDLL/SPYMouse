@@ -1,15 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://crnkyu5aek214"]
+[gd_scene load_steps=7 format=3 uid="uid://crnkyu5aek214"]
 
 [ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_m780k"]
 [ext_resource type="Resource" uid="uid://blyxxwlcoismd" path="res://Scenes/Levels/World1/Level6.tres" id="2_3t0l5"]
 [ext_resource type="Texture2D" uid="uid://b06kwjqkaudfs" path="res://Resource/MapBG/map707/map707.jpg" id="3_fxrcr"]
 [ext_resource type="Texture2D" uid="uid://bex2pgrllb67k" path="res://Resource/MapBG/map707/map707_padleft.jpg" id="4_nr8yj"]
 [ext_resource type="Texture2D" uid="uid://bm7gcprnypflf" path="res://Resource/MapBG/map707/map707_padright.jpg" id="5_72dfj"]
-[ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="6_ep21s"]
-[ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="7_ldix5"]
-[ext_resource type="PackedScene" uid="uid://butxvt8wsf12l" path="res://Scenes/Sprites/Cheese/Cheese02.tscn" id="8_evj25"]
-[ext_resource type="PackedScene" uid="uid://cqyhy4q4rbd27" path="res://Scenes/Sprites/Door.tscn" id="9_1a574"]
-[ext_resource type="PackedScene" uid="uid://dxuhy444a8twt" path="res://Scenes/Sprites/Cats/StupidCat.tscn" id="10_hpowp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u6nlg"]
 vertices = PackedVector2Array(315, 68.1719, 358.156, 217, -108.57, 217, -0.929688, 163.25, 245.672, 62.9688, 362.828, -213.953, 315, -70.6797, -69.7813, 166.781, 239.281, -67.3203, 236.57, -103.047, -73.2031, -79.2813, -115.563, 36.1094, -115.656, -35, -112.648, -102.039, -2.07031, -82.75, -250.648, -109.422, -214, -114.07, -214, -35, -252.352, -34.6094, -187.477, -175.078, -185.5, -112.102, -301.969, -206.828, 229.578, -172.93, -302, -206.844, -302, -212.039, -302, -206.703, -302, -197.148, -304.602, -195.711, -317.32, -107.617, -306.844, -186.258, -377.711, -112.133, -376.281, -178.539, -355.281, -109.211, -353.703, -34.9922, -320.711, -36.4063, -381.461, 34.1016, -383.547, -32.9922)
@@ -20,19 +15,12 @@ source_geometry_mode = 1
 source_geometry_group_name = &"Blocker"
 agent_radius = 15.0
 
-[node name="Level" node_paths=PackedStringArray("player", "parts", "doors") instance=ExtResource("1_m780k")]
+[node name="Level" node_paths=PackedStringArray("parts") instance=ExtResource("1_m780k")]
 level_info = ExtResource("2_3t0l5")
-player = NodePath("Part1/Player")
 parts = [NodePath("Part1")]
-doors = [NodePath("Part1/Door")]
 time_min = 12
 time_max = 40
 max_time_score = 50
-
-[node name="Part1" parent="." index="1" node_paths=PackedStringArray("anima_point", "access_nodes")]
-cheese_count = 1
-anima_point = NodePath("Player")
-access_nodes = [NodePath("Door")]
 
 [node name="Main" type="Sprite2D" parent="Part1/Bg" index="0"]
 texture = ExtResource("3_fxrcr")
@@ -80,29 +68,10 @@ collision_mask = 0
 [node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/5" index="0"]
 polygon = PackedVector2Array(-303, -93, -305, -51, -267, -50, -266, -94)
 
-[node name="CatPath" parent="Part1/CatPaths" index="0" instance=ExtResource("6_ep21s")]
-points = PackedVector2Array(-339, -178, -339, 20, -235, 20, -236, -178, -339, -178)
-
-[node name="CatPath2" parent="Part1/CatPaths" index="1" instance=ExtResource("6_ep21s")]
-points = PackedVector2Array(209, -44, 209, 130, 35, 130, 35, -44, 209, -44)
-id = 1
-
 [node name="Region" parent="Part1" index="3"]
 navigation_polygon = SubResource("NavigationPolygon_u6nlg")
 
-[node name="Player" parent="Part1" index="5" instance=ExtResource("7_ldix5")]
-position = Vector2(336, 0)
+[node name="BgMusic" parent="." index="2"]
+stream = null
 
-[node name="Cheese" parent="Part1" index="6" instance=ExtResource("8_evj25")]
-position = Vector2(124, 45)
-
-[node name="Door" parent="Part1" index="7" instance=ExtResource("9_1a574")]
-position = Vector2(-412, -2)
-rotation = -3.14159
-
-[node name="StupidCat" parent="Part1" index="8" instance=ExtResource("10_hpowp")]
-position = Vector2(210, -37)
-id = 1
-
-[node name="StupidCat2" parent="Part1" index="9" instance=ExtResource("10_hpowp")]
-position = Vector2(-340, -164)
+[editable path="Part1"]

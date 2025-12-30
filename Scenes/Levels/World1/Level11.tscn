@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://com2phlq2ycml"]
+[gd_scene load_steps=24 format=3 uid="uid://com2phlq2ycml"]
 
 [ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_kmwrk"]
 [ext_resource type="Texture2D" uid="uid://b0f0yb8upkjob" path="res://Resource/MapBG/map507/map507.jpg" id="2_3x6rq"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://re5n37m18uxt" path="res://Scenes/Sprites/Cheese/LittleCheese.tscn" id="16_2pxwx"]
 [ext_resource type="PackedScene" uid="uid://dgsjcob3jh2rq" path="res://Scenes/Sprites/Pepper.tscn" id="17_h2uec"]
 [ext_resource type="PackedScene" uid="uid://cbrmfmy6fdtpu" path="res://Scenes/Sprites/Access/AccessEmpty.tscn" id="18_k1rjc"]
+[ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="21_fuuay"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qfyut"]
 vertices = PackedVector2Array(353.641, -251.297, 417.078, -252.672, 419.906, 257.773, 342.648, 192.391, 174.539, 254.156, 266.469, 195.633, 252.461, -260.797, 168.688, -18.7109, 173.297, -91.3984, -414, -251.828, -356.289, -255.141, -349.352, -100.242, -414, -74.7578, -189.297, -74.0469, -261.953, -98.7578, -191.281, -182, -251.922, -254.18, 177.758, -182, -72, -23.5781, -72, -84.4219, -413.141, 252.047, -416.789, 206.508, -188.859, 199.578, 51.2188, 253.93, 53.7734, 84.6172, -183.109, 104.742, -185.688, 78.6406, -415.82, 93.7031, -415.102, 35.8203, -186.672, 33.1719)
@@ -86,6 +87,10 @@ collision_mask = 0
 [node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/3" index="0"]
 polygon = PackedVector2Array(-176, -167, -174, -58, -87, -9, -87, -99, 159, -106, 162, -167)
 
+[node name="CatPath" parent="Part1/CatPaths" index="0" instance=ExtResource("14_kmnfq")]
+points = PackedVector2Array(-210, -221, 218, -218, 218, 198)
+is_loop = true
+
 [node name="Region" parent="Part1" index="3"]
 navigation_polygon = SubResource("NavigationPolygon_qfyut")
 
@@ -143,10 +148,6 @@ position = Vector2(386, -222)
 
 [node name="StupidCat" parent="Part1" index="17" instance=ExtResource("13_gsctc")]
 position = Vector2(-207, -204)
-
-[node name="CatPath" parent="Part1" index="18" instance=ExtResource("14_kmnfq")]
-points = PackedVector2Array(-210, -221, 218, -218, 218, 198)
-is_loop = true
 
 [node name="Part2" parent="." index="2" node_paths=PackedStringArray("access_nodes", "spawn_point") instance=ExtResource("15_nb0yl")]
 visible = false
@@ -280,6 +281,9 @@ position = Vector2(0.75, 0.25)
 
 [node name="SpawnPoint" type="Node2D" parent="Part2" index="25"]
 position = Vector2(-315, 186)
+
+[node name="BgMusic" parent="." index="3"]
+stream = ExtResource("21_fuuay")
 
 [editable path="Part1"]
 [editable path="Part1/Access"]

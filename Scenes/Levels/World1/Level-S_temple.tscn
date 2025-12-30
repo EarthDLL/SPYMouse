@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://qwosgjcamwre"]
+
+[ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_pqvlm"]
+[ext_resource type="Resource" uid="uid://btew06vrly343" path="res://Scenes/Levels/World1/Level-S.tres" id="2_d0xib"]
+[ext_resource type="Texture2D" uid="uid://cv62lm61nj2yr" path="res://Resource/MapBG/map798/map798.jpg" id="3_jtkeg"]
+[ext_resource type="Texture2D" uid="uid://b2ogadfkugn4p" path="res://Resource/MapBG/map798/map798_padleft.jpg" id="4_6pmg0"]
+[ext_resource type="Texture2D" uid="uid://cjpsax400ff13" path="res://Resource/MapBG/map798/map798_padright.jpg" id="5_6u6pm"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_a2rps"]
+vertices = PackedVector2Array(258.508, 185.148, 342.438, 189.898, 412.023, 251.141, 34.8438, 254.852, 34.1484, 190.57, 190.102, 185.523, 412.969, -232.969, 336.594, -22, 117.063, -162.242, 116.07, 103.297, 104.477, 98.8984, 34.8906, -161.648, 45.4688, 101.078, 36.8516, 103.727, -269.383, 41, -262.398, -228.383, -194.57, -225.578, -186.57, 42.6328, 188.109, -96, 265.5, -22, 329.703, -96, 335.398, -158.742, -109.477, -232.023, -36.8281, -163.359, -118.492, 44.3828, -39.8516, 109.859, -419.82, 106.141, -334.477, 41, -416.133, -211.148, -343.469, -211.852)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 2, 1, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 11), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(0, 5, 18, 19), PackedInt32Array(19, 18, 20, 7), PackedInt32Array(6, 7, 20, 21), PackedInt32Array(22, 6, 21, 8), PackedInt32Array(10, 12, 11), PackedInt32Array(22, 8, 11, 23), PackedInt32Array(24, 22, 23, 25), PackedInt32Array(14, 17, 24, 25, 26, 27), PackedInt32Array(27, 26, 28, 29)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-475, -296, -468, 150, -15, 140, -10, 292, 468, 280, 456, -290)])
+parsed_geometry_type = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"Blocker"
+agent_radius = 15.0
+
+[node name="Level" node_paths=PackedStringArray("parts") instance=ExtResource("1_pqvlm")]
+level_info = ExtResource("2_d0xib")
+parts = [NodePath("Part1")]
+time_min = 19
+time_max = 40
+max_time_score = 65
+metadata/_edit_vertical_guides_ = [-108.0]
+
+[node name="Main" type="Sprite2D" parent="Part1/Bg" index="0"]
+texture = ExtResource("3_jtkeg")
+
+[node name="Left" type="Sprite2D" parent="Part1/Bg" index="1"]
+position = Vector2(-560, 0)
+texture = ExtResource("4_6pmg0")
+
+[node name="Right" type="Sprite2D" parent="Part1/Bg" index="2"]
+position = Vector2(560, 0)
+texture = ExtResource("5_6u6pm")
+
+[node name="1" type="StaticBody2D" parent="Part1/Walls" index="0" groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/1" index="0"]
+polygon = PackedVector2Array(-488, -304, -494, 172, -51, 163, -57, 336, 485, 331, 482, -309, -485, -302, -432, -226, -329, -227, -320, 26, -284, 26, -277, -244, -180, -240, -172, 28, -133, 29, -124, -247, 428, -248, 427, 266, 20, 270, 19, 176, -26, 125, -435, 121, -431, -222)
+
+[node name="2" type="StaticBody2D" parent="Part1/Walls" index="1" groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/2" index="0"]
+polygon = PackedVector2Array(-22, -148, -25, 123, 21, 176, 175, 171, 173, -111, 316, -111, 319, -144, 132, -147, 131, 125, 102, 114, 48, 116, 22, 124, 20, -147)
+
+[node name="3" type="StaticBody2D" parent="Part1/Walls" index="2" groups=["Wall"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/3" index="0"]
+polygon = PackedVector2Array(280, -7, 274, 171, 327, 174, 322, -7)
+
+[node name="Region" parent="Part1" index="3"]
+navigation_polygon = SubResource("NavigationPolygon_a2rps")
+
+[editable path="Part1"]

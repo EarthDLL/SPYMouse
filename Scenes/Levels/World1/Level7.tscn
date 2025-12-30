@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bmcckls5ps5bl"]
+[gd_scene load_steps=22 format=3 uid="uid://bmcckls5ps5bl"]
 
 [ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_u3cxh"]
 [ext_resource type="Resource" uid="uid://dujwcsulfup0v" path="res://Scenes/Levels/World1/Level7.tres" id="2_nhhq1"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c6qenibii6xre" path="res://Resource/MapBG/map98/map98_1_padleft.jpg" id="13_gm3j8"]
 [ext_resource type="Texture2D" uid="uid://dqo8r3bbtyw1s" path="res://Resource/MapBG/map98/map98_1_padright.jpg" id="14_p1lum"]
 [ext_resource type="PackedScene" uid="uid://re5n37m18uxt" path="res://Scenes/Sprites/Cheese/LittleCheese.tscn" id="17_e3o8u"]
+[ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="18_os1ir"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bgead"]
 vertices = PackedVector2Array(-198.844, 31.3984, -117.219, 131.109, -354.469, 132.891, -358.5, 7.21094, -286.594, 8.20313, -230.813, 9, 315.563, -117.789, 316.313, -101, 200.188, -101, 285.594, -121.789, 392.273, 5.4375, 397.523, 5.07031, 399.477, 63.8594, 380.969, 21.8828, 53.4922, 60.8672, 302.883, 23.1016, 286.852, 7.07031, 198.813, 8.1875, -282.406, -97.7422, -402.211, -99.7422, -396.742, -205.172, -116.188, -209.844, -103.188, -183.844, -232.188, -100.094, -118.758, 28.5313, 48.5, 213.477, -7.92969, 211.508, -7.0625, 5.71094, 146.422, 2.70313, 143.594, -97.9219, 58.5938, -183.961, 282.68, -184.93, 45.6797, -210.758, -27.2969, -185.172, -205.969, 9, -16.2578, -209.227)
@@ -49,7 +50,6 @@ time_max = 40
 max_time_score = 50
 
 [node name="Part1" parent="." index="1" node_paths=PackedStringArray("anima_point", "access_nodes", "spawn_point")]
-visible = false
 cheese_count = 1
 anima_point = NodePath("Player")
 access_nodes = [NodePath("Door")]
@@ -112,6 +112,7 @@ position = Vector2(-8, -8)
 position = Vector2(20, 192)
 
 [node name="Part2" parent="." index="2" node_paths=PackedStringArray("anima_point", "spawn_point") instance=ExtResource("13_8dk64")]
+visible = false
 is_hidden = true
 anima_point = NodePath("../Part1/Player")
 spawn_point = NodePath("Spawn")
@@ -245,6 +246,9 @@ note_index = 12
 [node name="15" parent="Part2/LittleCheeses" index="14" instance=ExtResource("17_e3o8u")]
 position = Vector2(-201, -185)
 note_index = 11
+
+[node name="BgMusic" parent="." index="3"]
+stream = ExtResource("18_os1ir")
 
 [editable path="Part1"]
 [editable path="Part1/Access"]

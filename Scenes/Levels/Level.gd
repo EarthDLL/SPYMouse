@@ -103,7 +103,7 @@ func _ready() -> void:
 	BgLayer.popup_black_screen(player_positions)
 	BgLayer.set_level_name(level_info.level_name)
 	
-	if Save.get_setting("pecialModeCheeseTrap",1,false):
+	if Save.get_setting("SpecialModeCheeseTrap",1,false):
 		add_child(SpecialModePickingWarn.new())
 	if Save.get_setting("SpecialModeHiddenCat",1,false):
 		add_child(SpecialModeHiddenCat.new())

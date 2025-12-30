@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuf68j1rf0f57"]
+[gd_scene load_steps=13 format=3 uid="uid://cuf68j1rf0f57"]
 
 [ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_8kn27"]
 [ext_resource type="Resource" uid="uid://b83swgrpbfuw1" path="res://Scenes/Levels/World1/Level4.tres" id="2_k5rej"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="9_tcfd5"]
 [ext_resource type="PackedScene" uid="uid://dxuhy444a8twt" path="res://Scenes/Sprites/Cats/StupidCat.tscn" id="10_oqifr"]
 [ext_resource type="PackedScene" uid="uid://cqyhy4q4rbd27" path="res://Scenes/Sprites/Door.tscn" id="11_arg2k"]
+[ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="11_f8cah"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iat4m"]
 vertices = PackedVector2Array(159.328, 127.477, 326.773, 182.953, -316.031, 181.039, -130.844, 118.547, 321.211, -195.25, 156.688, 2.0625, 232.289, -91.6328, -132.172, 0.9375, -316.961, -195.258, -214.977, -96.8203, 237.281, -196.742, -107.789, -98.1563, 125.148, -94.3516, -221.961, -197.641, -95.7969, -191.047, 117.18, -191.938)
@@ -78,3 +79,8 @@ position = Vector2(-83, -156)
 [node name="Door" parent="Part1" index="8" instance=ExtResource("11_arg2k")]
 position = Vector2(0, -222)
 rotation = -1.5708
+
+[node name="BgMusic" parent="." index="2"]
+stream = ExtResource("11_f8cah")
+
+[editable path="Part1"]

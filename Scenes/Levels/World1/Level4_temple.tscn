@@ -1,15 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b858ygg26xia"]
+[gd_scene load_steps=7 format=3 uid="uid://b858ygg26xia"]
 
 [ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_gisoy"]
 [ext_resource type="Resource" uid="uid://b83swgrpbfuw1" path="res://Scenes/Levels/World1/Level4.tres" id="2_nbipy"]
 [ext_resource type="Texture2D" uid="uid://bw66fmplxhubg" path="res://Resource/MapBG/map705/map705.jpg" id="3_h78p6"]
 [ext_resource type="Texture2D" uid="uid://cto1va27gycug" path="res://Resource/MapBG/map705/map705_padleft.jpg" id="4_d06u8"]
 [ext_resource type="Texture2D" uid="uid://c0getbrwgyfoi" path="res://Resource/MapBG/map705/map705_padright.jpg" id="5_waibj"]
-[ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="6_k17qs"]
-[ext_resource type="PackedScene" uid="uid://butxvt8wsf12l" path="res://Scenes/Sprites/Cheese/Cheese02.tscn" id="7_lyda8"]
-[ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="8_bmb83"]
-[ext_resource type="PackedScene" uid="uid://dxuhy444a8twt" path="res://Scenes/Sprites/Cats/StupidCat.tscn" id="9_25ppo"]
-[ext_resource type="PackedScene" uid="uid://cqyhy4q4rbd27" path="res://Scenes/Sprites/Door.tscn" id="10_87gac"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iat4m"]
 vertices = PackedVector2Array(159.328, 127.477, 326.773, 182.953, -316.031, 181.039, -130.844, 118.547, 321.211, -195.25, 156.688, 2.0625, 232.289, -91.6328, -132.172, 0.9375, -316.961, -195.258, -214.977, -96.8203, 237.281, -196.742, -107.789, -98.1563, 125.148, -94.3516, -221.961, -197.641, -95.7969, -191.047, 117.18, -191.938)
@@ -20,19 +15,12 @@ source_geometry_mode = 1
 source_geometry_group_name = &"Blocker"
 agent_radius = 15.0
 
-[node name="Level" node_paths=PackedStringArray("player", "parts", "doors") instance=ExtResource("1_gisoy")]
+[node name="Level" node_paths=PackedStringArray("parts") instance=ExtResource("1_gisoy")]
 level_info = ExtResource("2_nbipy")
-player = NodePath("Part1/Player")
 parts = [NodePath("Part1")]
-doors = [NodePath("Part1/Door")]
 time_min = 40
 time_max = 20
 max_time_score = 50
-
-[node name="Part1" parent="." index="1" node_paths=PackedStringArray("anima_point", "access_nodes")]
-cheese_count = 1
-anima_point = NodePath("Player")
-access_nodes = [NodePath("Door")]
 
 [node name="Main" type="Sprite2D" parent="Part1/Bg" index="0"]
 texture = ExtResource("3_h78p6")
@@ -59,22 +47,10 @@ collision_mask = 0
 [node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/Wall2" index="0"]
 polygon = PackedVector2Array(-117, 16, -116, 104, 144, 112, 142, 17)
 
-[node name="CatPath" parent="Part1/CatPaths" index="0" instance=ExtResource("6_k17qs")]
-points = PackedVector2Array(-82, -157, 98, -157)
-is_loop = true
-
 [node name="Region" parent="Part1" index="3"]
 navigation_polygon = SubResource("NavigationPolygon_iat4m")
 
-[node name="Cheese" parent="Part1" index="5" instance=ExtResource("7_lyda8")]
-position = Vector2(6, -46)
+[node name="BgMusic" parent="." index="2"]
+stream = null
 
-[node name="Player" parent="Part1" index="6" instance=ExtResource("8_bmb83")]
-position = Vector2(1, 154)
-
-[node name="StupidCat" parent="Part1" index="7" instance=ExtResource("9_25ppo")]
-position = Vector2(-83, -156)
-
-[node name="Door" parent="Part1" index="8" instance=ExtResource("10_87gac")]
-position = Vector2(0, -222)
-rotation = -1.5708
+[editable path="Part1"]

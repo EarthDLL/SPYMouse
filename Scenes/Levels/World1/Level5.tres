@@ -21,7 +21,6 @@ value = 12.0
 [resource]
 script = ExtResource("2_gy26q")
 level_name = "Pass The Pounce"
-belong_world = 1
 level_id = 105
 level_index = "1-5"
 achievements = Array[ExtResource("1_lr153")]([SubResource("Resource_j5st1"), SubResource("Resource_f5fvx"), SubResource("Resource_d1d8k")])

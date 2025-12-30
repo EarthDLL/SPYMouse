@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://drou3kyckevqb"]
+
+[ext_resource type="Script" uid="uid://bqouwobsxljkf" path="res://Scenes/Levels/LevelFinal.gd" id="1_33ptx"]
+[ext_resource type="Texture2D" uid="uid://bvgeufw7yea00" path="res://Resource/MapBG/map791/map791.jpg" id="2_6b4mk"]
+[ext_resource type="Texture2D" uid="uid://8eqppdib2wy6" path="res://Resource/MapBG/map791/map791_padleft.jpg" id="3_l1nx3"]
+[ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="3_ngv1a"]
+[ext_resource type="Texture2D" uid="uid://exgcrobwqceu" path="res://Resource/MapBG/map791/map791_padright.jpg" id="4_ngv1a"]
+[ext_resource type="PackedScene" uid="uid://c2lbjxaqnvmce" path="res://Scenes/Sprites/Player.tscn" id="5_qkdnr"]
+[ext_resource type="PackedScene" uid="uid://25enveqr4jbj" path="res://Scenes/Nodes/PlayerPath.tscn" id="6_aei5l"]
+[ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="7_4148y"]
+[ext_resource type="Script" uid="uid://c3cq058lcherf" path="res://Scripts/Classes/SoundPlayer.gd" id="8_uunx2"]
+[ext_resource type="AudioStream" uid="uid://gmqvsbyq8ruo" path="res://Resource/sound/ui/mouse_dies.wav" id="9_x6w86"]
+[ext_resource type="AudioStream" uid="uid://csmg2flhys7xc" path="res://Resource/sound/ui/ui_newroom.wav" id="10_nqikr"]
+[ext_resource type="PackedScene" uid="uid://x4cac5vgqxm7" path="res://Scenes/Levels/Common/Data.tscn" id="11_g375w"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rcttc"]
+vertices = PackedVector2Array(-344.59375, -168.96875, -347.09375, -229.96094, 411.89844, -229.00781, 350.28125, -167.97656, 409.07813, 238.25781, 343.72656, 188, 215.61719, 241.72656, 262.89063, 188, 208.61719, -33.25, 264.89063, -86.11719, -175.20313, -89.86719, -118.67969, -27.757813, -177.78906, 102.86719, -120.328125, 47.820313, 71.49219, 100.88281, 131.71875, 50.820313, 128.25781, 241.28125, 74.53906, 189.25781, -394.84375, 251.72656, -260.72656, 183.75781, -393.6875, 177.85938, -344.82813, 173.78906, -265.70313, -81.17969, -347.8203, -76.78125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(7, 6, 8, 9), PackedInt32Array(10, 9, 8, 11), PackedInt32Array(12, 10, 11, 13), PackedInt32Array(14, 12, 13, 15), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(17, 16, 18, 19), PackedInt32Array(19, 18, 20, 21), PackedInt32Array(22, 19, 21, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-432, -319, -429, 167, -351, 167, -360, -93, -252, -95, -251, 177, 56, 179, 58, 128, -179, 113, -177, -88, 277, -93, 276, 176, 332, 177, 327, -149, -349, -159, -356, -324), PackedVector2Array(-411, 326, 459, 318, 477, -305, -402, -253)])
+parsed_geometry_type = 1
+source_geometry_mode = 1
+source_geometry_group_name = &"Blocker"
+agent_radius = 15.0
+
+[node name="LevelFinal" type="Node" node_paths=PackedStringArray("player")]
+script = ExtResource("1_33ptx")
+player = NodePath("Player")
+metadata/_custom_type_script = "uid://bqouwobsxljkf"
+metadata/_edit_vertical_guides_ = [-462.0, -382.0]
+
+[node name="PlayerPath" parent="." instance=ExtResource("6_aei5l")]
+points = PackedVector2Array(117, -120)
+
+[node name="CatPath" parent="." instance=ExtResource("3_ngv1a")]
+points = PackedVector2Array(-295, -55, -298, 210, 103, 211, 104, 81, -146, 79, -147, -58, 237, -57, 235, 214, 377, 215, 382, -197, -317, -197)
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="Main" type="Sprite2D" parent="BG"]
+texture = ExtResource("2_6b4mk")
+
+[node name="Left" type="Sprite2D" parent="BG"]
+position = Vector2(-561, 0)
+texture = ExtResource("3_l1nx3")
+
+[node name="Right" type="Sprite2D" parent="BG"]
+position = Vector2(560, 0)
+texture = ExtResource("4_ngv1a")
+
+[node name="Bodies" type="Node2D" parent="."]
+
+[node name="Wall" type="Node2D" parent="Bodies"]
+
+[node name="1" type="StaticBody2D" parent="Bodies/Wall" groups=["Blocker"]]
+
+[node name="Collision" type="CollisionPolygon2D" parent="Bodies/Wall/1"]
+polygon = PackedVector2Array(-439, -321, -420, 165, -360, 160, -363, -91, -251, -97, -246, 169, 59, 174, 57, 116, -193, 118, -190, -105, 280, -101, 278, 173, 329, 173, 335, -153, -359, -154, -366, -325)
+
+[node name="2" type="StaticBody2D" parent="Bodies/Wall" groups=["Blocker"]]
+
+[node name="Collision" type="CollisionPolygon2D" parent="Bodies/Wall/2" groups=["Blocker"]]
+position = Vector2(-3, 12)
+polygon = PackedVector2Array(-454, 256, -455, 333, 501, 331, 503, -317, -371, -332, -367, -257, 430, -256, 427, 241, 204, 245, 197, -30, -101, -25, -102, 21, 150, 24, 146, 244)
+
+[node name="Player" parent="." instance=ExtResource("5_qkdnr")]
+position = Vector2(-371, 212)
+
+[node name="Region" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_rcttc")
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_4148y")
+autoplay = true
+bus = &"Music"
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"
+script = ExtResource("8_uunx2")
+sounds = {
+"Die": ExtResource("9_x6w86"),
+"JumpPart": ExtResource("10_nqikr")
+}
+
+[node name="Data" parent="." instance=ExtResource("11_g375w")]

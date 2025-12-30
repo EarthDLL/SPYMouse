@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2ey2q3q6pner"]
+[gd_scene load_steps=8 format=3 uid="uid://c2ey2q3q6pner"]
 
 [ext_resource type="Script" uid="uid://dr4l4a7lhonns" path="res://Scenes/Levels/Level.gd" id="1_2nhsp"]
 [ext_resource type="PackedScene" uid="uid://25enveqr4jbj" path="res://Scenes/Nodes/PlayerPath.tscn" id="2_lln7s"]
 [ext_resource type="PackedScene" uid="uid://b1pboitrb00yq" path="res://Scenes/Levels/LevelPart.tscn" id="3_etd3f"]
-[ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="5_qh2dg"]
 [ext_resource type="AudioStream" uid="uid://gmqvsbyq8ruo" path="res://Resource/sound/ui/mouse_dies.wav" id="5_vqbjt"]
 [ext_resource type="Script" uid="uid://c3cq058lcherf" path="res://Scripts/Classes/SoundPlayer.gd" id="6_vrc30"]
 [ext_resource type="PackedScene" uid="uid://x4cac5vgqxm7" path="res://Scenes/Levels/Common/Data.tscn" id="7_s2bfw"]
@@ -18,7 +17,6 @@ data = NodePath("Data")
 [node name="Part1" parent="." instance=ExtResource("3_etd3f")]
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_qh2dg")
 autoplay = true
 bus = &"Music"
 

@@ -6,7 +6,6 @@
 [sub_resource type="Resource" id="Resource_ng8dl"]
 script = ExtResource("1_afspc")
 type = 4
-value = 0.0
 
 [sub_resource type="Resource" id="Resource_jx6ti"]
 script = ExtResource("1_afspc")
@@ -21,7 +20,6 @@ value = 10.0
 [resource]
 script = ExtResource("2_jpd8o")
 level_name = "Pussy Cat Patrol"
-belong_world = 1
 level_id = 102
 level_index = "1-2"
 achievements = Array[ExtResource("1_afspc")]([SubResource("Resource_ng8dl"), SubResource("Resource_jx6ti"), SubResource("Resource_aaajy")])

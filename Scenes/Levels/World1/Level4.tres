@@ -15,13 +15,11 @@ value = 1.0
 
 [sub_resource type="Resource" id="Resource_hi7vm"]
 script = ExtResource("1_o78gt")
-type = 1
 value = 100.0
 
 [resource]
 script = ExtResource("2_njyod")
 level_name = "Catch Me If You Can"
-belong_world = 1
 level_id = 104
 level_index = "1-4"
 achievements = Array[ExtResource("1_o78gt")]([SubResource("Resource_a6v28"), SubResource("Resource_8geq3"), SubResource("Resource_hi7vm")])

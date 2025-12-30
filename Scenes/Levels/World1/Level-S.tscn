@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4wgi3j1xtlmw"]
+[gd_scene load_steps=14 format=3 uid="uid://4wgi3j1xtlmw"]
 
 [ext_resource type="PackedScene" uid="uid://c2ey2q3q6pner" path="res://Scenes/Levels/Level.tscn" id="1_rvx2s"]
 [ext_resource type="Resource" uid="uid://btew06vrly343" path="res://Scenes/Levels/World1/Level-S.tres" id="2_u784l"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bd41rlrm3d5es" path="res://Scenes/Nodes/CatPath.tscn" id="9_ang7q"]
 [ext_resource type="PackedScene" uid="uid://dxuhy444a8twt" path="res://Scenes/Sprites/Cats/StupidCat.tscn" id="10_yj5fv"]
 [ext_resource type="PackedScene" uid="uid://re5n37m18uxt" path="res://Scenes/Sprites/Cheese/LittleCheese.tscn" id="11_yvh31"]
+[ext_resource type="AudioStream" uid="uid://xhe1gts2afsm" path="res://Resource/Music/CM_Apartments.ogg" id="12_fkn7w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a2rps"]
 vertices = PackedVector2Array(258.508, 185.148, 342.438, 189.898, 412.023, 251.141, 34.8438, 254.852, 34.1484, 190.57, 190.102, 185.523, 412.969, -232.969, 336.594, -22, 117.063, -162.242, 116.07, 103.297, 104.477, 98.8984, 34.8906, -161.648, 45.4688, 101.078, 36.8516, 103.727, -269.383, 41, -262.398, -228.383, -194.57, -225.578, -186.57, 42.6328, 188.109, -96, 265.5, -22, 329.703, -96, 335.398, -158.742, -109.477, -232.023, -36.8281, -163.359, -118.492, 44.3828, -39.8516, 109.859, -419.82, 106.141, -334.477, 41, -416.133, -211.148, -343.469, -211.852)
@@ -29,6 +30,7 @@ doors = [NodePath("Part1/Door")]
 time_min = 19
 time_max = 40
 max_time_score = 65
+metadata/_edit_vertical_guides_ = [-53.0, -49.0]
 
 [node name="Part1" parent="." index="1" node_paths=PackedStringArray("anima_point", "access_nodes")]
 cheese_count = 1
@@ -67,6 +69,20 @@ collision_mask = 0
 [node name="Collision" type="CollisionPolygon2D" parent="Part1/Walls/3" index="0"]
 polygon = PackedVector2Array(280, -7, 274, 171, 327, 174, 322, -7)
 
+[node name="CatPath" parent="Part1/CatPaths" index="0" instance=ExtResource("9_ang7q")]
+points = PackedVector2Array(-230, -198, -230, -41)
+is_loop = true
+
+[node name="CatPath2" parent="Part1/CatPaths" index="1" instance=ExtResource("9_ang7q")]
+points = PackedVector2Array(72, 79, 72, -85)
+id = 1
+is_loop = true
+
+[node name="CatPath3" parent="Part1/CatPaths" index="2" instance=ExtResource("9_ang7q")]
+points = PackedVector2Array(371, -86, 371, 140)
+id = 2
+is_loop = true
+
 [node name="Region" parent="Part1" index="3"]
 navigation_polygon = SubResource("NavigationPolygon_a2rps")
 
@@ -80,46 +96,37 @@ position = Vector2(225, 99)
 position = Vector2(5, 220)
 rotation = 3.14159
 
-[node name="CatPath" parent="Part1" index="8" instance=ExtResource("9_ang7q")]
-points = PackedVector2Array(-230, -198, -230, -41)
-is_loop = true
-
-[node name="StupidCat" parent="Part1" index="9" instance=ExtResource("10_yj5fv")]
+[node name="StupidCat" parent="Part1" index="8" instance=ExtResource("10_yj5fv")]
 position = Vector2(-227, -183)
 
-[node name="CatPath2" parent="Part1" index="10" instance=ExtResource("9_ang7q")]
-points = PackedVector2Array(72, 79, 72, -85)
-id = 1
-is_loop = true
-
-[node name="StupidCat2" parent="Part1" index="11" instance=ExtResource("10_yj5fv")]
+[node name="StupidCat2" parent="Part1" index="9" instance=ExtResource("10_yj5fv")]
 position = Vector2(75, 69)
 id = 1
 
-[node name="CatPath3" parent="Part1" index="12" instance=ExtResource("9_ang7q")]
-points = PackedVector2Array(371, -86, 371, 140)
-id = 2
-is_loop = true
-
-[node name="StupidCat3" parent="Part1" index="13" instance=ExtResource("10_yj5fv")]
+[node name="StupidCat3" parent="Part1" index="10" instance=ExtResource("10_yj5fv")]
 position = Vector2(379, -56)
 id = 2
 
-[node name="LittleCheese" parent="Part1" index="14" instance=ExtResource("11_yvh31")]
+[node name="LittleCheese" parent="Part1" index="11" instance=ExtResource("11_yvh31")]
 position = Vector2(410, 171)
 
-[node name="LittleCheese2" parent="Part1" index="15" instance=ExtResource("11_yvh31")]
+[node name="LittleCheese2" parent="Part1" index="12" instance=ExtResource("11_yvh31")]
 position = Vector2(410, 203)
 note_index = 2
 
-[node name="LittleCheese3" parent="Part1" index="16" instance=ExtResource("11_yvh31")]
+[node name="LittleCheese3" parent="Part1" index="13" instance=ExtResource("11_yvh31")]
 position = Vector2(393, 237)
 note_index = 3
 
-[node name="LittleCheese4" parent="Part1" index="17" instance=ExtResource("11_yvh31")]
+[node name="LittleCheese4" parent="Part1" index="14" instance=ExtResource("11_yvh31")]
 position = Vector2(358, 249)
 note_index = 4
 
-[node name="LittleCheese5" parent="Part1" index="18" instance=ExtResource("11_yvh31")]
+[node name="LittleCheese5" parent="Part1" index="15" instance=ExtResource("11_yvh31")]
 position = Vector2(318, 249)
 note_index = 5
+
+[node name="BgMusic" parent="." index="2"]
+stream = ExtResource("12_fkn7w")
+
+[editable path="Part1"]

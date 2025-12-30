@@ -6,7 +6,6 @@
 [sub_resource type="Resource" id="Resource_fh8of"]
 script = ExtResource("1_rynrg")
 type = 4
-value = 0.0
 
 [sub_resource type="Resource" id="Resource_uyjwd"]
 script = ExtResource("1_rynrg")
@@ -15,13 +14,11 @@ value = 2.0
 
 [sub_resource type="Resource" id="Resource_0gqmf"]
 script = ExtResource("1_rynrg")
-type = 1
 value = 80.0
 
 [resource]
 script = ExtResource("2_m0jeo")
 level_name = "Fake Mouse"
-belong_world = 1
 level_id = 109
 level_index = "1-9"
 achievements = Array[ExtResource("1_rynrg")]([SubResource("Resource_fh8of"), SubResource("Resource_uyjwd"), SubResource("Resource_0gqmf")])
